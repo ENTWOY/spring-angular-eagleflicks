@@ -1,0 +1,20 @@
+<!-- Barra de navegacion -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container align-items-center justify-content-betwee">
+        <a class="navbar-brand fw-bold" href="#">CRUD</a>
+        <ul class="navbar-nav">
+            <li class="nav-item border">
+                <a routerLink="empleados" routerLinkActive="active" class="nav-link fw-bold">Listar</a>
+            </li>
+            <li class="nav-item border">
+                <a routerLink="registrar-empleado" routerLinkActive="active" class="nav-link fw-bold">Registrar</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container"> 
+    <!-- <h2 class="text-center">{{title}}</h2> -->
+    <!-- <app-lista-empleados></app-lista-empleados> -->
+    <router-outlet></router-outlet>
+</div>

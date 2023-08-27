@@ -10,5 +10,5 @@ public interface EmpleadoServiceImp {
 	Empleado guardarEmpleado(Empleado empleado);
 	Empleado obtenerEmpleadoPorId(Integer id);
 	Empleado actualizarEmpleado(Integer id, Empleado detallesEmpleado);
-	public void eliminarEmpleadoPorId(Integer id) ;
+	public void eliminarEmpleadoPorId(Integer id);
 }

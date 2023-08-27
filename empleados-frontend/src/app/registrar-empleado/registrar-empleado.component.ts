@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Empleado } from '../empleado';
 import { EmpleadoService } from '../empleado.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registrar-empleado',
@@ -19,10 +20,24 @@ export class RegistrarEmpleadoComponent implements OnInit {
   }
   
   guardarEmpleado() {
-    this.empleadoServicio.registrarEmpleado(this.empleado).subscribe(dato => {
-      console.log(dato);
-      this.irALaListaDeEmpleados();
-    }, error => console.log(error));
+    this.empleadoServicio.registrarEmpleado(this.empleado).subscribe(
+      dato => {
+        console.log(dato);
+        this.mostrarMensajeExito();
+        this.irALaListaDeEmpleados();
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  mostrarMensajeExito() {
+    Swal.fire(
+      '¡Registro exitoso!',
+      `El empleado <strong>${this.empleado.nomEmp}</strong> se ha registrado correctamente.`,
+      'success'
+    );
   }
 
   irALaListaDeEmpleados() {

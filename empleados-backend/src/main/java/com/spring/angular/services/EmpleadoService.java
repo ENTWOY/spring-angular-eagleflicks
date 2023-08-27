@@ -27,8 +27,8 @@ public class EmpleadoService implements EmpleadoServiceImp {
 
 	@Override
 	public Empleado obtenerEmpleadoPorId(Integer id) {
-        return repoEmpleado.findById(id).orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
-    }
+		return repoEmpleado.findById(id).orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
+	}
 
 	@Override
 	public Empleado actualizarEmpleado(Integer id, Empleado detallesEmpleado) {
@@ -36,13 +36,13 @@ public class EmpleadoService implements EmpleadoServiceImp {
 		empleado.setNomEmp(detallesEmpleado.getNomEmp());
 		empleado.setApeEmp(detallesEmpleado.getApeEmp());
 		empleado.setEmaEmp(detallesEmpleado.getEmaEmp());
-	    Empleado empleadoActualizado = repoEmpleado.save(empleado);
-	    return empleadoActualizado;
+		Empleado empleadoActualizado = repoEmpleado.save(empleado);
+		return empleadoActualizado;
 	}
-	
+
 	@Override
 	public void eliminarEmpleadoPorId(Integer id) {
-        Empleado empleado = repoEmpleado.findById(id).orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
-        repoEmpleado.delete(empleado);
-    }
+		Empleado empleado = repoEmpleado.findById(id).orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
+		repoEmpleado.delete(empleado);
+	}
 }

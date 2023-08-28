@@ -45,4 +45,14 @@ public class EmpleadoService implements EmpleadoServiceImp {
 		Empleado empleado = repoEmpleado.findById(id).orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
 		repoEmpleado.delete(empleado);
 	}
+
+	@Override
+	public List<Empleado> buscarEmpleadoPorNombre(String nombre) {
+		return repoEmpleado.findByNomEmpContainingIgnoreCase(nombre);
+	}
+
+	@Override
+	public List<Empleado> buscarEmpleadoPorCodigo(int codigo) {
+		return repoEmpleado.findByIdEmp(codigo);
+	}
 }

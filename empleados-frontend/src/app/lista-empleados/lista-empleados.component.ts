@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 export class ListaEmpleadosComponent implements OnInit {
 
   empleados:Empleado[];
+  nomEmp: string;
 
   constructor(private empleadoServicio:EmpleadoService, private router:Router) { }
 
@@ -59,6 +60,17 @@ export class ListaEmpleadosComponent implements OnInit {
 
   detalleEmpleado(id:number) {
     this.router.navigate(['detalle-empleado', id]);
+  }
+
+  buscarEmpleadoXNombre() {
+    this.empleadoServicio.buscarEmpleadoPorNombre(this.nomEmp)
+      .subscribe(
+        employees => this.empleados = employees,
+        error => {
+          console.error('Error fetching users:', error);
+          this.empleados = [];
+        }
+      );
   }
 
 }

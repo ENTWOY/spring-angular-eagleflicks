@@ -38,4 +38,8 @@ export class EmpleadoService {
     return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
 
+  // Metodo de busqueda por nombre
+  buscarEmpleadoPorNombre(name: string): Observable<Empleado[]> {
+    return this.httpClient.get<Empleado[]>(`${this.baseURL}/buscar-nombre?nombre=${name}`);
+  }
 }

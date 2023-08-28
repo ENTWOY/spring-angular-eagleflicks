@@ -11,4 +11,7 @@ public interface EmpleadoServiceImp {
 	Empleado obtenerEmpleadoPorId(Integer id);
 	Empleado actualizarEmpleado(Integer id, Empleado detallesEmpleado);
 	public void eliminarEmpleadoPorId(Integer id);
+	
+	List<Empleado> buscarEmpleadoPorNombre(String nombre);
+	List<Empleado> buscarEmpleadoPorCodigo(int codigo);
 }

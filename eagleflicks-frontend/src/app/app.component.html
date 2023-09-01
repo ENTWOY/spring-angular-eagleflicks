@@ -1,0 +1,212 @@
+<nav class="bg-nav navbar fixed-top">
+    <div class="container">
+        <!-- Menu Links -->
+        <a href="#" class="d-flex align-items-center">
+            <img src="assets/img/lg2.svg" alt="EagleFlicks Logo" style="height: 2rem;" />
+            <span class="fw-bold text-light fs-5 ms-2"><span class="eagle-color">Eagle</span>Flicks</span>
+        </a>
+        <a href="#" class="navbar-link">Inicio</a>
+        <a href="#movie" class="navbar-link">Películas</a>
+        <a href="#category" class="navbar-link">Generos</a>
+        <a href="#estreno" class="navbar-link">Estrenos</a>
+
+        <!-- Form Search Movie -->
+        <form class="d-flex">
+            <div class="input-group">
+                <input class="form-control rounded-start-pill border-0" type="search" placeholder="Buscar películas..." aria-label="Search">
+                <button class="btn btn-light rounded-end-pill border-0" type="submit">
+                    <i class="bi bi-search btn-search"></i>
+                </button>
+            </div>
+        </form>        
+        
+        <!-- btn Open Menu Admin -->
+        <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>  
+
+        <!-- Start Menu Admin -->
+        <div class="offcanvas offcanvas-end px-1" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+                <a href="" class="d-flex align-items-center">
+                    <img src="assets/img/lg2.svg" class="me-2" alt="EagleFlicks Logo" style="height: 2rem;" />
+                    <span class="fs-4 fw-bold text-white">Admin.</span>
+                </a>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link nav-admin d-flex align-items-center rounded-lg text-light fw-bold mb-2">
+                            <i class="bi bi-house-door-fill me-2"></i> 
+                            Menu
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav-admin d-flex align-items-center rounded-lg text-light fw-bold mb-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-tv-fill me-2"></i> 
+                            Películas
+                        </a>
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item mb-2" href="#">Matenimiento</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav-admin d-flex align-items-center rounded-lg text-light fw-bold mb-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-r-circle-fill me-2"></i>
+                            Géneros
+                        </a>
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item mb-2" href="#">Matenimiento</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav-admin d-flex align-items-center rounded-lg text-light fw-bold mb-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-star-fill me-2"></i>
+                            Actores
+                        </a>
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item mb-2" href="#">Matenimiento</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav-admin d-flex align-items-center rounded-lg text-light fw-bold mb-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-fill me-2"></i> 
+                            Usuarios
+                        </a>
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item mb-2" href="#">Matenimiento</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav-admin d-flex align-items-center rounded-lg text-light fw-bold mb-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-sunglasses me-2"></i>
+                            Administrador
+                        </a>
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item mb-2" href="#">Matenimiento</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link nav-admin d-flex align-items-center rounded-lg text-light fw-bold mb-2" data-bs-toggle="modal" data-bs-target="#confirmModal">
+                            <i class="bi bi-door-open-fill me-2"></i>
+                            Sign Up
+                        </a>
+                    </li>
+                </ul>                               
+            </div>
+        </div>
+        <!-- End Menu Admin -->
+    </div>
+</nav>
+
+<!-- Start Modal SignUp -->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmModalLabel">Confirmar salida</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                ¿Está seguro de que desea salir?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" id="confirmYes">Sí</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal SignUp -->
+
+<div class="container"> 
+    <!-- <h2 class="text-center">{{title}}</h2> -->
+    <!-- <app-lista-empleados></app-lista-empleados> -->
+    <router-outlet></router-outlet>
+</div>
+
+<!-- Start Footer -->
+<footer class="bg-nav text-center text-lg-start text-white">
+    <div class="container p-4">
+        <div class="row my-4">
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <div class="shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 100px; height: 100px;">
+                    <a href="#" class="text-center">
+                        <img src="assets/img/lg2.svg" alt="EagleFlicks Logo" style="height: 3rem;" />
+                        <span class="fw-bold text-light fs-5 ms-2"><span class="eagle-color">Eagle</span>Flicks</span>
+                    </a>
+                </div>
+                <p class="text-center">Películas y series de televisión, disfruta de lo mejor en cine en línea.</p>
+                <ul class="list-unstyled d-flex flex-row justify-content-center">
+                    <li>
+                        <a class="text-white px-2" href="#!"><i class="bi bi-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a class="text-white px-2" href="#!"><i class="bi bi-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a class="text-white ps-2" href="#!"><i class="bi bi-youtube"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 my-4 mb-md-0">
+                <h6 class="text-uppercase mb-4">EagleFlicks</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Acerca de nosotros</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Mi perfil</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Planes de precios</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Contactos</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 my-4 mb-md-0">
+                <h6 class="text-uppercase mb-4">Categorías</h6>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Series de TV</a>                
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Películas</a>                
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Colecciones</a>                
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 my-4 mb-md-0">
+                <h6 class="text-uppercase mb-4">Explorar</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>TV en vivo</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Noticias en vivo</a>                
+                    </li>
+                    <li class="mb-2">
+                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Deportes en vivo</a>                
+                    </li>
+                    <li class="mb-2">
+                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Biblioteca de streaming</a>                
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">© copyright 2023 -
+        <a class="text-white" href="#">EagleFlicks</a>
+    </div>
+</footer>
+<!-- End Footer -->

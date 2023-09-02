@@ -1,0 +1,113 @@
+drop database if exists BD_EAGLEFLICKS;
+create database BD_EAGLEFLICKS;
+use BD_EAGLEFLICKS;
+
+CREATE TABLE tb_pais (
+id_pais INT AUTO_INCREMENT PRIMARY KEY,
+nom_pais VARCHAR(99)
+);
+
+CREATE TABLE tb_genero (
+id_genero INT AUTO_INCREMENT PRIMARY KEY,
+nom_gen VARCHAR(255)
+);
+
+CREATE TABLE tb_director (
+id_director INT AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(255),
+fecha_nacimiento DATE,
+id_pais int,
+FOREIGN KEY (id_pais) REFERENCES tb_pais(id_pais)
+);
+
+CREATE TABLE tb_actor (
+id_actor INT AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(255),
+fecha_nacimiento DATE,
+id_pais int,
+FOREIGN KEY (id_pais) REFERENCES tb_pais(id_pais)
+);
+
+CREATE TABLE tb_administrador (
+id_admin INT AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(255) NOT NULL,
+apellido VARCHAR(255) NOT NULL,
+correo_electronico VARCHAR(255) UNIQUE NOT NULL,
+contrasena VARCHAR(255) NOT NULL,
+direccion VARCHAR(255) NOT NULL,
+id_pais int,
+FOREIGN KEY (id_pais) REFERENCES tb_pais(id_pais)
+);
+
+CREATE TABLE tb_pelicula (
+id_pelicula INT AUTO_INCREMENT PRIMARY KEY,
+titulo VARCHAR(255),
+descripcion VARCHAR(255),
+anio_lanzamiento INT,
+duracion INT,
+empresa VARCHAR(255),
+idioma varchar(99),
+trailer varchar(400),
+poster_url VARCHAR(255),
+id_genero INT,
+id_director INT,
+id_pais int,
+FOREIGN KEY (id_genero) REFERENCES tb_genero(id_genero),
+FOREIGN KEY (id_director) REFERENCES tb_director(id_director),
+FOREIGN KEY (id_pais) REFERENCES tb_pais(id_pais)
+);
+
+CREATE TABLE tb_usuario (
+id_usu INT AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(255),
+email VARCHAR(255) UNIQUE,
+contrasena VARCHAR(255),
+avatar VARCHAR(255)
+);
+
+CREATE TABLE tb_comentario (
+id_comentario INT AUTO_INCREMENT PRIMARY KEY,
+comentario VARCHAR(255),
+id_usu INT,
+id_pelicula INT,
+FOREIGN KEY (id_usu) REFERENCES tb_usuario(id_usu),
+FOREIGN KEY (id_pelicula) REFERENCES tb_pelicula(id_pelicula)
+);
+
+create table tb_empleado (
+id_emp int primary key auto_increment,
+nom_emp varchar(99), 
+ape_emp varchar(99), 
+ema_emp varchar(255) NOT NULL UNIQUE,
+id_pais int,
+FOREIGN KEY (id_pais) REFERENCES tb_pais(id_pais)
+);
+
+INSERT INTO tb_pais (nom_pais) VALUES
+('Estados Unidos'),('Canadá'),('Reino Unido'),('Alemania'),('Francia'),('Japón'),('Australia'),('Brasil'),('China'),
+('India'),('México'),('Italia'),('España'),('Argentina'),('Rusia'),('Corea del Sur'),('Sudáfrica'),('Colombia'),('Chile'),
+('Egipto'),('Perú');
+
+INSERT INTO tb_director (nombre, fecha_nacimiento, id_pais) VALUES
+('Director 1', '1980-01-15', 1),  
+('Director 2', '1975-06-20', 2),  
+('Director 3', '1990-03-10', 3); 
+
+
+INSERT INTO tb_empleado (nom_emp, ape_emp, ema_emp, id_pais) VALUES
+('John', 'Doe', 'john.doe@example.com', 1),
+('Jane', 'Smith', 'jane.smith@example.com', 2),
+('Michael', 'Johnson', 'michael.johnson@example.com', 1),
+('Emily', 'Brown', 'emily.brown@example.com', 3);
+
+select * from tb_pais;
+select * from tb_genero;
+select * from tb_director;
+select * from tb_actor;
+select * from tb_usuario;
+select * from tb_administrador;
+select * from tb_pelicula;
+select * from tb_empleado;
+
+
+

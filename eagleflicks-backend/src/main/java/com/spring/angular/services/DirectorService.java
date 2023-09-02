@@ -28,7 +28,6 @@ public class DirectorService implements DirectorServiceImp {
 	@Override
 	public Director obtenerDirectorPorId(Integer id) {
 		return repoDirector.findById(id).orElseThrow(() -> new ResourceNotFoundException("No existe el director con el ID : " + id));
-
 	}
 
 	@Override

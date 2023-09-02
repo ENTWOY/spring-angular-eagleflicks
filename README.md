@@ -1,5 +1,4 @@
-Este proyecto es un ejemplo de una aplicación CRUD que utiliza Spring Boot para el backend, Angular para el frontend y MySQL como base de datos.
-
+EagleFlicks es una plataforma de streaming de películas en línea.
 ## Requisitos previos
 - Java 17
 - [Spring Tool Suite 4](https://spring.io/tools) o cualquier IDE compatible con Spring.

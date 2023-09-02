@@ -5,15 +5,22 @@ import { RegistrarEmpleadoComponent } from './registrar-empleado/registrar-emple
 import { ActualizarEmpleadoComponent } from './actualizar-empleado/actualizar-empleado.component';
 import { DetalleEmpleadoComponent } from './detalle-empleado/detalle-empleado.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { ListaDirectoresComponent } from './lista-directores/lista-directores.component';
+import { RegistrarDirectorComponent } from './registrar-director/registrar-director.component';
+import { ActualizarDirectorComponent } from './actualizar-director/actualizar-director.component';
+import { DetalleDirectorComponent } from './detalle-director/detalle-director.component';
 
 const routes: Routes = [
-  {path : 'empleados', component:ListaEmpleadosComponent},
-  /* {path: '',redirectTo:'empleados', pathMatch: 'full'}, */
   {path: '',redirectTo:'inicio', pathMatch: 'full'},
   {path : 'inicio', component: InicioComponent},
+  {path : 'empleados', component:ListaEmpleadosComponent},
   {path: 'registrar-empleado', component : RegistrarEmpleadoComponent},
   {path: 'actualizar-empleado/:id', component : ActualizarEmpleadoComponent},
-  {path: 'detalle-empleado/:id', component : DetalleEmpleadoComponent}
+  {path: 'detalle-empleado/:id', component : DetalleEmpleadoComponent},
+  {path: 'directores', component : ListaDirectoresComponent},
+  {path: 'registrar-director', component : RegistrarDirectorComponent},
+  {path: 'actualizar-director/:id', component : ActualizarDirectorComponent},
+  {path: 'detalle-director/:id', component : DetalleDirectorComponent},
 ];
 
 @NgModule({

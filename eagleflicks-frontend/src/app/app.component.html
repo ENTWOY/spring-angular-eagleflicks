@@ -5,10 +5,10 @@
             <img src="assets/img/lg2.svg" alt="EagleFlicks Logo" style="height: 2rem;" />
             <span class="fw-bold text-light fs-5 ms-2"><span class="eagle-color">Eagle</span>Flicks</span>
         </a>
-        <a href="#" class="navbar-link">Inicio</a>
-        <a href="#movie" class="navbar-link">Películas</a>
-        <a href="#category" class="navbar-link">Generos</a>
-        <a href="#estreno" class="navbar-link">Estrenos</a>
+        <a routerLink="inicio" routerLinkActive="active" class="navbar-link">Inicio</a>
+        <a class="navbar-link">Películas</a>
+        <a class="navbar-link">Generos</a>
+        <a class="navbar-link">Estrenos</a>
 
         <!-- Form Search Movie -->
         <form class="d-flex">
@@ -60,6 +60,16 @@
                         <!-- Dropdown Menu -->
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item mb-2" href="#">Matenimiento</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav-admin d-flex align-items-center rounded-lg text-light fw-bold mb-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-r-circle-fill me-2"></i>
+                            Directores
+                        </a>
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item mb-2" [routerLink]="'/directores'">Matenimiento</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">

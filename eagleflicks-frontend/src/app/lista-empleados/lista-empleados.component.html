@@ -38,20 +38,20 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let empleado of empleados">
-                <td>{{ empleado.idEmp }}</td>
-                <td>{{ empleado.nomEmp }}</td>
-                <td>{{ empleado.apeEmp }}</td>
-                <td>{{ empleado.emaEmp }}</td>
-                <td>{{ empleado.empleadoPais.nomPais }}</td>
+            <tr *ngFor="let e of empleados">
+                <td>{{ e.idEmp }}</td>
+                <td>{{ e.nomEmp }}</td>
+                <td>{{ e.apeEmp }}</td>
+                <td>{{ e.emaEmp }}</td>
+                <td>{{ e.empleadoPais.nomPais }}</td>
                 <td class="d-flex align-items-center justify-content-center">
-                    <button (click)= "actualizarEmpleado(empleado.idEmp)" class="btn btn-sm btn-primary me-2" title="Editar">
+                    <button (click)= "actualizarEmpleado(e.idEmp)" class="btn btn-sm btn-primary me-2" title="Editar">
                         <i class="bi bi-pencil-square"></i>
                     </button>
-                    <button (click)= "detalleEmpleado(empleado.idEmp)" class="btn btn-sm btn-warning me-2" title="Detalle">
+                    <button (click)= "detalleEmpleado(e.idEmp)" class="btn btn-sm btn-warning me-2" title="Detalle">
                         <i class="bi bi-journal-text"></i>
                     </button>
-                    <button (click)= "eliminarEmpleado(empleado.idEmp)" class="btn btn-sm btn-danger" title="Eliminar">
+                    <button (click)= "eliminarEmpleado(e.idEmp)" class="btn btn-sm btn-danger" title="Eliminar">
                         <i class="bi bi-trash3"></i>
                     </button>
                 </td>

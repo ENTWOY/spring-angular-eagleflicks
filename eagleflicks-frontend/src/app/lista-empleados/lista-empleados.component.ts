@@ -21,12 +21,12 @@ export class ListaEmpleadosComponent implements OnInit {
     this.obtenerEmpleados();
   }
 
-  // actualizar empleados 2
+  // actualizar empleados 
   actualizarEmpleado(id:number) {
     this.router.navigate(['actualizar-empleado', id]);
   }
 
-  // eliminar empleado 2
+  // eliminar empleado 
   eliminarEmpleado(id: number) {
     Swal.fire({
       title: '¿Estás seguro?',

@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Empleado } from '../empleado';
 import { EmpleadoService } from '../empleado.service';
 import Swal from 'sweetalert2';
-import { Pais } from '../pais';
 
 @Component({
   selector: 'app-lista-empleados',

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Director } from '../director';
 import { ActivatedRoute } from '@angular/router';
 import { DirectorService } from '../director.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-detalle-director',
@@ -20,6 +21,7 @@ export class DetalleDirectorComponent implements OnInit  {
     this.objDirector = new Director();
     this.directorService.obtenerDirectorPorId(this.id).subscribe(dato => {
       this.objDirector = dato;
+      Swal.fire(`Detalles del director ${this.objDirector.nombre}`);
     });
   }
 }

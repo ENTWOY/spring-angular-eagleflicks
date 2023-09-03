@@ -9,10 +9,12 @@ import { ListaDirectoresComponent } from './lista-directores/lista-directores.co
 import { RegistrarDirectorComponent } from './registrar-director/registrar-director.component';
 import { ActualizarDirectorComponent } from './actualizar-director/actualizar-director.component';
 import { DetalleDirectorComponent } from './detalle-director/detalle-director.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {path: '',redirectTo:'inicio', pathMatch: 'full'},
   {path : 'inicio', component: InicioComponent},
+  {path : 'login', component: LoginComponent},
   {path : 'empleados', component:ListaEmpleadosComponent},
   {path: 'registrar-empleado', component : RegistrarEmpleadoComponent},
   {path: 'actualizar-empleado/:id', component : ActualizarEmpleadoComponent},

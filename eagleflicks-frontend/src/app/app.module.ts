@@ -14,6 +14,7 @@ import { ListaDirectoresComponent } from './lista-directores/lista-directores.co
 import { RegistrarDirectorComponent } from './registrar-director/registrar-director.component';
 import { ActualizarDirectorComponent } from './actualizar-director/actualizar-director.component';
 import { DetalleDirectorComponent } from './detalle-director/detalle-director.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DetalleDirectorComponent } from './detalle-director/detalle-director.co
     ListaDirectoresComponent,
     RegistrarDirectorComponent,
     ActualizarDirectorComponent,
-    DetalleDirectorComponent
+    DetalleDirectorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

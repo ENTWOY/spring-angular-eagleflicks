@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DirectorService } from '../director.service';
 import { Router } from '@angular/router';
 import { Director } from '../director';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-lista-directores',
@@ -20,7 +22,7 @@ export class ListaDirectoresComponent implements OnInit {
 
   private obtenerDirectores() {
     this.directorServicio.obtenerListaDirectores().subscribe(dato => {
-      console.log(dato);
+      console.log("Directores: ", dato);
       this.objDirector = dato;
     });
   }
@@ -34,10 +36,27 @@ export class ListaDirectoresComponent implements OnInit {
   }
 
   eliminarDirector(id: number) {
-    this.directorServicio.eliminarDirector(id).subscribe(dato => {
-      console.log(dato);
-      this.obtenerDirectores();
-        alert(`El directo con id: ${id} ha sido eliminado.`);
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: `Esta acción eliminará al director con ID: ${id}`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.directorServicio.eliminarDirector(id).subscribe(dato => {
+          console.log(dato);
+          this.obtenerDirectores();
+        });
+        Swal.fire(
+          '¡Eliminado!',
+          `El director con <strong>ID: ${id}</strong> ha sido eliminado.`,
+          'success'
+        );
+      }
     });
-  }  
+  } 
 }

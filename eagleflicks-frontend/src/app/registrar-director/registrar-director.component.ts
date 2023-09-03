@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Director } from '../director';
 import { Pais } from '../pais';
 import { DirectorService } from '../director.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registrar-director',
@@ -28,6 +29,7 @@ export class RegistrarDirectorComponent implements OnInit {
     this.directorServicio.registrarDirector(this.objDirector).subscribe(
       dato => {
         console.log(dato);
+        this.mostrarMensajeExito();
         this.irALaListaDeDirectores();
       },
       error => {
@@ -47,4 +49,11 @@ export class RegistrarDirectorComponent implements OnInit {
     });
   }
 
+  mostrarMensajeExito() {
+    Swal.fire(
+      '¡Registro exitoso!',
+      `El director <strong>${this.objDirector.nombre}</strong> se ha registrado correctamente.`,
+      'success'
+    );
+  }
 }

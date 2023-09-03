@@ -3,6 +3,7 @@ import { DirectorService } from '../director.service';
 import { Pais } from '../pais';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Director } from '../director';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-actualizar-director',
@@ -25,6 +26,7 @@ export class ActualizarDirectorComponent implements OnInit  {
   onSubmit() {
     this.directorService.actualizarDirector(this.id, this.objDirector).subscribe(
       dato => {
+        this.mostrarMensajeExito();
         this.irAlaListaDeEmpleados();
       },
       error => {
@@ -60,5 +62,13 @@ export class ActualizarDirectorComponent implements OnInit  {
 
   irAlaListaDeEmpleados(){
     this.router.navigate(['/directores']);
+  }
+
+  mostrarMensajeExito() {
+    Swal.fire(
+      '¡Actualización exitosa!',
+      `El director <strong>${this.objDirector.nombre}</strong> se ha actualizado correctamente.`,
+      'success'
+    );
   }
 }

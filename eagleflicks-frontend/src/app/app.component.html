@@ -49,7 +49,7 @@
                         </a>
                         <!-- Dropdown Menu -->
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item mb-2" href="#">Matenimiento</a></li>
+                            <li><a class="dropdown-item mb-2" href="#">Mantenimiento</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -59,17 +59,17 @@
                         </a>
                         <!-- Dropdown Menu -->
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item mb-2" href="#">Matenimiento</a></li>
+                            <li><a class="dropdown-item mb-2" href="#">Mantenimiento</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle nav-admin d-flex align-items-center rounded-lg text-light fw-bold mb-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-r-circle-fill me-2"></i>
+                            <i class="bi bi-scissors me-2"></i>
                             Directores
                         </a>
                         <!-- Dropdown Menu -->
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item mb-2" [routerLink]="'/directores'">Matenimiento</a></li>
+                            <li><a class="dropdown-item mb-2" [routerLink]="'/directores'">Mantenimiento</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -79,7 +79,7 @@
                         </a>
                         <!-- Dropdown Menu -->
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item mb-2" href="#">Matenimiento</a></li>
+                            <li><a class="dropdown-item mb-2" href="#">Mantenimiento</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -89,7 +89,7 @@
                         </a>
                         <!-- Dropdown Menu -->
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item mb-2" href="#">Matenimiento</a></li>
+                            <li><a class="dropdown-item mb-2" href="#">Mantenimiento</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -99,15 +99,21 @@
                         </a>
                         <!-- Dropdown Menu -->
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item mb-2" href="#">Matenimiento</a></li>
+                            <li><a class="dropdown-item mb-2" href="#">Mantenimiento</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link nav-admin d-flex align-items-center rounded-lg text-light fw-bold mb-2" data-bs-toggle="modal" data-bs-target="#confirmModal">
+                        <a [routerLink]="'/login'" class="nav-link nav-admin d-flex align-items-center rounded-lg text-light fw-bold mb-2">
+                            <i class="bi bi-shield-fill me-2"></i>
+                            Login
+                        </a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a style="cursor: pointer;" class="nav-link nav-admin d-flex align-items-center rounded-lg text-light fw-bold mb-2" data-bs-toggle="modal" data-bs-target="#confirmModal">
                             <i class="bi bi-door-open-fill me-2"></i>
                             Sign Up
                         </a>
-                    </li>
+                    </li> -->
                 </ul>                               
             </div>
         </div>
@@ -116,7 +122,7 @@
 </nav>
 
 <!-- Start Modal SignUp -->
-<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -128,11 +134,11 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                <button type="button" class="btn btn-primary" id="confirmYes">Sí</button>
+                <a type="button" class="btn btn-primary" [routerLink]="'/login'" id="confirmYes">Sí</a>
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- End Modal SignUp -->
 
 <div class="container"> 

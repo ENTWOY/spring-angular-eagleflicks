@@ -2,6 +2,7 @@
   <h2>EagleFlicks</h2>
   <p>Plataforma de streaming de películas en línea.</p>
 </div>
+
 ## Requisitos previos
 - Java 17
 - [Spring Tool Suite 4](https://spring.io/tools) o cualquier IDE compatible con Spring.

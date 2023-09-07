@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DirectorService } from '../director.service';
+import { DirectorService } from '../../director.service';
 import { Router } from '@angular/router';
-import { Director } from '../director';
+import { Director } from '../../director';
 import Swal from 'sweetalert2';
 
 

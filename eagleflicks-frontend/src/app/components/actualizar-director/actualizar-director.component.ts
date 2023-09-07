@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DirectorService } from '../director.service';
-import { Pais } from '../pais';
+import { DirectorService } from '../../director.service';
+import { Pais } from '../../pais';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Director } from '../director';
+import { Director } from '../../director';
 import Swal from 'sweetalert2';
 
 @Component({

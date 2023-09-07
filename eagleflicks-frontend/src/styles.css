@@ -389,6 +389,14 @@ input ~ .checked-radio-bg {
     overflow: hidden;
 }
 
+/* Start Table Responsive */
+.text_overflow{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 50px;
+    white-space: nowrap;
+}
+
 @keyframes moveCircle {
     0% {
         transform: translate(0, 0);

@@ -30,6 +30,18 @@ public class Pais {
 	@JsonIgnore
 	@OneToMany(mappedBy = "directorPais")
 	private List<Director> listaDirectores;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "peliculaPais")
+	private List<Pelicula> listaPeliculas;
+
+	public List<Pelicula> getListaPeliculas() {
+		return listaPeliculas;
+	}
+
+	public void setListaPeliculas(List<Pelicula> listaPeliculas) {
+		this.listaPeliculas = listaPeliculas;
+	}
 
 	public Integer getIdPais() {
 		return idPais;

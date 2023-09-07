@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Empleado } from '../empleado';
-import { EmpleadoService } from '../empleado.service';
+import { Empleado } from '../../empleado';
+import { EmpleadoService } from '../../empleado.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -53,7 +53,6 @@ export class ListaEmpleadosComponent implements OnInit {
 
   private obtenerEmpleados() {
     this.empleadoServicio.obtenerListaEmpleados().subscribe(dato => {
-      // console.log(dato);
       this.empleados = dato;
     });
   }
@@ -67,7 +66,7 @@ export class ListaEmpleadosComponent implements OnInit {
       .subscribe(
         employees => this.empleados = employees,
         error => {
-          console.error('Error fetching users:', error);
+          console.error('Error fetching:', error);
           this.empleados = [];
         }
       );

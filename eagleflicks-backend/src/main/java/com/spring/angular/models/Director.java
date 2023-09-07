@@ -1,8 +1,11 @@
 package com.spring.angular.models;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,6 +14,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -35,6 +39,18 @@ public class Director {
 	@ManyToOne
 	@JoinColumn(name = "id_pais")
 	private Pais directorPais;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "peliculaDirector")
+	private List<Pelicula> listaPeliculas;
+
+	public List<Pelicula> getListaPeliculas() {
+		return listaPeliculas;
+	}
+
+	public void setListaPeliculas(List<Pelicula> listaPeliculas) {
+		this.listaPeliculas = listaPeliculas;
+	}
 
 	public Integer getIdDirector() {
 		return idDirector;

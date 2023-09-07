@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Empleado } from '../empleado';
-import { EmpleadoService } from '../empleado.service';
+import { Empleado } from '../../empleado';
+import { EmpleadoService } from '../../empleado.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -24,6 +24,4 @@ export class DetalleEmpleadoComponent implements OnInit {
       Swal.fire(`Detalles del empleado ${this.empleado.nomEmp}`);
     });
   }
-  
-
 }

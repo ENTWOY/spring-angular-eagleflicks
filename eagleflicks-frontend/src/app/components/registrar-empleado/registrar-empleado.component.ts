@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Empleado } from '../empleado';
-import { Pais } from '../pais';
-import { EmpleadoService } from '../empleado.service';
+import { Empleado } from '../../empleado';
+import { Pais } from '../../pais';
+import { EmpleadoService } from '../../empleado.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,6 +16,10 @@ export class RegistrarEmpleadoComponent implements OnInit {
   paises: Pais[] = [];
 
   constructor(private empleadoServicio:EmpleadoService, private router:Router) { }
+
+  onSubmit(){
+    this.guardarEmpleado();
+  }
 
   ngOnInit(): void {
     this.cargarPaises();
@@ -44,10 +48,6 @@ export class RegistrarEmpleadoComponent implements OnInit {
 
   irALaListaDeEmpleados() {
     this.router.navigate(['/empleados']);
-  }
-
-  onSubmit(){
-    this.guardarEmpleado();
   }
 
   cargarPaises() {

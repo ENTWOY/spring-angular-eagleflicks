@@ -1,0 +1,67 @@
+<div class="container h-100 pt-5 my-5">
+    <br>
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+            <div class="card text-black" style="border-radius: 25px;">
+                <div class="card-body p-md-5">
+                    <h4 class="text-center">Detalle Película</h4>
+                    <hr>
+                    <div class="py-3 row">
+                        <div class="col-md-3 mb-3">
+                            <label for="id" class="form-label">Id:</label>
+                            <input id="id" [(ngModel)]="objPeli.idPelicula" name="id" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-md-9 mb-3">
+                            <label for="nombre" class="form-label">Título:</label>
+                            <input id="titulo" [(ngModel)]="objPeli.titulo" name="titulo" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="apellido" class="form-label">Descripción:</label>
+                            <textarea id="descripcion" [(ngModel)]="objPeli.descripcion" name="descripcion" type="text" rows="5" class="form-control" disabled></textarea>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="apellido" class="form-label">Año de lanzamiento:</label>
+                            <input id="anio" [(ngModel)]="objPeli.anio" name="anio" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="apellido" class="form-label">Duración:</label>
+                            <input id="duracion" [(ngModel)]="objPeli.duracion" name="duracion" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="apellido" class="form-label">Productora:</label>
+                            <input id="productora" [(ngModel)]="objPeli.productora" name="productora" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="apellido" class="form-label">Trailer:</label>
+                            <input id="apellido" [(ngModel)]="objPeli.trailer" name="apellido" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="imagen" class="form-label">Género:</label>
+                            <input id="imagen" [(ngModel)]="objPeli.peliculaGenero.nomGen" name="imagen" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="imagen" class="form-label">Director:</label>
+                            <input id="imagen" [(ngModel)]="objPeli.peliculaDirector.nombre" name="imagen" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="imagen" class="form-label">País:</label>
+                            <input id="imagen" [(ngModel)]="objPeli.peliculaPais.nomPais" name="imagen" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="imagen" class="form-label">Nombre Imagen:</label>
+                            <textarea id="imagen" [(ngModel)]="objPeli.imagen" name="imagen" type="text" rows="6" class="form-control" disabled></textarea>
+                        </div>
+                        <div class="col-md-3 mb-3 d-grid">
+                            <label for="imagen" class="form-label">Portada de la película:</label>
+                            <img [src]="myFileImgs + objPeli.imagen" class="" [alt]="objPeli.imagen" [title]="objPeli.imagen" style="height: 15em;">            
+                        </div>
+                        <div class="col-md-12 d-flex justify-content-center pt-4">
+                            <a [routerLink]="'/peliculas'" class="btn btn-danger">Regresar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

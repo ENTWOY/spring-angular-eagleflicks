@@ -18,5 +18,4 @@ public class PaisService implements PaisServiceImp {
 	public List<Pais> listarPaises() {
 		return repoPais.findAll();
 	}
-	
 }

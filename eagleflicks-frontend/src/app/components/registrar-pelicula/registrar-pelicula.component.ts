@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { Genero } from 'src/app/genero';
 import { Director } from 'src/app/director';
 import { Pais } from '../../pais';
+import { Actor } from 'src/app/actor';
 
 @Component({
   selector: 'app-registrar-pelicula',
@@ -18,6 +19,7 @@ export class RegistrarPeliculaComponent implements OnInit {
   objPaises: Pais[] = [];
   objGenero: Genero[] = [];
   objDirector: Director[] = [];
+  objActor: Actor[] = [];
   file: File | null = null
 
   constructor(private serviPeli:PeliculaService, private router:Router) {
@@ -44,6 +46,7 @@ export class RegistrarPeliculaComponent implements OnInit {
     this.cargarPaises();
     this.cargarDirectores();
     this.cargarGeneros();
+    this.cargarActores();
   }
 
   guardarPelicula(){
@@ -86,6 +89,13 @@ export class RegistrarPeliculaComponent implements OnInit {
     this.serviPeli.obtenerDirectores().subscribe(dato => {
       console.log("Directores", dato);
       this.objDirector = dato;
+    });
+  }
+
+  cargarActores() {
+    this.serviPeli.obtenerActores().subscribe(dato => {
+      console.log("Actores", dato);
+      this.objActor = dato;
     });
   }
 

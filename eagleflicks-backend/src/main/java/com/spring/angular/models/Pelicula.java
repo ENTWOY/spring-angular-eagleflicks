@@ -53,14 +53,18 @@ public class Pelicula {
 	@ManyToOne
 	@JoinColumn(name = "id_pais") 
 	private Pais peliculaPais;
-
+	
+	@ManyToOne
+	@JoinColumn(name = "id_actor") 
+	private Actor peliculaActor;
+	
 	public Pelicula() {
 		super();
 	}
 
 	public Pelicula(Integer idPelicula, String titulo, String descripcion, int anio, int duracion, String productora,
 			String idioma, String trailer, String imagen, Genero peliculaGenero, Director peliculaDirector,
-			Pais peliculaPais) {
+			Pais peliculaPais, Actor peliculaActor) {
 		super();
 		this.idPelicula = idPelicula;
 		this.titulo = titulo;
@@ -74,6 +78,7 @@ public class Pelicula {
 		this.peliculaGenero = peliculaGenero;
 		this.peliculaDirector = peliculaDirector;
 		this.peliculaPais = peliculaPais;
+		this.peliculaActor = peliculaActor;
 	}
 
 	public Integer getIdPelicula() {
@@ -170,5 +175,13 @@ public class Pelicula {
 
 	public void setPeliculaPais(Pais peliculaPais) {
 		this.peliculaPais = peliculaPais;
+	}
+
+	public Actor getPeliculaActor() {
+		return peliculaActor;
+	}
+
+	public void setPeliculaActor(Actor peliculaActor) {
+		this.peliculaActor = peliculaActor;
 	}
 }

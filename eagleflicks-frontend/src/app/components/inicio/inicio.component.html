@@ -53,160 +53,10 @@
         </div>
     </div>
 
-    <div class="movies-grid">
-        <a href="#_" class="movie-card">
+    <div class="movies-grid">    
+        <a href="#_" *ngFor="let p of objPelis" class="movie-card" [title]="p.titulo">
             <div class="card-head">
-                <img src="https://cloudfront-eu-central-1.images.arcpublishing.com/prisa/VYUC2C5T2RIY7BEX3GCNF7F45I.jpg" alt="" class="card-img">
-                <div class="card-overlay">
-                    <a href="#" class="bookmark">
-                        <i class="bi bi-journal-text px-1"></i>
-                    </a>
-                    <div class="rating">
-                        <i class="bi bi-star-half me-1"></i>
-                        <span>6.7</span>
-                    </div>
-                    <div class="play">
-                        <i class="bi bi-play-circle"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <h3 class="card-title">Venom</h3>
-                <div class="card-info">
-                <span class="genre">Action/Adventure</span>
-                <span class="year">2018</span>
-                </div>
-            </div>
-        </a>
-
-        <a href="#_" class="movie-card">
-            <div class="card-head">
-                <img src="https://cloudfront-eu-central-1.images.arcpublishing.com/prisa/VYUC2C5T2RIY7BEX3GCNF7F45I.jpg" alt="" class="card-img">
-                <div class="card-overlay">
-                    <a href="#" class="bookmark">
-                        <i class="bi bi-journal-text px-1"></i>
-                    </a>
-                <div class="rating">
-                    <i class="bi bi-star-half me-1"></i>
-                    <span>8.9</span>
-                </div>
-                <div class="play">
-                    <i class="bi bi-play-circle"></i>
-                </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <h3 class="card-title">Lord Of The Rings: Return Of The King</h3>
-                <div class="card-info">
-                <span class="genre">Fantasy/Adventure</span>
-                <span class="year">2003</span>
-                </div>
-            </div>
-        </a>
-
-        <a href="#_" class="movie-card">
-            <div class="card-head">
-                <img src="https://cloudfront-eu-central-1.images.arcpublishing.com/prisa/VYUC2C5T2RIY7BEX3GCNF7F45I.jpg" alt="" class="card-img">
-                <div class="card-overlay">
-                    <a href="#" class="bookmark">
-                        <i class="bi bi-journal-text px-1"></i>
-                    </a>
-                <div class="rating">
-                    <i class="bi bi-star-half me-1"></i>
-                    <span>8.6</span>
-                </div>
-                <div class="play">
-                    <i class="bi bi-play-circle"></i>
-                </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <h3 class="card-title">Saving Private Ryan</h3>
-                <div class="card-info">
-                <span class="genre">War/Action</span>
-                <span class="year">1998</span>
-                </div>
-            </div>
-        </a>
-
-        <a href="#_" class="movie-card">
-            <div class="card-head">
-                <img src="https://cloudfront-eu-central-1.images.arcpublishing.com/prisa/VYUC2C5T2RIY7BEX3GCNF7F45I.jpg" alt="" class="card-img">
-                <div class="card-overlay">
-                    <a href="#" class="bookmark">
-                        <i class="bi bi-journal-text px-1"></i>
-                    </a>
-                    <div class="rating">
-                        <i class="bi bi-star-half me-1"></i>
-                        <span>8.6</span>
-                    </div>
-                    <div class="play">
-                        <i class="bi bi-play-circle"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <h3 class="card-title">Interstellar</h3>
-                <div class="card-info">
-                <span class="genre">Sci-fi/Adventure</span>
-                <span class="year">2014</span>
-                </div>
-            </div>
-        </a>
-
-        <a href="#_" class="movie-card">
-            <div class="card-head">
-                <img src="https://cloudfront-eu-central-1.images.arcpublishing.com/prisa/VYUC2C5T2RIY7BEX3GCNF7F45I.jpg" alt="" class="card-img">
-                <div class="card-overlay">
-                    <a href="#" class="bookmark">
-                        <i class="bi bi-journal-text px-1"></i>
-                    </a>
-                    <div class="rating">
-                        <i class="bi bi-star-half me-1"></i>
-                        <span>8.5</span>
-                    </div>
-                    <div class="play">
-                        <i class="bi bi-play-circle"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <h3 class="card-title">Gladiator</h3>
-                <div class="card-info">
-                <span class="genre">Action/Adventure</span>
-                <span class="year">2000</span>
-                </div>
-            </div>
-        </a>
-
-        <a href="#_" class="movie-card">
-            <div class="card-head">
-                <img src="https://cloudfront-eu-central-1.images.arcpublishing.com/prisa/VYUC2C5T2RIY7BEX3GCNF7F45I.jpg" alt="" class="card-img">
-                <div class="card-overlay">
-                    <a href="#" class="bookmark">
-                        <i class="bi bi-journal-text px-1"></i>
-                    </a>
-                    <div class="rating">
-                        <i class="bi bi-star-half me-1"></i>
-                        <span>8.4</span>
-                    </div>
-                    <div class="play">
-                        <i class="bi bi-play-circle"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <h3 class="card-title">Avengers: Endgame</h3>
-                <div class="card-info">
-                    <span class="genre">Action/Sci-fi</span>
-                    <span class="year">2019</span>
-                </div>
-            </div>
-        </a>
-
-        <a href="#_" class="movie-card">
-            <div class="card-head">
-                <img src="https://cloudfront-eu-central-1.images.arcpublishing.com/prisa/VYUC2C5T2RIY7BEX3GCNF7F45I.jpg" alt="" class="card-img">
+                <img [src]="myFileImgs + p.imagen" class="card-img">
                     <div class="card-overlay">
                         <a href="#" class="bookmark">
                             <i class="bi bi-journal-text px-1"></i>
@@ -221,10 +71,10 @@
                 </div>
             </div>
             <div class="card-body">
-                <h3 class="card-title">Captain Marvel</h3>
+                <h3 class="card-title">{{ p.titulo }}</h3>
                 <div class="card-info">
-                    <span class="genre">Action/Sci-fi</span>
-                    <span class="year">2019</span>
+                    <span class="genre">{{ p.peliculaGenero.nomGen }}</span>
+                    <span class="year">{{ p.anio }}</span>
                 </div>
             </div>
         </a>

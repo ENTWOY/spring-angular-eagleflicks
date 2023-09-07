@@ -21,10 +21,12 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.spring.angular.models.Actor;
 import com.spring.angular.models.Director;
 import com.spring.angular.models.Genero;
 import com.spring.angular.models.Pais;
 import com.spring.angular.models.Pelicula;
+import com.spring.angular.services.ActorService;
 import com.spring.angular.services.DirectorService;
 import com.spring.angular.services.GeneroService;
 import com.spring.angular.services.PaisService;
@@ -49,6 +51,9 @@ public class PeliculaController {
 	private GeneroService serviGenero;
 	
 	@Autowired
+	private ActorService serviActor;
+	
+	@Autowired
 	private UploadFileService serviUploadFile;
 	
 	@GetMapping("/pelicula")
@@ -71,6 +76,10 @@ public class PeliculaController {
      return serviGenero.listarGeneros();
 	}
 	
+	@GetMapping("/actor")
+	 public List<Actor> listadoActores() {
+    return serviActor.listarActores();
+	}
 	
 	/* Registra y actualiza la información de una película, incluyendo la gestión de su imagen asociada. */
 	@PostMapping(value=("/pelicula"), consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE })

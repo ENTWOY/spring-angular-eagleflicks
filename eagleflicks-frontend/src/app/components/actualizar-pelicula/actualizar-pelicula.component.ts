@@ -6,6 +6,7 @@ import { Pelicula } from 'src/app/pelicula';
 import { PeliculaService } from 'src/app/pelicula.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Actor } from 'src/app/actor';
 
 @Component({
   selector: 'app-actualizar-pelicula',
@@ -21,6 +22,7 @@ export class ActualizarPeliculaComponent implements OnInit {
   objPeli:Pelicula = new Pelicula();
   objPais: Pais[] = [];
   objGenero: Genero[] = [];
+  objActor: Actor[] = [];
   objDirector: Director[] = [];
   file: File | null = null
 
@@ -74,49 +76,63 @@ export class ActualizarPeliculaComponent implements OnInit {
       console.log("Paises", paises);
       this.objPais = paises;
   
-      // Luego, cargamos los géneros
+      // cargamos los géneros
       this.serviPeli.obtenerGeneros().subscribe(generos => {
         console.log("Generos", generos);
         this.objGenero = generos;
   
-        // Finalmente, cargamos los directores
+        // cargamos los directores
         this.serviPeli.obtenerDirectores().subscribe(directores => {
           console.log("Directores", directores);
           this.objDirector = directores;
+
+          // y finalmente, cargamos los actores
+          this.serviPeli.obtenerActores().subscribe(actores => {
+            console.log("Actores", actores);
+            this.objActor = actores;
   
-          // Una vez que hemos cargado todas las listas, obtenemos los detalles de la película
-          this.serviPeli.obtenerPeliculaPorId(this.id).subscribe(
-            peli => {
-              this.objPeli = peli;
-  
-              // Buscamos el país correspondiente y lo seleccionamos
-              if (this.objPeli && this.objPais) {
-                const paisSeleccionado = this.objPais.find(pais => pais.idPais === this.objPeli.peliculaPais.idPais);
-                if (paisSeleccionado) {
-                  this.objPeli.peliculaPais = paisSeleccionado;
+            // Una vez que hemos cargado todas las listas, obtenemos los detalles de la película
+            this.serviPeli.obtenerPeliculaPorId(this.id).subscribe(
+              peli => {
+                this.objPeli = peli;
+    
+                // Buscamos el país correspondiente y lo seleccionamos
+                if (this.objPeli && this.objPais) {
+                  const paisSeleccionado = this.objPais.find(pais => pais.idPais === this.objPeli.peliculaPais.idPais);
+                  if (paisSeleccionado) {
+                    this.objPeli.peliculaPais = paisSeleccionado;
+                  }
                 }
-              }
-  
-              // Buscamos el género correspondiente y lo seleccionamos
-              if (this.objPeli && this.objGenero) {
-                const generoSeleccionado = this.objGenero.find(genero => genero.idGenero === this.objPeli.peliculaGenero.idGenero);
-                if (generoSeleccionado) {
-                  this.objPeli.peliculaGenero = generoSeleccionado;
+    
+                // Buscamos el género correspondiente y lo seleccionamos
+                if (this.objPeli && this.objGenero) {
+                  const generoSeleccionado = this.objGenero.find(genero => genero.idGenero === this.objPeli.peliculaGenero.idGenero);
+                  if (generoSeleccionado) {
+                    this.objPeli.peliculaGenero = generoSeleccionado;
+                  }
                 }
-              }
-  
-              // Buscamos el director correspondiente y lo seleccionamos
-              if (this.objPeli && this.objDirector) {
-                const directorSeleccionado = this.objDirector.find(director => director.idDirector === this.objPeli.peliculaDirector.idDirector);
-                if (directorSeleccionado) {
-                  this.objPeli.peliculaDirector = directorSeleccionado;
+    
+                // Buscamos el director correspondiente y lo seleccionamos
+                if (this.objPeli && this.objDirector) {
+                  const directorSeleccionado = this.objDirector.find(director => director.idDirector === this.objPeli.peliculaDirector.idDirector);
+                  if (directorSeleccionado) {
+                    this.objPeli.peliculaDirector = directorSeleccionado;
+                  }
                 }
+
+                // Buscamos actor/es correspondiente y lo seleccionamos
+                if (this.objPeli && this.objActor) {
+                  const actorSeleccionado = this.objActor.find(actor => actor.idActor === this.objPeli.peliculaActor.idActor);
+                  if (actorSeleccionado) {
+                    this.objPeli.peliculaActor = actorSeleccionado;
+                  }
+                }
+              },
+              error => {
+                console.log(error);
               }
-            },
-            error => {
-              console.log(error);
-            }
-          );
+            );
+          });
         });
       });
     });

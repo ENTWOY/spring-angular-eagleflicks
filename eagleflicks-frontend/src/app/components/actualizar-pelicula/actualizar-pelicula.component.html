@@ -60,13 +60,20 @@
                                 <option *ngFor="let dir of objDirector" [ngValue]="dir">{{ dir.nombre }}</option>
                             </select>                          
                         </div>
-                        <div class="col-md-8 mb-3">
+                        <div class="col-md-5 mb-3">
+                            <label class="form-label" for="pais">Actor/es:</label>
+                            <select class="form-select" id="actor" [(ngModel)]="objPeli.peliculaActor" name="actor" required>
+                                <option disabled value="">[Seleccione actor/es]</option>
+                                <option *ngFor="let act of objActor" [ngValue]="act">{{ act.nomActor }}</option>
+                            </select>                          
+                        </div>
+                        <div class="col-md-5 mb-3">
                             <label class="form-label" for="file">Subir Portada: <span class="badge text-bg-danger">Tamaño máximo permitido: 1 MB</span></label>
                             <div class="input-group">
                                 <input type="file" id="file" name="file" (change)="handleFileChange($event)" class="form-control border-secondary" required>
                             </div>
                         </div>
-                        <div class="col-md-4 mb-3 d-grid">
+                        <div class="col-md-2 mb-3 d-grid">
                             <label for="imagen" class="form-label">Portada de la película:</label>
                             <img [src]="myFileImgs + objPeli.imagen" [alt]="objPeli.imagen" [title]="objPeli.imagen" style="height: 7em;">            
                         </div>

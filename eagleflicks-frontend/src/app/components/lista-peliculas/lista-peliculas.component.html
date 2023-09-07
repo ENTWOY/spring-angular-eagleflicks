@@ -36,6 +36,7 @@
                 <th>Género</th>
                 <th>Director</th>
                 <th>País</th>
+                <th>Actor</th>
                 <th>Img</th>
                 <th></th>
             </tr>
@@ -53,6 +54,7 @@
                 <td>{{ p.peliculaGenero.nomGen }}</td>
                 <td>{{ p.peliculaDirector.nombre }}</td>
                 <td>{{ p.peliculaPais.nomPais }}</td>
+                <td class="text_overflow">{{ p.peliculaActor.nomActor }}</td>
                 <td class="text-center">
                     <img [src]="myFileImgs + p.imagen" class="img-fluid" style="height: 4em;">
                 </td>

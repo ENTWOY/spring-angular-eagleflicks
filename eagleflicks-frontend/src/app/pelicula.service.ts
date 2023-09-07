@@ -5,6 +5,7 @@ import { Pelicula } from './pelicula';
 import { Pais } from './pais';
 import { Director } from './director';
 import { Genero } from './genero';
+import { Actor } from './actor';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class PeliculaService {
   private baseUrl2 = 'http://localhost:8091/api/movie/pais';
   private baseUrl3 = 'http://localhost:8091/api/movie/director';
   private baseUrl4 = 'http://localhost:8091/api/movie/genero';
+  private baseUrl5 = 'http://localhost:8091/api/movie/actor';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -32,6 +34,10 @@ export class PeliculaService {
 
   obtenerGeneros(): Observable<Genero[]> {
     return this.httpClient.get<Genero[]>(`${this.baseUrl4}`);
+  }
+
+  obtenerActores(): Observable<Actor[]> {
+    return this.httpClient.get<Actor[]>(`${this.baseUrl5}`);
   }
 
   /* Registra y actualiza la entidad pelicula */

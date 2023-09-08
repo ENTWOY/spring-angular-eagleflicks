@@ -54,12 +54,12 @@
     </div>
 
     <div class="movies-grid">    
-        <a href="#_" *ngFor="let p of objPelis" class="movie-card" [title]="p.titulo">
+        <a (click)= "verPelicula(p.idPelicula)" *ngFor="let p of objPelis" class="movie-card" [title]="p.titulo">
             <div class="card-head">
-                <img [src]="myFileImgs + p.imagen" class="card-img">
+                <img [src]="myFileImgs + p.imagen" class="card-img" alt="Movie Cover">
                     <div class="card-overlay">
-                        <a href="#" class="bookmark">
-                            <i class="bi bi-journal-text px-1"></i>
+                        <a class="bookmark">
+                            <i class="bi bi-heart-fill mx-1"></i>
                         </a>
                     <div class="rating">
                         <i class="bi bi-star-half me-1"></i>

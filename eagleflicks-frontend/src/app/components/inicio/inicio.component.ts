@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Pelicula } from '../../pelicula';
-import { PeliculaService } from '../../pelicula.service';
+import { InicioService } from '../../inicio.service';
 
 @Component({
   selector: 'app-inicio',
@@ -14,14 +14,18 @@ export class InicioComponent implements OnInit {
   myFileImgs: string = 'http://localhost:8091/api/movie/uploads/';
   objPelis:Pelicula[];
 
-  constructor(private serviPelicula:PeliculaService, private router:Router) { }
+  constructor(private serviInicio:InicioService, private router:Router) { }
 
   ngOnInit(): void {
     this.obtenerPeliculas();
   }
 
+  verPelicula(id:number) {
+    this.router.navigate(['ver-pelicula', id]);
+  }
+
   private obtenerPeliculas() {
-    this.serviPelicula.obtenerPeliculas().subscribe(dato => {
+    this.serviInicio.obtenerPeliculas().subscribe(dato => {
       console.log("Peliculas: ", dato);
       this.objPelis = dato;
     });

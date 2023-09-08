@@ -121,11 +121,12 @@ INSERT INTO tb_director (nombre, fecha_nacimiento, id_pais) VALUES
 ('Alfonso Cuarón', '1961-11-28', 19),
 ('David Fincher', '1962-08-28', 20);
 
-INSERT INTO tb_pelicula (titulo, descripcion, anio, duracion, productora, idioma, trailer, imagen, id_genero, id_director, id_pais, id_actor)
-VALUES
-('Pulp Fiction', 'La película sigue las vidas entrelazadas de dos asesinos a sueldo, un boxeador, un gángster y su esposa mientras sus historias se desarrollan en una serie de eventos inesperados y violentos.', 1994, 154, 'Miramax Films', 'Español Latino', 'https://www.ejemplo.com/trailer1', '478ef1c0-438a-4b6b-83d1-ebe7b915023c_pulp.jpg', 1, 2, 3, 1),
-('The Shawshank Redemption', 'La historia se centra en un banquero condenado injustamente que lucha por su libertad mientras se hace amigo de otros reclusos en la prisión de Shawshank.', 1994, 142, 'Castle Rock Entertainment', 'Inglés', 'https://www.ejemplo.com/trailer2', '43a63fb0-dd7c-4971-9e7c-e03658cb4940_redemption.jpg', 1, 3, 4, 2),
-('Inception', 'Un ladrón de sueños es contratado para implantar una idea en la mente de alguien mientras navega por un mundo de sueños dentro de sueños, llevando a cabo una misión de robo mental.', 2010, 148, 'Syncopy', 'Español Latino', 'https://www.ejemplo.com/trailer3', '1c2b134d-af45-4da5-82f2-1cb7ebc19659_inception.jpg', 2, 4, 5, 3);
+INSERT INTO tb_pelicula (titulo, descripcion, anio, duracion, productora, idioma, trailer, imagen, id_genero, id_director, id_pais, id_actor) VALUES
+('Pulp Fiction', 'La película sigue las vidas entrelazadas de dos asesinos a sueldo, un boxeador, un gángster y su esposa mientras sus historias se desarrollan en una serie de eventos inesperados y violentos.', 1994, 154, 'Miramax Films', 'Español Latino', 'https://www.youtube.com/embed/s7EdQ4FqbhY?si=P7Rlh1Ee1uGvHanV', '478ef1c0-438a-4b6b-83d1-ebe7b915023c_pulp.jpg', 1, 2, 3, 1),
+('The Shawshank Redemption', 'La historia se centra en un banquero condenado injustamente que lucha por su libertad mientras se hace amigo de otros reclusos en la prisión de Shawshank.', 1994, 142, 'Castle Rock Entertainment', 'Inglés', 'https://www.youtube.com/embed/NmzuHjWmXOc?si=3IVghgE7UKV_AVW8', '43a63fb0-dd7c-4971-9e7c-e03658cb4940_redemption.jpg', 1, 3, 4, 2),
+('Inception', 'Un ladrón de sueños es contratado para implantar una idea en la mente de alguien mientras navega por un mundo de sueños dentro de sueños, llevando a cabo una misión de robo mental.', 2010, 148, 'Syncopy', 'Español Latino', 'https://www.youtube.com/embed/RV9L7ui9Cn8?si=e4YHWEqWbH9CPpk2', '1c2b134d-af45-4da5-82f2-1cb7ebc19659_inception.jpg', 2, 4, 5, 3),
+('Guardianes de la galaxia', 'Un grupo de inadaptados se une para salvar la galaxia de una amenaza intergaláctica.', 2014, 121, 'Marvel Studios', 'Español Latino', 'https://www.youtube.com/embed/qdIuXCfUKM8?si=-oIbVW1h4g-JIH_h', 'e318aece-47cb-48d4-917c-df7d8e5b0792_guardians.jpg', 1, 5, 6, 4),
+('Avengers: Endgame', 'Los superhéroes de Marvel se unen para enfrentar al villano Thanos y restaurar el equilibrio en el universo.', 2019, 181, 'Marvel Studios', 'Español Latino', 'https://www.youtube.com/embed/znk2OICHbjY?si=_JGScI1F98kY03SY', '2ba312ff-d897-4d27-9ed1-a03794e9218e_avengers.jpg', 1, 7, 6, 1);
 
 INSERT INTO tb_empleado (nom_emp, ape_emp, ema_emp, id_pais) VALUES
 ('John', 'Doe', 'john.doe@example.com', 1),
@@ -133,6 +134,7 @@ INSERT INTO tb_empleado (nom_emp, ape_emp, ema_emp, id_pais) VALUES
 ('Michael', 'Johnson', 'michael.johnson@example.com', 1),
 ('Emily', 'Brown', 'emily.brown@example.com', 3);
 
+/*
 select * from tb_pais;
 select * from tb_genero;
 select * from tb_director;
@@ -141,6 +143,9 @@ select * from tb_usuario;
 select * from tb_administrador;
 select * from tb_pelicula;
 select * from tb_empleado;
+*/
+
+
 
 
 

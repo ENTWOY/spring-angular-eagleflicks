@@ -19,6 +19,7 @@ import { ListaPeliculasComponent } from './components/lista-peliculas/lista-peli
 import { RegistrarPeliculaComponent } from './components/registrar-pelicula/registrar-pelicula.component';
 import { DetallePeliculaComponent } from './components/detalle-pelicula/detalle-pelicula.component';
 import { ActualizarPeliculaComponent } from './components/actualizar-pelicula/actualizar-pelicula.component';
+import { VerPeliculaComponent } from './components/ver-pelicula/ver-pelicula.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ActualizarPeliculaComponent } from './components/actualizar-pelicula/ac
     ListaPeliculasComponent,
     RegistrarPeliculaComponent,
     DetallePeliculaComponent,
-    ActualizarPeliculaComponent
+    ActualizarPeliculaComponent,
+    VerPeliculaComponent
   ],
   imports: [
     BrowserModule,

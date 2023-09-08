@@ -14,7 +14,7 @@ import { ListaPeliculasComponent } from './components/lista-peliculas/lista-peli
 import { RegistrarPeliculaComponent } from './components/registrar-pelicula/registrar-pelicula.component';
 import { DetallePeliculaComponent } from './components/detalle-pelicula/detalle-pelicula.component';
 import { ActualizarPeliculaComponent } from './components/actualizar-pelicula/actualizar-pelicula.component';
-
+import { VerPeliculaComponent } from './components/ver-pelicula/ver-pelicula.component';
 
 const routes: Routes = [
   {path: '',redirectTo:'inicio', pathMatch: 'full'},
@@ -31,7 +31,8 @@ const routes: Routes = [
   {path: 'peliculas', component : ListaPeliculasComponent},
   {path: 'registrar-pelicula', component : RegistrarPeliculaComponent},
   {path: 'detalle-pelicula/:id', component : DetallePeliculaComponent},
-  {path: 'actualizar-pelicula/:id', component : ActualizarPeliculaComponent}
+  {path: 'actualizar-pelicula/:id', component : ActualizarPeliculaComponent},
+  {path: 'ver-pelicula/:id', component : VerPeliculaComponent}
 ];
 
 @NgModule({

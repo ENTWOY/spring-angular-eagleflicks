@@ -4,8 +4,7 @@
         <div class="col-lg-4">
             <div class="card mb-4">
                 <div class="card-body text-center">
-                    <img [src]="myFileImgs + objPeli.imagen" alt="Movie Cover" [title]="objPeli.titulo"
-                    class="rounded img-fluid" style="height: 23em;">
+                    <img *ngIf="myFileImgs && objPeli.imagen" [src]="myFileImgs + objPeli.imagen" alt="Movie Cover" [title]="objPeli.titulo" class="rounded img-fluid" style="height: 23em;">
                 </div>
             </div>
         </div>
@@ -40,7 +39,7 @@
                         <p class="mb-0">Géneros:</p>
                     </div>
                     <div class="col-sm-8">
-                        <p class="text-muted mb-0">{{ objPeli.peliculaGenero.nomGen }}</p>
+                        <p class="text-muted mb-0" *ngIf="objPeli && objPeli.peliculaGenero">{{ objPeli.peliculaGenero.nomGen }}</p>
                     </div>
                 </div>
                 <div class="row">
@@ -48,7 +47,7 @@
                         <p class="mb-0">Actores:</p>
                     </div>
                     <div class="col-sm-8">
-                        <p class="text-muted mb-0">{{ objPeli.peliculaActor.nomActor }}</p>
+                        <p class="text-muted mb-0" *ngIf="objPeli && objPeli.peliculaActor">{{ objPeli.peliculaActor.nomActor }}</p>
                     </div>
                 </div>
                 <div class="row">
@@ -56,7 +55,7 @@
                         <p class="mb-0">Director:</p>
                     </div>
                     <div class="col-sm-8">
-                        <p class="text-muted mb-0">{{ objPeli.peliculaDirector.nombre }}</p>
+                        <p class="text-muted mb-0" *ngIf="objPeli && objPeli.peliculaDirector">{{ objPeli.peliculaDirector.nombre }}</p>
                     </div>
                 </div>
                 <div class="row">
@@ -64,7 +63,7 @@
                         <p class="mb-0">País:</p>
                     </div>
                     <div class="col-sm-8">
-                        <p class="text-muted mb-0">{{ objPeli.peliculaPais.nomPais }}</p>
+                        <p class="text-muted mb-0" *ngIf="objPeli && objPeli.peliculaPais">{{ objPeli.peliculaPais.nomPais }}</p>
                     </div>
                 </div>
                 <div class="row">

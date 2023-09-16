@@ -34,6 +34,10 @@ public class Pais {
 	@JsonIgnore
 	@OneToMany(mappedBy = "peliculaPais")
 	private List<Pelicula> listaPeliculas;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "administradorPais")
+	private List<Administrador> listaAdministradores;
 
 	public List<Pelicula> getListaPeliculas() {
 		return listaPeliculas;

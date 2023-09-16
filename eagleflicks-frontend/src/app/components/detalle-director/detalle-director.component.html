@@ -4,24 +4,24 @@
         <div class="col-lg-12 col-xl-7">
             <div class="card text-black" style="border-radius: 25px;">
                 <div class="card-body p-md-5">
-                    <h4 class="text-center">Detalle Director</h4>
+                    <h4 class="text-center">Detalle Director: <span>{{objDirector.nombre}}</span> </h4>
                     <hr>
                     <div class="py-3 row">
                         <div class="col-md-3 mb-3">
-                            <label for="id" class="form-label">Id:</label>
+                            <label class="form-label">Id:</label>
                             <input id="id" [(ngModel)]="objDirector.idDirector" name="id" type="text" class="form-control" disabled>
                         </div>
                         <div class="col-md-9 mb-3">
-                            <label for="nombre" class="form-label">Nombre:</label>
+                            <label class="form-label">Nombre:</label>
                             <input id="nombre" [(ngModel)]="objDirector.nombre" name="nombre" type="text" class="form-control" disabled>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="fechaNacimiento" class="form-label">Fec. Nacimiento:</label>
+                            <label class="form-label">Fec. Nacimiento:</label>
                             <input id="fechaNacimiento" [(ngModel)]="objDirector.fechaNacimiento" name="fechaNacimiento" type="text" class="form-control" disabled>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="pais" class="form-label">Pais:</label>
-                            <input id="pais" [(ngModel)]="objDirector.directorPais.nomPais" name="pais" type="text" class="form-control" disabled>
+                            <label class="form-label">Pais:</label>
+                            <input id="pais" *ngIf="objDirector && objDirector.directorPais" [(ngModel)]="objDirector.directorPais.nomPais" name="pais" type="text" class="form-control" disabled>
                         </div>
                         <div class="col-md-12 d-flex justify-content-center pt-5">
                             <a [routerLink]="'/directores'" class="btn btn-danger">Regresar</a>

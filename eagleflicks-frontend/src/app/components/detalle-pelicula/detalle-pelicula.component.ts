@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Pelicula } from '../../pelicula';
-import { PeliculaService } from '../../pelicula.service';
+import { Pelicula } from '../../models/pelicula';
+import { PeliculaService } from '../../services/pelicula.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -21,6 +21,10 @@ export class DetallePeliculaComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
+    this.mostrarDetalle();
+  }
+
+  mostrarDetalle(): void {
     this.objPeli = new Pelicula();
     this.serviPeli.obtenerPeliculaPorId(this.id).subscribe(dato => {
       this.objPeli = dato;

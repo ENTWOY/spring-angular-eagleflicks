@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Pelicula } from '../../pelicula';
-import { PeliculaService } from '../../pelicula.service';
+import { Pelicula } from '../../models/pelicula';
+import { PeliculaService } from '../../services/pelicula.service';
 import Swal from 'sweetalert2';
 
 /* Variable JQuery(Datatables */

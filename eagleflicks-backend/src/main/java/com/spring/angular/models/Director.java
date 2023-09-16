@@ -1,6 +1,5 @@
 package com.spring.angular.models;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -34,7 +33,7 @@ public class Director {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "fecha_nacimiento")
-	private Date fechaNacimiento;
+	private String fechaNacimiento;
 
 	@ManyToOne
 	@JoinColumn(name = "id_pais")
@@ -68,11 +67,11 @@ public class Director {
 		this.nombre = nombre;
 	}
 
-	public Date getFechaNacimiento() {
+	public String getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(String fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 

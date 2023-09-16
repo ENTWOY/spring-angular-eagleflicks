@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Pelicula } from '../../pelicula';
-import { InicioService } from '../../inicio.service';
+import { Pelicula } from '../../models/pelicula';
+import { InicioService } from '../../services/inicio.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
@@ -17,18 +17,48 @@ export class VerPeliculaComponent {
   id:number;
   objPeli:Pelicula;
   trailerUrl: SafeResourceUrl;
+  videoPeliUrl: SafeResourceUrl;
+  errorUrlTrailer: string = '';
+  errorUrlVideo: string = '';
 
   constructor(private route:ActivatedRoute, private serviHome:InicioService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.objPeli = new Pelicula();
+  
     this.serviHome.obtenerPeliculaPorId(this.id).subscribe(dato => {
       this.objPeli = dato;
 
-      if (this.objPeli.trailer) {
-        this.trailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.objPeli.trailer);
-      }
+      this.handleTrailerUrl();
+      this.handleVideoUrl();
     });
+  }
+
+  private handleTrailerUrl(): void {
+    if (this.objPeli.trailer) {
+      if (this.isValidUrl(this.objPeli.trailer)) {
+        this.trailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.objPeli.trailer);
+      } else {
+        this.errorUrlTrailer = 'URL del trailer(YouTube) no válida';
+      }
+    }
+  }
+  
+  private handleVideoUrl(): void {
+    if (this.objPeli.video) {
+      if (this.isValidUrl(this.objPeli.video)) {
+        this.videoPeliUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.objPeli.video);
+      } else {
+        this.errorUrlVideo = 'URL del video(Película) no válida';
+      }
+    }
+  }
+  
+
+  isValidUrl(url: string): boolean {
+    // Verificar si la URL comienza con http:// o https://
+    const urlPattern = /^(http:\/\/|https:\/\/)/;
+    return urlPattern.test(url);
   }
 }

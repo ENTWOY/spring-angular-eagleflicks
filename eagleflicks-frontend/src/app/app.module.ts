@@ -20,6 +20,21 @@ import { RegistrarPeliculaComponent } from './components/registrar-pelicula/regi
 import { DetallePeliculaComponent } from './components/detalle-pelicula/detalle-pelicula.component';
 import { ActualizarPeliculaComponent } from './components/actualizar-pelicula/actualizar-pelicula.component';
 import { VerPeliculaComponent } from './components/ver-pelicula/ver-pelicula.component';
+import { ListaGenerosComponent } from './components/lista-generos/lista-generos.component';
+import { RegistrarGeneroComponent } from './components/registrar-genero/registrar-genero.component';
+import { DetalleGeneroComponent } from './components/detalle-genero/detalle-genero.component';
+import { ActualizarGeneroComponent } from './components/actualizar-genero/actualizar-genero.component';
+import { ListaActoresComponent } from './components/lista-actores/lista-actores.component';
+import { RegistrarActorComponent } from './components/registrar-actor/registrar-actor.component';
+import { ActualizarActorComponent } from './components/actualizar-actor/actualizar-actor.component';
+import { DetalleActorComponent } from './components/detalle-actor/detalle-actor.component';
+import { BibliotecaPeliculasComponent } from './components/biblioteca-peliculas/biblioteca-peliculas.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuarios.component';
+import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
+import { ActualizarUsuarioComponent } from './components/actualizar-usuario/actualizar-usuario.component';
+import { DetalleUsuarioComponent } from './components/detalle-usuario/detalle-usuario.component';
+import { SorprendemeComponent } from './components/sorprendeme/sorprendeme.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +53,22 @@ import { VerPeliculaComponent } from './components/ver-pelicula/ver-pelicula.com
     RegistrarPeliculaComponent,
     DetallePeliculaComponent,
     ActualizarPeliculaComponent,
-    VerPeliculaComponent
+    VerPeliculaComponent,
+    ListaGenerosComponent,
+    RegistrarGeneroComponent,
+    DetalleGeneroComponent,
+    ActualizarGeneroComponent,
+    ListaActoresComponent,
+    RegistrarActorComponent,
+    ActualizarActorComponent,
+    DetalleActorComponent,
+    BibliotecaPeliculasComponent,
+    MenuComponent,
+    ListaUsuariosComponent,
+    RegistrarUsuarioComponent,
+    ActualizarUsuarioComponent,
+    DetalleUsuarioComponent,
+    SorprendemeComponent
   ],
   imports: [
     BrowserModule,

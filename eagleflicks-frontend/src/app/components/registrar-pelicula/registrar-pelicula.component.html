@@ -1,69 +1,73 @@
-<div class="container h-100 pt-5 my-5">
+<div class="container h-100 pt-4 my-5">
     <br>
     <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-lg-12 col-xl-11">
+        <div class="col-lg-12 col-xl-12">
             <div class="card text-black" style="border-radius: 25px;">
-                <div class="card-body p-md-5">
-                    <h4 class="text-center">Registrar Pelicula</h4>
+                <div class="card-body">
+                    <h4 class="text-center">Registrar Película</h4>
                     <hr>
                     <form (ngSubmit)="handleSubmit()" class="py-3 row" method="post" enctype="multipart/form-data">
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-2 mb-3">
                             <label for="id" class="form-label">Id:</label>
                             <input id="idPelicula" [(ngModel)]="objPelicula.idPelicula" name="idPelicula" type="text" class="form-control" disabled>
                         </div>
-                        <div class="col-md-9 mb-3">
+                        <div class="col-md-8 mb-3">
                             <label class="form-label">Título de la película:</label>
                             <input [(ngModel)]="objPelicula.titulo" id="titulo" name="titulo" type="text" placeholder="Escribe el nombre de la película" class="form-control" required>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Descripcion:</label>
-                            <textarea [(ngModel)]="objPelicula.descripcion" name="descripcion" id="descripcion" placeholder="Escribe una breve descripción de la película" rows="2" type="text" class="form-control" required></textarea>
-                        </div>
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-2 mb-3">
                             <label class="form-label">Año de lanzamiento:</label>
                             <input [(ngModel)]="objPelicula.anio" name="anio" id="anio" type="number" placeholder="Ej. 2023" class="form-control" required>
                         </div>
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-5 mb-3">
+                            <label class="form-label">Descripcion:</label>
+                            <textarea [(ngModel)]="objPelicula.descripcion" name="descripcion" id="descripcion" placeholder="Escribe una breve descripción de la película" rows="2" type="text" class="form-control" required></textarea>
+                        </div>
+                        <div class="col-md-2 mb-3">
                             <label class="form-label">Duración:</label>
                             <input [(ngModel)]="objPelicula.duracion" name="duracion" id="duracion" placeholder="Ej. 120" type="number" class="form-control" required>
                         </div>
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-3 mb-3">
                             <label class="form-label">Productora:</label>
                             <input [(ngModel)]="objPelicula.productora" name="productora" id="productora" placeholder="Ej. Warner Bros"  type="text" class="form-control" required>
                         </div>
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-2 mb-3">
                             <label class="form-label">Idioma:</label>
                             <input [(ngModel)]="objPelicula.idioma" name="idioma" id="idioma" placeholder="Ej. Español Latino"  type="text" class="form-control" required>
                         </div>
-                        <div class="col-md-5 mb-3">
-                            <label class="form-label">Trailer:</label>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Trailer: URL Youtube</label>
                             <input [(ngModel)]="objPelicula.trailer" name="trailer" id="trailer" placeholder="https://www.example.com/trailer" type="text" class="form-control" required>
                         </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Vídeo: URL Película <span class="badge text-bg-danger">Servidores: archive.org / Mega</span></label>
+                            <input [(ngModel)]="objPelicula.video" name="video" id="video" placeholder="https://www.example.com/movie" type="text" class="form-control" required>
+                        </div>
                         <div class="col-md-4 mb-3">
-                            <label for="pais">País:</label>
+                            <label class="form-label" for="pais">Selecciona un País:</label>
                             <select class="form-select" id="pais" [(ngModel)]="objPelicula.peliculaPais" name="pais" required>
-                                <option disabled value="">[Seleccione un pais]</option>
+                                <option disabled value="0" >[Seleccione un país]</option>
                                 <option *ngFor="let pais of objPaises" [ngValue]="pais">{{ pais.nomPais }}</option>
                             </select>                          
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="pais">Genero:</label>
+                            <label class="form-label" for="pais">Selecciona Género/s:</label>
                             <select class="form-select" id="genero" [(ngModel)]="objPelicula.peliculaGenero" name="genero" required>
-                                <option disabled value="">[Seleccione un genero]</option>
+                                <option disabled value="0">[Seleccione un genero]</option>
                                 <option *ngFor="let gen of objGenero" [ngValue]="gen">{{ gen.nomGen }}</option>
                             </select>                          
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="pais">Director:</label>
+                            <label class="form-label" for="pais">Seleccione Director/es:</label>
                             <select class="form-select" id="director" [(ngModel)]="objPelicula.peliculaDirector" name="director" required>
-                                <option disabled value="">[Seleccione un director]</option>
+                                <option disabled value="0">[Seleccione un director]</option>
                                 <option *ngFor="let dir of objDirector" [ngValue]="dir">{{ dir.nombre }}</option>
                             </select>                          
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="actor">Actor/es:</label>
+                            <label class="form-label" for="actor">Seleccione Actor/es:</label>
                             <select class="form-select" id="actor" [(ngModel)]="objPelicula.peliculaActor" name="actor" required>
-                                <option disabled value="">[Seleccione actor/es]</option>
+                                <option disabled value="0">[Seleccione actor/es]</option>
                                 <option *ngFor="let act of objActor" [ngValue]="act">{{ act.nomActor }}</option>
                             </select>                          
                         </div>

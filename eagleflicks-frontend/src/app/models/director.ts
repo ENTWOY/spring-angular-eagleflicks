@@ -4,7 +4,7 @@ export class Director {
 
     idDirector: number;
     nombre: string;
-    fechaNacimiento: Date;
+    fechaNacimiento: string;
     directorPais: Pais;
 
 }

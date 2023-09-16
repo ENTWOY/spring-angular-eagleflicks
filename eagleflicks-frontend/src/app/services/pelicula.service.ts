@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Pelicula } from './pelicula';
-import { Pais } from './pais';
-import { Director } from './director';
-import { Genero } from './genero';
-import { Actor } from './actor';
+import { Pelicula } from '../models/pelicula';
+import { Pais } from '../models/pais';
+import { Director } from '../models/director';
+import { Genero } from '../models/genero';
+import { Actor } from '../models/actor';
 
 @Injectable({
   providedIn: 'root'

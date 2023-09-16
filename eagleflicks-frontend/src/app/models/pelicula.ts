@@ -13,6 +13,7 @@ export class Pelicula {
     productora: string;
     idioma: string;
     trailer: string;
+    video: string;
     imagen: string;
     peliculaGenero: Genero;
     peliculaDirector: Director;

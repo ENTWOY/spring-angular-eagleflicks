@@ -13,18 +13,24 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-12 d-flex align-items-center justify-content-between">
-                        <h1 class="mb-0 fw-bold">{{ objPeli.titulo }}</h1>
-                        <span class="badge text-bg-warning">{{ objPeli.idioma }}</span>
+                        <h1 class="mb-0 fw-bold">{{ objPeli.titulo }} <span>({{objPeli.anio}})</span></h1>
+                        <span class="badge text-bg-dark">{{ objPeli.idioma }}</span>
                     </div>
                 </div>
                 <br>
                 <br>
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-sm-2">
-                        <p class="mb-0">{{ objPeli.duracion }} min</p>
+                        <p class="mb-0">Duración:</p>
                     </div>
-                    <div class="col-sm-8">
-                        <p class="mb-0">{{ objPeli.anio }}</p>
+                    <div class="col-sm-2">
+                        <p class="text-muted mb-0">{{ objPeli.duracion }} min</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <!-- <p class="mb-0">{{ objPeli.anio }}</p> -->
+                        <button type="button" class="btn btn-outline-danger px-5" data-bs-toggle="modal" data-bs-target="#myModal">
+                            Ver Trailer
+                        </button>
                     </div>
                 </div>
                 <br>
@@ -76,19 +82,23 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-2">
-                        <p class="mb-0">Trailer:</p>
+                        <p class="mb-0">Vídeo:</p>
                     </div>
                     <div class="col-sm-8">
-                        <p class="text-muted mb-0">{{ objPeli.trailer }}</p>
+                        <p class="text-muted mb-0">{{ objPeli.video }}</p>
                     </div>
                 </div>
             </div>
             </div>
         </div>
         </div>
-        
         <div class="col-sm-12">
-            <iframe width="100%" height="666" [src]="trailerUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <!-- Validar si la URL es correcta* -->
+            <div *ngIf="errorUrlVideo">
+                <p class="text-danger">{{ errorUrlVideo }}</p>
+            </div>
+            <!-- Reproducto de ver-pelicula -->
+            <iframe class="border border-3 rounded" [src]="videoPeliUrl" width="100%" height="666" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
 
             <div class="my-3">
                 <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore excepturi ex iure vel possimus illo animi in quia. Deserunt dolore veniam ipsam libero, tempore ab ex odio et nostrum? Quibusdam?</h4>
@@ -96,4 +106,23 @@
             </div>
         </div>
     </div>
+
+    <!-- Start Modal View Trailer -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Trailer: {{objPeli.titulo}}</h5>
+                    <div *ngIf="errorUrlTrailer">
+                        <p class="text-danger">{{ errorUrlTrailer }}</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe width="100%" height="666" [src]="trailerUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <!-- End Modal View Trailer -->
 </section>

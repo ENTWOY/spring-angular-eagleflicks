@@ -1,5 +1,9 @@
 package com.spring.angular.models;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -39,6 +44,9 @@ public class Pelicula {
 	@Column(name = "trailer")
 	private String trailer;
 	
+	@Column(name = "video")
+	private String video;
+	
 	@Column(name = "imagen")
 	private String imagen;
 	
@@ -58,27 +66,16 @@ public class Pelicula {
 	@JoinColumn(name = "id_actor") 
 	private Actor peliculaActor;
 	
-	public Pelicula() {
-		super();
+	@JsonIgnore
+	@OneToMany(mappedBy = "comentarioPelicula")
+	private List<Comentario> listaComentario;
+
+	public List<Comentario> getListaComentario() {
+		return listaComentario;
 	}
 
-	public Pelicula(Integer idPelicula, String titulo, String descripcion, int anio, int duracion, String productora,
-			String idioma, String trailer, String imagen, Genero peliculaGenero, Director peliculaDirector,
-			Pais peliculaPais, Actor peliculaActor) {
-		super();
-		this.idPelicula = idPelicula;
-		this.titulo = titulo;
-		this.descripcion = descripcion;
-		this.anio = anio;
-		this.duracion = duracion;
-		this.productora = productora;
-		this.idioma = idioma;
-		this.trailer = trailer;
-		this.imagen = imagen;
-		this.peliculaGenero = peliculaGenero;
-		this.peliculaDirector = peliculaDirector;
-		this.peliculaPais = peliculaPais;
-		this.peliculaActor = peliculaActor;
+	public void setListaComentario(List<Comentario> listaComentario) {
+		this.listaComentario = listaComentario;
 	}
 
 	public Integer getIdPelicula() {
@@ -143,6 +140,14 @@ public class Pelicula {
 
 	public void setTrailer(String trailer) {
 		this.trailer = trailer;
+	}
+
+	public String getVideo() {
+		return video;
+	}
+
+	public void setVideo(String video) {
+		this.video = video;
 	}
 
 	public String getImagen() {

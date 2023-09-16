@@ -1,0 +1,46 @@
+<div class="my-5 pt-3">
+    <br>
+    <div class="d-flex align-items-center">
+        <i class="bi bi-table fs-5 me-2"></i>
+        <h4 class="m-0">Usuarios</h4>
+    </div>
+    <hr>
+    <div class="d-flex align-items-center justify-content-between pb-3">
+        <a [routerLink]="'/registrar-usuario'" class="btn btn-success">
+            <i class="bi bi-plus-square me-1"></i> Registro Nuevo
+        </a>
+    </div>
+
+    <table id="datatable-spanish" class="table table-striped table-bordered py-2">
+        <thead class="table-primary">
+            <tr>
+                <th>Id</th>
+                <th>Nombres</th>
+                <th>Email</th>
+                <th>Contraseña</th>
+                <th>Avatar</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of objUsuario">
+                <td>{{ u.idUsu }}</td>
+                <td>{{ u.nombre }}</td>
+                <td>{{ u.email }}</td>
+                <td>{{ u.contrasena }}</td>
+                <td>{{ u.avatar }}</td>
+                <td class="d-flex align-items-center justify-content-center">
+                    <button (click)= "actualizarUsuario(u.idUsu)" class="btn btn-sm btn-primary me-2" title="Editar">
+                        <i class="bi bi-pencil-square"></i>
+                    </button>
+                    <button (click)= "detalleUsuario(u.idUsu)" class="btn btn-sm btn-warning me-2" title="Detalle">
+                        <i class="bi bi-journal-text"></i>
+                    </button>
+                    <button  (click)= "eliminarUsuario(u.idUsu)" class="btn btn-sm btn-danger" title="Eliminar">
+                        <i class="bi bi-trash3"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

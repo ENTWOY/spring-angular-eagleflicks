@@ -12,15 +12,15 @@
                             <input id="id" [(ngModel)]="objDirector.idDirector" name="id" type="text" class="form-control" disabled>
                         </div>
                         <div class="col-md-9 mb-3">
-                            <label for="nombre" class="form-label">Nombre:</label>
-                            <input id="nombre" [(ngModel)]="objDirector.nombre" name="nombre" type="text" class="form-control" required>
+                            <label class="form-label">Nombre:</label>
+                            <input id="nombre" [(ngModel)]="objDirector.nombre" name="nombre" placeholder="Ej. Lorena Muller, Belt Steve" type="text" class="form-control" required>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="fecha" class="form-label">Fec. Nacimiento:</label>
+                            <label class="form-label" class="form-label">Fecha Nacimiento:</label>
                             <input id="fecha" [(ngModel)]="objDirector.fechaNacimiento" name="fecha" type="date" class="form-control" required>
                         </div>
-                        <div class="col-md-6 mt-2 mb-3">
-                            <label for="pais">País:</label>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Nacionalidad:</label>
                             <select class="form-select" id="pais" [(ngModel)]="objDirector.directorPais" name="pais" required>
                                 <option disabled value="">[Seleccione un pais]</option>
                                 <option *ngFor="let pais of objPaises" [ngValue]="pais">{{ pais.nomPais }}</option>

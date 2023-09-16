@@ -12,12 +12,10 @@
     
         <div class="btn-group dropstart">
             <button type="button" class="btn btn-secondary dropdown-toggle px-3" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-file-earmark-pdf me-1"></i> Reportes
+                <i class="bi bi-file-earmark-pdf me-1"></i> Reporte
             </button>
             <ul class="dropdown-menu dropdown-menu-dark">
                 <li><a class="dropdown-item" href="#">PDF</a></li>
-                <li><a class="dropdown-item" href="#">XML</a></li>
-                <li><a class="dropdown-item" href="#">JSON</a></li>
             </ul>
         </div> 
     </div>
@@ -29,10 +27,11 @@
                 <th>Título</th>
                 <th>Descripción</th>
                 <th>Año</th>
-                <th>Duración</th>
-                <th>Productora</th>
+                <th>Min.</th>
+                <th>Prod.</th>
                 <th>Idioma</th>
                 <th>Trailer</th>
+                <th>Vídeo</th>
                 <th>Género</th>
                 <th>Director</th>
                 <th>País</th>
@@ -44,15 +43,16 @@
         <tbody>
             <tr *ngFor="let p of peliculas">
                 <td>{{ p.idPelicula }}</td>
-                <td>{{ p.titulo }}</td>
+                <td class="text_overflow">{{ p.titulo }}</td>
                 <td class="text_overflow">{{ p.descripcion }}</td>
                 <td>{{ p.anio }}</td>
                 <td>{{ p.duracion }}</td>
                 <td class="text_overflow">{{ p.productora }}</td>
                 <td class="text_overflow">{{ p.idioma }}</td>
                 <td class="text_overflow">{{ p.trailer }}</td>
-                <td>{{ p.peliculaGenero.nomGen }}</td>
-                <td>{{ p.peliculaDirector.nombre }}</td>
+                <td class="text_overflow">{{ p.video }}</td>
+                <td class="text_overflow">{{ p.peliculaGenero.nomGen }}</td>
+                <td class="text_overflow">{{ p.peliculaDirector.nombre }}</td>
                 <td>{{ p.peliculaPais.nomPais }}</td>
                 <td class="text_overflow">{{ p.peliculaActor.nomActor }}</td>
                 <td class="text-center">

@@ -39,7 +39,7 @@ FOREIGN KEY (id_pais) REFERENCES tb_pais(id_pais)
 CREATE TABLE tb_pelicula (
 id_pelicula INT AUTO_INCREMENT PRIMARY KEY,
 titulo VARCHAR(255),
-descripcion VARCHAR(455),
+descripcion VARCHAR(499),
 anio INT,
 duracion INT,
 productora VARCHAR(255),
@@ -72,15 +72,6 @@ id_usu INT,
 id_pelicula INT,
 FOREIGN KEY (id_usu) REFERENCES tb_usuario(id_usu),
 FOREIGN KEY (id_pelicula) REFERENCES tb_pelicula(id_pelicula)
-);
-
-create table tb_empleado (
-id_emp int primary key auto_increment,
-nom_emp varchar(99), 
-ape_emp varchar(99), 
-ema_emp varchar(255) NOT NULL UNIQUE,
-id_pais int,
-FOREIGN KEY (id_pais) REFERENCES tb_pais(id_pais)
 );
 
 INSERT INTO tb_genero (nom_gen) VALUES
@@ -136,11 +127,16 @@ INSERT INTO tb_director (nombre, fecha_nacimiento, id_pais) VALUES
 ('David Fincher', '1962-08-28', 20);
 
 INSERT INTO tb_pelicula (titulo, descripcion, anio, duracion, productora, idioma, trailer, video, imagen, id_genero, id_director, id_pais, id_actor) VALUES
-('Pulp Fiction', 'La película sigue las vidas entrelazadas de dos asesinos a sueldo, un boxeador, un gángster y su esposa mientras sus historias se desarrollan en una serie de eventos inesperados y violentos.', 1994, 154, 'Miramax Films', 'Español Latino', 'https://www.youtube.com/embed/s7EdQ4FqbhY?si=P7Rlh1Ee1uGvHanV', 'https://archive.org/embed/fansub_Grappler_Baki', '478ef1c0-438a-4b6b-83d1-ebe7b915023c_pulp.jpg', 1, 2, 3, 1),
-('The Shawshank Redemption', 'La historia se centra en un banquero condenado injustamente que lucha por su libertad mientras se hace amigo de otros reclusos en la prisión de Shawshank.', 1994, 142, 'Castle Rock Entertainment', 'Inglés', 'https://www.youtube.com/embed/NmzuHjWmXOc?si=3IVghgE7UKV_AVW8', '', '43a63fb0-dd7c-4971-9e7c-e03658cb4940_redemption.jpg', 1, 3, 4, 2),
-('Inception', 'Un ladrón de sueños es contratado para implantar una idea en la mente de alguien mientras navega por un mundo de sueños dentro de sueños, llevando a cabo una misión de robo mental.', 2010, 148, 'Syncopy', 'Español Latino', 'https://www.youtube.com/embed/RV9L7ui9Cn8?si=e4YHWEqWbH9CPpk2', '', '1c2b134d-af45-4da5-82f2-1cb7ebc19659_inception.jpg', 2, 4, 5, 3),
-('Guardianes de la galaxia', 'Un grupo de inadaptados se une para salvar la galaxia de una amenaza intergaláctica.', 2014, 121, 'Marvel Studios', 'Español Latino', 'https://www.youtube.com/embed/qdIuXCfUKM8?si=-oIbVW1h4g-JIH_h', '', 'e318aece-47cb-48d4-917c-df7d8e5b0792_guardians.jpg', 1, 5, 6, 4),
-('Avengers: Endgame', 'Los superhéroes de Marvel se unen para enfrentar al villano Thanos y restaurar el equilibrio en el universo.', 2019, 181, 'Marvel Studios', 'Español Latino', 'https://www.youtube.com/embed/znk2OICHbjY?si=_JGScI1F98kY03SY', '', '2ba312ff-d897-4d27-9ed1-a03794e9218e_avengers.jpg', 1, 7, 6, 1);
+('Pulp Fiction', 'La película sigue las vidas entrelazadas de dos asesinos a sueldo, un boxeador, un gángster y su esposa mientras sus historias se desarrollan en una serie de eventos inesperados y violentos.', 1994, 154, 'Miramax Films', 'Español Latino', 'https://www.youtube.com/embed/s7EdQ4FqbhY?si=P7Rlh1Ee1uGvHanV', 'https://mega.nz/embed/z2QQxaRT#bh18bKEgV1-Sb1hZse5xHnMM_GkRO8w_FD4EhvGsrfs', 'b9ab9db8-56a9-4023-80dd-522e72f3f7a9_pulp.jpg', 1, 2, 3, 1),
+('The Shawshank Redemption', 'La historia se centra en un banquero condenado injustamente que lucha por su libertad mientras se hace amigo de otros reclusos en la prisión de Shawshank.', 1994, 142, 'Castle Rock Entertainment', 'Inglés', 'https://www.youtube.com/embed/NmzuHjWmXOc?si=3IVghgE7UKV_AVW8', 'https://mega.nz/embed/z2QQxaRT#bh18bKEgV1-Sb1hZse5xHnMM_GkRO8w_FD4EhvGsrfs', 'e9f1e3e8-43c6-4a1c-b06b-8e0cf3cade5c_redemption.jpg', 1, 3, 4, 2),
+('Inception', 'Un ladrón de sueños es contratado para implantar una idea en la mente de alguien mientras navega por un mundo de sueños dentro de sueños, llevando a cabo una misión de robo mental.', 2010, 148, 'Syncopy', 'Español Latino', 'https://www.youtube.com/embed/RV9L7ui9Cn8?si=e4YHWEqWbH9CPpk2', 'https://mega.nz/embed/z2QQxaRT#bh18bKEgV1-Sb1hZse5xHnMM_GkRO8w_FD4EhvGsrfs', 'df1e473a-abac-4156-9c94-b69bcd7ce42d_inception.jpg', 2, 4, 5, 3),
+('Guardianes de la galaxia', 'Un grupo de inadaptados se une para salvar la galaxia de una amenaza intergaláctica.', 2014, 121, 'Marvel Studios', 'Español Latino', 'https://www.youtube.com/embed/qdIuXCfUKM8?si=-oIbVW1h4g-JIH_h', 'https://mega.nz/embed/z2QQxaRT#bh18bKEgV1-Sb1hZse5xHnMM_GkRO8w_FD4EhvGsrfs', 'b54c6354-8115-4e2a-83f0-b531e5c1f9e6_galaxy.jpeg', 1, 5, 6, 4),
+('Avengers: Endgame', 'Los superhéroes de Marvel se unen para enfrentar al villano Thanos y restaurar el equilibrio en el universo.', 2019, 181, 'Marvel Studios', 'Español Latino', 'https://www.youtube.com/embed/znk2OICHbjY?si=_JGScI1F98kY03SY', 'https://mega.nz/embed/z2QQxaRT#bh18bKEgV1-Sb1hZse5xHnMM_GkRO8w_FD4EhvGsrfs', 'c1442dbb-2407-40e1-accb-0e9b6d5310ae_avengers.jpg', 1, 7, 6, 1),
+('Interstellar', 'Un grupo de astronautas se embarca en un viaje interestelar para encontrar un nuevo hogar para la humanidad, mientras lidian con fenómenos científicos extraordinarios.', 2010, 148, 'Warner Bros. Pictures', 'Español Latino', 'https://www.youtube.com/embed/UoSSbmD9vqc?si=iqInJxw83CH3L6Fu', 'https://archive.org/embed/fansub_Grappler_Baki', '44d39d82-9b4e-4957-a3b7-4b1116ad28e9_interstellar.jpg', 1, 6, 7, 6),
+('Monarch: Legacy Of Monsters', 'Después de la impactante batalla en San Francisco entre Godzilla y los Titanes, el mundo se enfrenta a la realidad de que monstruos gigantes realmente existen. La serie sigue a una familia a lo largo de varias generaciones mientras descubren sus vínculos con Monarch y se aventuran en el mundo de los monstruos.', 2023, 142, 'Columbia Pictures', 'Español Latino', 'https://www.youtube.com/embed/h-6godjcCIE?si=Vnioo_59VVeAd45E', 'https://archive.org/embed/dragon-ball-super-broly', '78110ba9-638e-4154-91bf-86d0f3c3a58e_monarch.jpg', 2, 8, 9, 3),
+('The Godfather', 'La historia de la familia Corleone, una de las familias de crimen organizado más poderosas de Nueva York.', 1972, 175, 'Paramount Pictures', 'Español Latino', 'https://www.youtube.com/embed/gCVj1LeYnsc?si=u4JQeOX76WvvFGD8', 'https://mega.nz/embed/z2QQxaRT#bh18bKEgV1-Sb1hZse5xHnMM_GkRO8w_FD4EhvGsrfs', 'b727f523-c253-45bb-bd13-40895c86c718_godfather.jpg', 3, 7, 11, 3),
+('Avatar', 'Un ex-marine parapléjico es reclutado para viajar al planeta Pandora, donde se encuentra en medio de un conflicto.', 2009, 162, '20th Century Fox', 'Español Latino', 'https://www.youtube.com/embed/CpXJHWSXJW0?si=zLfio2lOh4thWpFO', 'https://archive.org/embed/fansub_Grappler_Baki', 'e347f730-732f-4330-8dfd-95a6ccf58ad3_avatar.jpeg', 4, 2, 2, 1),
+('Forrest Gump', 'La vida de Forrest Gump, un hombre con un coeficiente intelectual bajo, pero con una gran influencia en los eventos históricos.', 1994, 142, 'Paramount Pictures', 'Español Latino', 'https://www.youtube.com/embed/Cyh1LpxnaxI?si=EzUViWQqCd_m8hzp', 'https://archive.org/embed/fansub_Grappler_Baki', '1bf8c44a-629b-468a-85de-c99f39f4f51f_gump.jpg', 2, 2, 2, 2);
 
 INSERT INTO tb_usuario (nombre, email, contrasena, avatar) VALUES
 ('Anna Maria Schmidt', 'anna@example.com', 'contrasena1', 'avatar1.jpg'),
@@ -155,12 +151,6 @@ INSERT INTO tb_administrador (nombre, apellido, correo_electronico, contrasena, 
 ('Robert', 'Johnson', 'robert.johnson@example.com', 'secure789', '789 Oak St', 3),
 ('Emily', 'Davis', 'emily.davis@example.com', 'secret123', '456 Pine St', 1);
 
-INSERT INTO tb_empleado (nom_emp, ape_emp, ema_emp, id_pais) VALUES
-('John', 'Doe', 'john.doe@example.com', 1),
-('Jane', 'Smith', 'jane.smith@example.com', 2),
-('Michael', 'Johnson', 'michael.johnson@example.com', 1),
-('Emily', 'Brown', 'emily.brown@example.com', 3);
-
 /*
 select * from tb_pais;
 select * from tb_genero;
@@ -170,8 +160,6 @@ select * from tb_usuario;
 select * from tb_administrador;
 select * from tb_pelicula;
 */
-
-
 
 
 

@@ -16,7 +16,7 @@ export class InicioComponent implements OnInit {
   objPelis:Pelicula[];
 
   paginaActual: number = 1;
-  itemsXPagina: number = 5;
+  itemsXPagina: number = 7;
 
   constructor(private serviInicio:InicioService, private router:Router) { }
 

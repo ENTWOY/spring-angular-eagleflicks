@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Director } from 'src/app/director';
-import { Genero } from 'src/app/genero';
-import { Pais } from 'src/app/pais';
-import { Pelicula } from 'src/app/pelicula';
-import { PeliculaService } from 'src/app/pelicula.service';
+import { Director } from 'src/app/models/director';
+import { Genero } from 'src/app/models/genero';
+import { Pais } from 'src/app/models/pais';
+import { Pelicula } from 'src/app/models/pelicula';
+import { PeliculaService } from 'src/app/services/pelicula.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { Actor } from 'src/app/actor';
+import { Actor } from 'src/app/models/actor';
 
 @Component({
   selector: 'app-actualizar-pelicula',

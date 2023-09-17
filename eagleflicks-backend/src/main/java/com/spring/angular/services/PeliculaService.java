@@ -40,4 +40,12 @@ public class PeliculaService {
         Pelicula pelicula = objectMapper.readValue(stringPeli, Pelicula.class);
         return pelicula;
     }
+	
+	public List<Pelicula> buscarPeliculaPorTitulo(String titulo) {
+		return repoPelicula.findByTituloContainingIgnoreCase(titulo);
+	}
+	
+	public List<Pelicula> buscarPeliculaPorAnio(int anio) {
+		return repoPelicula.findByAnio(anio);
+	}
 }

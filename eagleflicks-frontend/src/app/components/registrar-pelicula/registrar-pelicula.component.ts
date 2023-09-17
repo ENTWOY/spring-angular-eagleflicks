@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Pelicula } from '../../pelicula';
-import { PeliculaService } from '../../pelicula.service';
+import { Pelicula } from '../../models/pelicula';
+import { PeliculaService } from '../../services/pelicula.service';
 import Swal from 'sweetalert2';
-import { Genero } from 'src/app/genero';
-import { Director } from 'src/app/director';
-import { Pais } from '../../pais';
-import { Actor } from 'src/app/actor';
+import { Genero } from 'src/app/models/genero';
+import { Director } from 'src/app/models/director';
+import { Pais } from '../../models/pais';
+import { Actor } from 'src/app/models/actor';
 
 @Component({
   selector: 'app-registrar-pelicula',

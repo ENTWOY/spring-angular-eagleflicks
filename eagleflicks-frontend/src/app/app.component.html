@@ -6,9 +6,8 @@
             <span class="fw-bold text-light fs-5 ms-2"><span class="eagle-color">Eagle</span>Flicks</span>
         </a>
         <a routerLink="inicio" routerLinkActive="active" class="navbar-link">Inicio</a>
-        <a class="navbar-link">Películas</a>
-        <a class="navbar-link">Generos</a>
-        <a class="navbar-link">Estrenos</a>
+        <a routerLink="biblioteca-peliculas" class="navbar-link">Biblioteca</a>
+        <a routerLink="sorprendeme"  class="navbar-link">Sorpréndeme</a>
 
         <!-- Form Search Movie -->
         <form class="d-flex">
@@ -37,7 +36,7 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="#" class="nav-link nav-admin d-flex align-items-center rounded-lg text-light fw-bold mb-2">
+                        <a [routerLink]="'/menu'" class="nav-link nav-admin d-flex align-items-center rounded-lg text-light fw-bold mb-2">
                             <i class="bi bi-house-door-fill me-2"></i> 
                             Menu
                         </a>
@@ -59,7 +58,7 @@
                         </a>
                         <!-- Dropdown Menu -->
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item mb-2" href="#">Mantenimiento</a></li>
+                            <li><a class="dropdown-item mb-2" [routerLink]="'/generos'">Mantenimiento</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -79,7 +78,7 @@
                         </a>
                         <!-- Dropdown Menu -->
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item mb-2" href="#">Mantenimiento</a></li>
+                            <li><a class="dropdown-item mb-2" [routerLink]="'/actores'">Mantenimiento</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -87,19 +86,17 @@
                             <i class="bi bi-person-fill me-2"></i> 
                             Usuarios
                         </a>
-                        <!-- Dropdown Menu -->
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item mb-2" href="#">Mantenimiento</a></li>
+                            <li><a class="dropdown-item mb-2" [routerLink]="'/usuarios'">Mantenimiento</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle nav-admin d-flex align-items-center rounded-lg text-light fw-bold mb-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-sunglasses me-2"></i>
-                            Administrador
+                            <i class="fas fa-user-tie me-2"></i>
+                            Administradores
                         </a>
-                        <!-- Dropdown Menu -->
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item mb-2" href="#">Mantenimiento</a></li>
+                            <li><a class="dropdown-item mb-2" [routerLink]="'/administradores'">Mantenimiento</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -142,8 +139,6 @@
 <!-- End Modal SignUp -->
 
 <div class="container"> 
-    <!-- <h2 class="text-center">{{title}}</h2> -->
-    <!-- <app-lista-empleados></app-lista-empleados> -->
     <router-outlet></router-outlet>
 </div>
 
@@ -189,7 +184,7 @@
                 </ul>
             </div>
             <div class="col-lg-3 col-md-6 my-4 mb-md-0">
-                <h6 class="text-uppercase mb-4">Categorías</h6>
+                <h6 class="text-uppercase mb-4">Géneros</h6>
                 <ul class="list-unstyled">
                     <li>
                         <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Series de TV</a>                

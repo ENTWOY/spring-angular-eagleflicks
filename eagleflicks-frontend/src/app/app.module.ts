@@ -1,14 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListaEmpleadosComponent } from './components/lista-empleados/lista-empleados.component';
 import { HttpClientModule } from '@angular/common/http';
-import { RegistrarEmpleadoComponent } from './components/registrar-empleado/registrar-empleado.component';
 import { FormsModule } from '@angular/forms';
-import { ActualizarEmpleadoComponent } from './components/actualizar-empleado/actualizar-empleado.component';
-import { DetalleEmpleadoComponent } from './components/detalle-empleado/detalle-empleado.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ListaDirectoresComponent } from './components/lista-directores/lista-directores.component';
 import { RegistrarDirectorComponent } from './components/registrar-director/registrar-director.component';
@@ -35,14 +30,14 @@ import { RegistrarUsuarioComponent } from './components/registrar-usuario/regist
 import { ActualizarUsuarioComponent } from './components/actualizar-usuario/actualizar-usuario.component';
 import { DetalleUsuarioComponent } from './components/detalle-usuario/detalle-usuario.component';
 import { SorprendemeComponent } from './components/sorprendeme/sorprendeme.component';
+import { ListaAdministradoresComponent } from './components/lista-administradores/lista-administradores.component';
+import { DetalleAdministradorComponent } from './components/detalle-administrador/detalle-administrador.component';
+import { RegistrarAdministradorComponent } from './components/registrar-administrador/registrar-administrador.component';
+import { ActualizarAdministradorComponent } from './components/actualizar-administrador/actualizar-administrador.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListaEmpleadosComponent,
-    RegistrarEmpleadoComponent,
-    ActualizarEmpleadoComponent,
-    DetalleEmpleadoComponent,
     InicioComponent,
     ListaDirectoresComponent,
     RegistrarDirectorComponent,
@@ -68,7 +63,11 @@ import { SorprendemeComponent } from './components/sorprendeme/sorprendeme.compo
     RegistrarUsuarioComponent,
     ActualizarUsuarioComponent,
     DetalleUsuarioComponent,
-    SorprendemeComponent
+    SorprendemeComponent,
+    ListaAdministradoresComponent,
+    DetalleAdministradorComponent,
+    RegistrarAdministradorComponent,
+    ActualizarAdministradorComponent
   ],
   imports: [
     BrowserModule,

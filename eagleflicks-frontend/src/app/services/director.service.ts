@@ -9,10 +9,8 @@ import { Pais } from '../models/pais';
 })
 export class DirectorService {
 
-  // URL que Obtiene el listado del backend
-  private baseURL = "http://localhost:8091/api/director/directores";
-  private baseURL2 = "http://localhost:8091/api/director/paises";
-
+  private baseURL = "http://localhost:8091/api/v1/directores";
+  private baseURL2 = "http://localhost:8091/api/v1/paises";
 
   constructor(private httpClient : HttpClient) { }
 

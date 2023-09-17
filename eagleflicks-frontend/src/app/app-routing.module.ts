@@ -1,9 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListaEmpleadosComponent } from './components/lista-empleados/lista-empleados.component';
-import { RegistrarEmpleadoComponent } from './components/registrar-empleado/registrar-empleado.component';
-import { ActualizarEmpleadoComponent } from './components/actualizar-empleado/actualizar-empleado.component';
-import { DetalleEmpleadoComponent } from './components/detalle-empleado/detalle-empleado.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ListaDirectoresComponent } from './components/lista-directores/lista-directores.component';
 import { RegistrarDirectorComponent } from './components/registrar-director/registrar-director.component';
@@ -30,15 +26,15 @@ import { RegistrarUsuarioComponent } from './components/registrar-usuario/regist
 import { ActualizarUsuarioComponent } from './components/actualizar-usuario/actualizar-usuario.component';
 import { DetalleUsuarioComponent } from './components/detalle-usuario/detalle-usuario.component';
 import { SorprendemeComponent } from './components/sorprendeme/sorprendeme.component';
+import { ListaAdministradoresComponent } from './components/lista-administradores/lista-administradores.component';
+import { DetalleAdministradorComponent } from './components/detalle-administrador/detalle-administrador.component';
+import { RegistrarAdministradorComponent } from './components/registrar-administrador/registrar-administrador.component';
+import { ActualizarAdministradorComponent } from './components/actualizar-administrador/actualizar-administrador.component';
 
 const routes: Routes = [
   {path: '',redirectTo:'inicio', pathMatch: 'full'},
   {path: 'inicio', component: InicioComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'empleados', component:ListaEmpleadosComponent},
-  {path: 'registrar-empleado', component : RegistrarEmpleadoComponent},
-  {path: 'actualizar-empleado/:id', component : ActualizarEmpleadoComponent},
-  {path: 'detalle-empleado/:id', component : DetalleEmpleadoComponent},
   {path: 'directores', component : ListaDirectoresComponent},
   {path: 'registrar-director', component : RegistrarDirectorComponent},
   {path: 'actualizar-director/:id', component : ActualizarDirectorComponent},
@@ -62,7 +58,11 @@ const routes: Routes = [
   {path: 'registrar-usuario', component : RegistrarUsuarioComponent},
   {path: 'actualizar-usuario/:id', component : ActualizarUsuarioComponent},
   {path: 'detalle-usuario/:id', component : DetalleUsuarioComponent},
-  {path: 'sorprendeme', component : SorprendemeComponent}
+  {path: 'sorprendeme', component : SorprendemeComponent},
+  {path: 'administradores', component : ListaAdministradoresComponent},
+  {path: 'registrar-administrador', component : RegistrarAdministradorComponent},
+  {path: 'actualizar-administrador/:id', component : ActualizarAdministradorComponent},
+  {path: 'detalle-administrador/:id', component : DetalleAdministradorComponent}
 ];
 
 @NgModule({

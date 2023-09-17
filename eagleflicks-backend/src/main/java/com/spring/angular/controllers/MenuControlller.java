@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.angular.repositories.ActorRepository;
+import com.spring.angular.repositories.AdministradorRepository;
 import com.spring.angular.repositories.DirectorRepository;
 import com.spring.angular.repositories.GeneroRepository;
 import com.spring.angular.repositories.PaisRepository;
@@ -33,6 +34,8 @@ public class MenuControlller {
 	private DirectorRepository repoDirectores;
 	@Autowired
 	private UsuarioRepository repoUsuarios;
+	@Autowired
+	private AdministradorRepository repoAdministradores;
 
 	@GetMapping("/menu")
 	public Map<String, Long> getMenuData() {
@@ -43,12 +46,14 @@ public class MenuControlller {
 	    Long numberOfDirectors = repoDirectores.count();
 	    Long numberOfCountries = repoPais.count();
 	    Long numberOfUsers = repoUsuarios.count();
+	    Long numberOfAdmins = repoAdministradores.count();
 	    menuData.put("Genres", numberOfGenres);
 	    menuData.put("Actors", numberOfActors);
 	    menuData.put("Movies", numberOfMovies);
 	    menuData.put("Directors", numberOfDirectors);
 	    menuData.put("Countries", numberOfCountries);
 	    menuData.put("Users", numberOfUsers);
+	    menuData.put("Admins", numberOfAdmins);
 	    return menuData;
 	}
 }

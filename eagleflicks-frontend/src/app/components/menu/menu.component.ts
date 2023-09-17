@@ -14,6 +14,7 @@ export class MenuComponent implements OnInit {
   userCount: number;
   DirectorCount: number;
   GenreCount: number;
+  AdminCount: number;
 
   constructor(private serviMenu: MenuAdminService) { }
 
@@ -30,6 +31,7 @@ export class MenuComponent implements OnInit {
       this.userCount = data.Users;
       this.DirectorCount = data.Directors;
       this.GenreCount = data.Genres;
+      this.AdminCount = data.Admins;
     });
   }
 }

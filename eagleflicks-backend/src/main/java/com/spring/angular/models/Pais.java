@@ -24,10 +24,6 @@ public class Pais {
 	private String nomPais;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "empleadoPais")
-	private List<Empleado> listaEmpleados;
-	
-	@JsonIgnore
 	@OneToMany(mappedBy = "directorPais")
 	private List<Director> listaDirectores;
 	
@@ -61,14 +57,6 @@ public class Pais {
 
 	public void setNomPais(String nomPais) {
 		this.nomPais = nomPais;
-	}
-
-	public List<Empleado> getListaEmpleados() {
-		return listaEmpleados;
-	}
-
-	public void setListaEmpleados(List<Empleado> listaEmpleados) {
-		this.listaEmpleados = listaEmpleados;
 	}
 
 	public List<Director> getListaDirectores() {

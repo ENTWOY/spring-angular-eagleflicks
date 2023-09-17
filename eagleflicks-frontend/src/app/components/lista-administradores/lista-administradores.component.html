@@ -1,0 +1,50 @@
+<div class="my-5 pt-3">
+    <br>
+    <div class="d-flex align-items-center">
+        <i class="bi bi-table fs-5 me-2"></i>
+        <h4 class="m-0">Administradores</h4>
+    </div>
+    <hr>
+    <div class="d-flex align-items-center justify-content-between pb-3">
+        <a [routerLink]="'/registrar-administrador'" class="btn btn-success">
+            <i class="bi bi-plus-square me-1"></i> Registro Nuevo
+        </a>
+    </div>
+
+    <table id="datatable-spanish" class="table table-striped table-bordered py-2">
+        <thead class="table-primary">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Contraseña</th>
+                <th>Dirección</th>
+                <th>Pais</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of objAdmin">
+                <td>{{ a.idAdmin }}</td>
+                <td>{{ a.nombre }}</td>
+                <td>{{ a.apellido }}</td>
+                <td>{{ a.correoElectronico }}</td>
+                <td>{{ a.contrasena }}</td>
+                <td>{{ a.direccion }}</td>
+                <td>{{ a.administradorPais.nomPais }}</td>
+                <td class="d-flex align-items-center justify-content-center">
+                    <button (click)= "actualizarAdministrador(a.idAdmin)" class="btn btn-sm btn-primary me-2" title="Editar">
+                        <i class="bi bi-pencil-square"></i>
+                    </button>
+                    <button (click)= "detalleAdministrador(a.idAdmin)" class="btn btn-sm btn-warning me-2" title="Detalle">
+                        <i class="bi bi-journal-text"></i>
+                    </button>
+                    <button  (click)= "eliminarAdministrador(a.idAdmin)" class="btn btn-sm btn-danger" title="Eliminar">
+                        <i class="bi bi-trash3"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

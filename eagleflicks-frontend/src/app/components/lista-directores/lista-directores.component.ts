@@ -16,14 +16,14 @@ export class ListaDirectoresComponent implements OnInit {
 
   objDirector:Director[];
 
-  constructor(private directorServicio:DirectorService, private router:Router) { }
+  constructor(private serviDirector:DirectorService, private router:Router) { }
 
   ngOnInit(): void {
     this.obtenerDirectores();
   }
 
   private obtenerDirectores() {
-    this.directorServicio.obtenerListaDirectores().subscribe(dato => {
+    this.serviDirector.obtenerListaDirectores().subscribe(dato => {
       console.log("Directores: ", dato);
       this.objDirector = dato;
       this.showDatatable();
@@ -54,7 +54,7 @@ export class ListaDirectoresComponent implements OnInit {
         if ($.fn.DataTable.isDataTable('#datatable-spanish')) {
           $('#datatable-spanish').DataTable().destroy();
         }
-        this.directorServicio.eliminarDirector(id).subscribe(dato => {
+        this.serviDirector.eliminarDirector(id).subscribe(dato => {
           console.log(dato);
           this.obtenerDirectores();
         });

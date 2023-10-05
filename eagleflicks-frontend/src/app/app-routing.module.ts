@@ -31,19 +31,21 @@ import { DetalleAdministradorComponent } from './components/detalle-administrado
 import { RegistrarAdministradorComponent } from './components/registrar-administrador/registrar-administrador.component';
 import { ActualizarAdministradorComponent } from './components/actualizar-administrador/actualizar-administrador.component';
 
+import { authGuard } from './guard/auth.guard';
+
 const routes: Routes = [
   {path: '',redirectTo:'inicio', pathMatch: 'full'},
-  {path: 'inicio', component: InicioComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'directores', component : ListaDirectoresComponent},
-  {path: 'registrar-director', component : RegistrarDirectorComponent},
-  {path: 'actualizar-director/:id', component : ActualizarDirectorComponent},
-  {path: 'detalle-director/:id', component : DetalleDirectorComponent},
-  {path: 'peliculas', component : ListaPeliculasComponent},
-  {path: 'registrar-pelicula', component : RegistrarPeliculaComponent},
-  {path: 'detalle-pelicula/:id', component : DetallePeliculaComponent},
-  {path: 'actualizar-pelicula/:id', component : ActualizarPeliculaComponent},
-  {path: 'ver-pelicula/:id', component : VerPeliculaComponent},
+  {path: 'inicio', component: InicioComponent}, //public
+  {path: 'login', component: LoginComponent}, //public
+  {path: 'directores', component : ListaDirectoresComponent, canActivate:[authGuard]},
+  {path: 'registrar-director', component : RegistrarDirectorComponent, canActivate:[authGuard]},
+  {path: 'actualizar-director/:id', component : ActualizarDirectorComponent, canActivate:[authGuard]},
+  {path: 'detalle-director/:id', component : DetalleDirectorComponent, canActivate:[authGuard]},
+  {path: 'peliculas', component : ListaPeliculasComponent, canActivate:[authGuard]},
+  {path: 'registrar-pelicula', component : RegistrarPeliculaComponent, canActivate:[authGuard]},
+  {path: 'detalle-pelicula/:id', component : DetallePeliculaComponent}, //public
+  {path: 'actualizar-pelicula/:id', component : ActualizarPeliculaComponent, canActivate:[authGuard]},
+  {path: 'ver-pelicula/:id', component : VerPeliculaComponent}, //public
   {path: 'generos', component : ListaGenerosComponent},
   {path: 'registrar-genero', component : RegistrarGeneroComponent},
   {path: 'detalle-genero/:id', component : DetalleGeneroComponent},

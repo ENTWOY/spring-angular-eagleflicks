@@ -13,12 +13,12 @@
             <span class="title-login">EagleFlicks</span>
         </div>
         <p class="subtitle-login text-center py-3">Las mejores películas online.</p>
-        <form class="pass-form px-3 shadow-sm">
+        <form class="pass-form px-3 shadow-sm" #form="ngForm" (ngSubmit)="login(form)">
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Usuario" required>
+                <input type="text" id="username" name="username" class="form-control" [(ngModel)]="creds.username" placeholder="Usuario" required>
             </div>
             <div class="input-group mb-3">
-                <input type="password" id="passwordInput" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1">
+                <input type="password" name="password" id="password" class="form-control" [(ngModel)]="creds.password" placeholder="Contraseña" aria-describedby="basic-addon1">
                 <span class="input-group-text" id="basic-addon1">
                     <i id="togglePassword" class="fas fa-eye-slash" style="cursor: pointer;"></i>
                 </span>

@@ -1,4 +1,9 @@
 import { Component, OnInit,  } from '@angular/core';
+import { HttpClient, HttpRequest } from '@angular/common/http';
+import { Credentials } from 'src/app/models';
+import { NgForm } from '@angular/forms';
+import { ApiService } from 'src/app/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,16 +12,29 @@ import { Component, OnInit,  } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  creds: Credentials = {
+    username: "",
+    password: ""
+  }
+
   passwordInput: HTMLInputElement | null;
   togglePassword: HTMLElement | null;
 
-  constructor() {
+  constructor(private apiService: ApiService, private router: Router) {
     this.passwordInput = null;
     this.togglePassword = null;
+    
   }
 
   ngOnInit() {
     this.showPassword();
+  }
+
+  login(form: NgForm){
+    this.apiService.login(this.creds)
+      .subscribe(() => {
+        this.router.navigate(['/']);
+      })
   }
 
   showPassword() {

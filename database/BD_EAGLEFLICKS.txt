@@ -2,6 +2,16 @@ drop database if exists BD_EAGLEFLICKS;
 create database BD_EAGLEFLICKS;
 use BD_EAGLEFLICKS;
 
+CREATE TABLE tb_user (
+id INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(99),
+password VARCHAR(99),
+role VARCHAR(99)
+);
+
+INSERT INTO tb_user(username, password, role) VALUES ("admin", "$2a$10$XXOsl3xic40CS9oXO7BiPe3lNfhpRC08BEu4WJN1GGwadt.Addhlu", "ADMIN");
+INSERT INTO tb_user(username, password, role) VALUES ("user1", "$2a$10$6pJp8qNUbTbZuE.6CiyO0uN.SwqnffBrwV1zODC8GFpSZ.8riVw1a", "USER");
+
 CREATE TABLE tb_pais (
 id_pais INT AUTO_INCREMENT PRIMARY KEY,
 nom_pais VARCHAR(99)
@@ -23,17 +33,6 @@ FOREIGN KEY (id_pais) REFERENCES tb_pais(id_pais)
 CREATE TABLE tb_actor (
 id_actor INT AUTO_INCREMENT PRIMARY KEY,
 nom_actor VARCHAR(255)
-);
-
-CREATE TABLE tb_administrador (
-id_admin INT AUTO_INCREMENT PRIMARY KEY,
-nombre VARCHAR(255) NOT NULL,
-apellido VARCHAR(255) NOT NULL,
-correo_electronico VARCHAR(255) UNIQUE NOT NULL,
-contrasena VARCHAR(255) NOT NULL,
-direccion VARCHAR(255) NOT NULL,
-id_pais int,
-FOREIGN KEY (id_pais) REFERENCES tb_pais(id_pais)
 );
 
 CREATE TABLE tb_pelicula (
@@ -160,6 +159,8 @@ select * from tb_usuario;
 select * from tb_administrador;
 select * from tb_pelicula;
 */
+
+
 
 
 

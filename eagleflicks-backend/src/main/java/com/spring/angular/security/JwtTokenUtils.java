@@ -12,10 +12,9 @@ import java.util.*;
 public class JwtTokenUtils {
     private final static String ACCESS_TOKEN_SECRET = "4sEd654_fe#$dseasq!4862_axaw54_dwa$2s_eqz";
     private final static Long ACCESS_TOKEN_VALIDITY_SECONDS = 1_500_000L;
-    public static String createJwtToken(String username, String password, Collection<? extends GrantedAuthority> roles){
+    public static String createJwtToken(String username, Collection<? extends GrantedAuthority> roles){
         Date expirationDate = new Date(System.currentTimeMillis() + ACCESS_TOKEN_VALIDITY_SECONDS);
         Map<String, Object> extra = new HashMap<>();
-        extra.put("password", password);
         //For now a user can only have ONE role assigned
         for (GrantedAuthority role : roles) {
             extra.put("role", role.getAuthority());

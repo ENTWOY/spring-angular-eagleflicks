@@ -52,10 +52,10 @@ public class WebSecurityConfig {
         return http
                 .csrf(csrf -> csrf.disable())
                 .authorizeRequests(eiur ->
-                        eiur.requestMatchers("/api/home/**").permitAll()
-                                .requestMatchers("/api/director/directores").hasAuthority("ADMIN")
+                        eiur.requestMatchers(HttpMethod.GET,"/api/home/**").permitAll()
+                                .requestMatchers("/api/director/**").hasAuthority("ADMIN")
                                 .requestMatchers(HttpMethod.GET,"/api/movie/**").permitAll()
-                                .anyRequest().authenticated())
+                                .anyRequest().hasAuthority("ADMIN"))
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilter(jwtAuthenticationFilter)
                 .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class)
@@ -77,7 +77,7 @@ public class WebSecurityConfig {
 
             response.setHeader("Access-Control-Allow-Origin", "*");
             response.setHeader("Access-Control-Allow-Methods", "GET,POST,DELETE,PUT,OPTIONS");
-            response.setHeader("Access-Control-Expose-Headers", "authorization");
+            response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
             response.setHeader("Access-Control-Allow-Credentials", "true");
             response.setHeader("Access-Control-Max-Age", "86400");
             if ("OPTIONS".equalsIgnoreCase(((HttpServletRequest) servletRequest).getMethod())) {

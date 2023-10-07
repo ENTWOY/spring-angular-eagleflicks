@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { JwtService } from './utils/jwt.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Spring Backend and Angular Frontend';
+  tokenExists = () => JwtService.tokenExists();
 }

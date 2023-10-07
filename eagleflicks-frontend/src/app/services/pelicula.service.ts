@@ -6,6 +6,7 @@ import { Pais } from '../models/pais';
 import { Director } from '../models/director';
 import { Genero } from '../models/genero';
 import { Actor } from '../models/actor';
+import { JwtService } from './utils/jwt.service';
 
 @Injectable({
   providedIn: 'root'
@@ -45,12 +46,16 @@ export class PeliculaService {
     const formData = new FormData();
     formData.append('file', file);
     formData.append('stringPeli', JSON.stringify(objPeli));
-    return this.httpClient.post(`${this.baseUrl}`, formData).toPromise();
+    return this.httpClient.post(`${this.baseUrl}`, formData, {
+      headers: {"Authorization":`Bearer ${JwtService.getToken()}`}
+    }).toPromise();
   }
 
 
   eliminarPelicula(id:number) : Observable<Object>{
-    return this.httpClient.delete(`${this.baseUrl}/${id}`);
+    return this.httpClient.delete(`${this.baseUrl}/${id}`, {
+      headers: {"Authorization":`Bearer ${JwtService.getToken()}`}
+    });
   }
 
   obtenerPeliculaPorId(id:number) : Observable<Pelicula>{

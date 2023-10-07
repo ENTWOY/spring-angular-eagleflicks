@@ -19,6 +19,10 @@
             </div>
         </form>        
         
+        <ng-container *ngIf="!tokenExists()">
+            <a [routerLink]="'/login'" class="btn btn-light">Login</a>
+        </ng-container>
+        <ng-container *ngIf="tokenExists()">
         <!-- btn Open Menu Admin -->
         <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -115,6 +119,7 @@
             </div>
         </div>
         <!-- End Menu Admin -->
+        </ng-container>
     </div>
 </nav>
 

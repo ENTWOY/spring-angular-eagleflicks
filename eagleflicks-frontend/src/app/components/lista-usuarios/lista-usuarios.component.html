@@ -17,7 +17,6 @@
                 <th>Id</th>
                 <th>Nombres</th>
                 <th>Email</th>
-                <th>Contraseña</th>
                 <th>Avatar</th>
                 <th></th>
             </tr>
@@ -27,7 +26,6 @@
                 <td>{{ u.idUsu }}</td>
                 <td>{{ u.nombre }}</td>
                 <td>{{ u.email }}</td>
-                <td>{{ u.contrasena }}</td>
                 <td>{{ u.avatar }}</td>
                 <td class="d-flex align-items-center justify-content-center">
                     <button (click)= "actualizarUsuario(u.idUsu)" class="btn btn-sm btn-primary me-2" title="Editar">

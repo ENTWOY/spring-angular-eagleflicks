@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Director } from '../models/director';
 import { Pais } from '../models/pais';
-import { JwtService } from './utils/jwt.service';
+import { JwtService } from '../utils/jwt.service';
 
 @Injectable({
   providedIn: 'root'

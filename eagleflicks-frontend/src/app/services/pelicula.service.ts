@@ -6,7 +6,7 @@ import { Pais } from '../models/pais';
 import { Director } from '../models/director';
 import { Genero } from '../models/genero';
 import { Actor } from '../models/actor';
-import { JwtService } from './utils/jwt.service';
+import { JwtService } from '../utils/jwt.service';
 
 @Injectable({
   providedIn: 'root'

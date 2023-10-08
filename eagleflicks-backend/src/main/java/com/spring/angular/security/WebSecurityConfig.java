@@ -53,7 +53,7 @@ public class WebSecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeRequests(eiur ->
                         eiur.requestMatchers(HttpMethod.GET,"/api/home/**").permitAll()
-                                .requestMatchers("/api/director/**").hasAuthority("ADMIN")
+                                .requestMatchers("/api/v1/**").hasAuthority("ADMIN")
                                 .requestMatchers(HttpMethod.GET,"/api/movie/**").permitAll()
                                 .anyRequest().hasAuthority("ADMIN"))
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -104,6 +104,4 @@ public class WebSecurityConfig {
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
-
-
 }

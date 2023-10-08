@@ -1,6 +1,6 @@
 package com.spring.angular.security;
 
-import com.spring.angular.models.User;
+import com.spring.angular.models.Usuario;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,29 +10,29 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-public class UserDetailsImpl implements UserDetails {
+public class UsuarioDetailsImpl implements UserDetails {
 
-    private final User user;
+    private final Usuario usuario;
 
-    public UserDetailsImpl(User user) {
-        this.user = user;
+    public UsuarioDetailsImpl(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(user.getRole()));
+        authorities.add(new SimpleGrantedAuthority("USER")); // You can set the role for Usuario
         return authorities;
     }
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return usuario.getContrasena();
     }
 
     @Override
     public String getUsername() {
-        return user.getUsername();
+        return usuario.getEmail();
     }
 
     @Override

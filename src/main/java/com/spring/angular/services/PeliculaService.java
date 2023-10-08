@@ -43,8 +43,8 @@ public class PeliculaService {
 		return repoPelicula.findById(id).orElseThrow(() -> new ResourceNotFoundException("No existe la pelicula con el ID : " + id));
 	}
 	
-	public List<Pelicula> obtenerRegistrosParaExportar(int idPelicula) {
-	    return repoPelicula.obtenerRegistrosParaExportar(idPelicula);
+	public List<Pelicula> obtenerRegistrosParaExportar() {
+	    return repoPelicula.obtenerRegistrosParaExportar();
 	}
 	
 	public void eliminarPeliculaPorId(Integer id) {
@@ -58,10 +58,9 @@ public class PeliculaService {
         return pelicula;
     }
 	
-	public InputStream getPeliculaReport(Pelicula pelicula) throws JRException {
-	    List<Pelicula> listaPeliculas = this.obtenerRegistrosParaExportar(pelicula.getIdPelicula());
+	public InputStream getPeliculaReport(List<Pelicula> peliculas) throws JRException {
 	    List<PeliculaReport> listData = new ArrayList<PeliculaReport>();
-	    listData.add(new PeliculaReport(listaPeliculas));
+	    listData.add(new PeliculaReport(peliculas));
 
 	    JRBeanCollectionDataSource dts = new JRBeanCollectionDataSource(listData);
 
@@ -73,4 +72,5 @@ public class PeliculaService {
 	        throw e;
 	    }
 	}
+
 }

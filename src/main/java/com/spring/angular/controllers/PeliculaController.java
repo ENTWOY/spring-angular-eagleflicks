@@ -175,7 +175,7 @@ public class PeliculaController {
 	        return ResponseEntity.noContent().build();
 	    }
 
-	    InputStream pdfStream = serviPelicula.getPeliculaReport(allPeliculas.get(0)); // Obtener informe de la primera película (puedes adaptar esta parte según tus necesidades)
+	    InputStream pdfStream = serviPelicula.getPeliculaReport(allPeliculas);
 	    byte[] data = pdfStream.readAllBytes();
 	    pdfStream.close();
 	    

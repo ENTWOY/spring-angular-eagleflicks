@@ -15,6 +15,6 @@ public interface PeliculaRepository extends JpaRepository<Pelicula, Integer>{
 	
 	public List<Pelicula> findById(int idPelicula);
 
-	@Query("SELECT p FROM Pelicula p WHERE p.id = :idPelicula")
-	public List<Pelicula> obtenerRegistrosParaExportar(int idPelicula);
+	@Query("SELECT p FROM Pelicula p")
+	public List<Pelicula> obtenerRegistrosParaExportar();
 }

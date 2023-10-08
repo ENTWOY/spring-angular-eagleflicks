@@ -1,11 +1,14 @@
 package com.spring.angular.controllers;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -32,6 +35,8 @@ import com.spring.angular.services.GeneroService;
 import com.spring.angular.services.PaisService;
 import com.spring.angular.services.PeliculaService;
 import com.spring.angular.services.UploadFileService;
+
+import net.sf.jasperreports.engine.JRException;
 
 @RestController
 @RequestMapping("/api/movie/")
@@ -157,5 +162,28 @@ public class PeliculaController {
 	        respuesta.put("eliminar", Boolean.TRUE);
 	        return ResponseEntity.ok(respuesta);
 	    }
+	}
+	
+	@GetMapping("/pelicula/pelicula_report_pdf")
+	public ResponseEntity<ByteArrayResource> generateAllRegistrosPdf() throws IOException, JRException {
+	    List<Pelicula> allPeliculas = serviPelicula.listarPeliculas(); // Obtener todas las películas
+
+	    // Verificar si hay películas para generar el informe
+	    if (allPeliculas.isEmpty()) {
+	        // Manejar el caso en el que no hay películas disponibles, por ejemplo, lanzar una excepción o mostrar un mensaje de error.
+	        // Aquí se muestra cómo devolver una respuesta vacía con un código de estado 204 (No Content).
+	        return ResponseEntity.noContent().build();
+	    }
+
+	    InputStream pdfStream = serviPelicula.getPeliculaReport(allPeliculas);
+	    byte[] data = pdfStream.readAllBytes();
+	    pdfStream.close();
+	    
+	    HttpHeaders headers = new HttpHeaders();
+	    headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=reporte_peliculas.pdf");
+	    headers.setContentType(MediaType.APPLICATION_PDF);
+	    headers.setContentLength(data.length);
+
+	    return ResponseEntity.ok().headers(headers).body(new ByteArrayResource(data));
 	}
 }

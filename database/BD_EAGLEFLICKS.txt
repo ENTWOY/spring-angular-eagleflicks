@@ -2,16 +2,6 @@ drop database if exists BD_EAGLEFLICKS;
 create database BD_EAGLEFLICKS;
 use BD_EAGLEFLICKS;
 
-CREATE TABLE tb_user (
-id INT AUTO_INCREMENT PRIMARY KEY,
-username VARCHAR(99),
-password VARCHAR(99),
-role VARCHAR(99)
-);
-
-INSERT INTO tb_user(username, password, role) VALUES ("admin", "$2a$10$XXOsl3xic40CS9oXO7BiPe3lNfhpRC08BEu4WJN1GGwadt.Addhlu", "ADMIN");
-INSERT INTO tb_user(username, password, role) VALUES ("user1", "$2a$10$6pJp8qNUbTbZuE.6CiyO0uN.SwqnffBrwV1zODC8GFpSZ.8riVw1a", "USER");
-
 CREATE TABLE tb_pais (
 id_pais INT AUTO_INCREMENT PRIMARY KEY,
 nom_pais VARCHAR(99)
@@ -33,6 +23,17 @@ FOREIGN KEY (id_pais) REFERENCES tb_pais(id_pais)
 CREATE TABLE tb_actor (
 id_actor INT AUTO_INCREMENT PRIMARY KEY,
 nom_actor VARCHAR(255)
+);
+
+CREATE TABLE tb_administrador (
+id_admin INT AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(255) NOT NULL,
+apellido VARCHAR(255) NOT NULL,
+correo_electronico VARCHAR(255) UNIQUE NOT NULL,
+contrasena VARCHAR(255) NOT NULL,
+direccion VARCHAR(255) NOT NULL,
+id_pais int,
+FOREIGN KEY (id_pais) REFERENCES tb_pais(id_pais)
 );
 
 CREATE TABLE tb_pelicula (
@@ -138,17 +139,13 @@ INSERT INTO tb_pelicula (titulo, descripcion, anio, duracion, productora, idioma
 ('Forrest Gump', 'La vida de Forrest Gump, un hombre con un coeficiente intelectual bajo, pero con una gran influencia en los eventos históricos.', 1994, 142, 'Paramount Pictures', 'Español Latino', 'https://www.youtube.com/embed/Cyh1LpxnaxI?si=EzUViWQqCd_m8hzp', 'https://archive.org/embed/fansub_Grappler_Baki', '1bf8c44a-629b-468a-85de-c99f39f4f51f_gump.jpg', 2, 2, 2, 2);
 
 INSERT INTO tb_usuario (nombre, email, contrasena, avatar) VALUES
-('Anna Maria Schmidt', 'anna@example.com', 'contrasena1', 'avatar1.jpg'),
-('Andreas Müller Schmitt', 'andreas@example.com', 'contrasena2', 'avatar2.jpg'),
-('Sophie Dupont Martin', 'sophie@example.com', 'contrasena3', 'avatar3.jpg'),
-('Pierre Leclerc Dubois', 'pierre@example.com', 'contrasena4', 'avatar4.jpg'),
-('Elena Russo Ferrari', 'elena@example.com', 'contrasena5', 'avatar5.jpg');
+('Anna Maria Schmidt', 'anna@example.com', '$2a$10$8wY6MCWP6pJ3Cc820Fzsm.NgHUZHSIsgboQaXlPZqW5I3gRokMv9m', 'avatar1.jpg'), -- contrasena1
+('Andreas Müller Schmitt', 'andreas@example.com', '$2a$10$45d0CKY1tlpcFKQLkyQSxOvHiGEiLqb02nUtUowrHDK52DKTVp5IO', 'avatar2.jpg'), -- contrasena2
+('Sophie Dupont Martin', 'sophie@example.com', '$2a$10$8JA2iXF7mmucKLwsvHbxG.4.3pCjJCkIebiLHtpA5ZqWnqMoaJCvK', 'avatar3.jpg'), -- contrasena3
+('Pierre Leclerc Dubois', 'pierre@example.com', '$2a$10$1rc.LeWCOKIVMFkUTorBD.nsor1BMw4wrWmzFVCsXy.aSmCfYSdjG', 'avatar4.jpg'), -- contrasena4
+('Elena Russo Ferrari', 'elena@example.com', '$2a$10$RwB9UtbBren7IYP5Wk/JnO98Ig0R.8xbFEO9j2odUrTlVhdZeFbr2', 'avatar5.jpg'); -- contrasena5
 
-INSERT INTO tb_administrador (nombre, apellido, correo_electronico, contrasena, direccion, id_pais) VALUES
-('John', 'Doe', 'john.doe@example.com', 'contrasena123', '123 Main St', 1),
-('Jane', 'Smith', 'jane.smith@example.com', 'password456', '456 Elm St', 2),
-('Robert', 'Johnson', 'robert.johnson@example.com', 'secure789', '789 Oak St', 3),
-('Emily', 'Davis', 'emily.davis@example.com', 'secret123', '456 Pine St', 1);
+INSERT INTO tb_administrador(nombre, apellido, correo_electronico, contrasena, direccion, id_pais) VALUES ("Jhon", "Doe", "jhon@admin.com","$2a$10$opnwdk0e/kn8VKLkI9e94eNEevArCmPE5aYasdymQPoyEPa5Mfh92", "456 Pine St", 1); -- admin
 
 /*
 select * from tb_pais;
@@ -159,11 +156,3 @@ select * from tb_usuario;
 select * from tb_administrador;
 select * from tb_pelicula;
 */
-
-
-
-
-
-
-
-

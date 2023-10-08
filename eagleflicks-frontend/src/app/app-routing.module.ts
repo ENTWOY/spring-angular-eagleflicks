@@ -34,36 +34,36 @@ import { ActualizarAdministradorComponent } from './components/actualizar-admini
 
 const routes: Routes = [
   {path: '',redirectTo:'inicio', pathMatch: 'full'},
-  {path: 'inicio', component: InicioComponent}, //public
-  {path: 'login', component: LoginComponent}, //public
+  {path: 'inicio', component: InicioComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'directores', component : ListaDirectoresComponent, canActivate:[AuthGuard]},
   {path: 'registrar-director', component : RegistrarDirectorComponent, canActivate:[AuthGuard]},
   {path: 'actualizar-director/:id', component : ActualizarDirectorComponent, canActivate:[AuthGuard]},
   {path: 'detalle-director/:id', component : DetalleDirectorComponent, canActivate:[AuthGuard]},
   {path: 'peliculas', component : ListaPeliculasComponent, canActivate:[AuthGuard]},
   {path: 'registrar-pelicula', component : RegistrarPeliculaComponent, canActivate:[AuthGuard]},
-  {path: 'detalle-pelicula/:id', component : DetallePeliculaComponent}, //public
+  {path: 'detalle-pelicula/:id', component : DetallePeliculaComponent},
   {path: 'actualizar-pelicula/:id', component : ActualizarPeliculaComponent, canActivate:[AuthGuard]},
-  {path: 'ver-pelicula/:id', component : VerPeliculaComponent}, //public
-  {path: 'generos', component : ListaGenerosComponent},
-  {path: 'registrar-genero', component : RegistrarGeneroComponent},
-  {path: 'detalle-genero/:id', component : DetalleGeneroComponent},
-  {path: 'actualizar-genero/:id', component : ActualizarGeneroComponent},
-  {path: 'actores', component : ListaActoresComponent},
-  {path: 'registrar-actor', component : RegistrarActorComponent},
-  {path: 'actualizar-actor/:id', component : ActualizarActorComponent},
-  {path: 'detalle-actor/:id', component : DetalleActorComponent},
+  {path: 'ver-pelicula/:id', component : VerPeliculaComponent},
+  {path: 'generos', component : ListaGenerosComponent, canActivate:[AuthGuard]},
+  {path: 'registrar-genero', component : RegistrarGeneroComponent, canActivate:[AuthGuard]},
+  {path: 'detalle-genero/:id', component : DetalleGeneroComponent, canActivate:[AuthGuard]},
+  {path: 'actualizar-genero/:id', component : ActualizarGeneroComponent, canActivate:[AuthGuard]},
+  {path: 'actores', component : ListaActoresComponent, canActivate:[AuthGuard]},
+  {path: 'registrar-actor', component : RegistrarActorComponent, canActivate:[AuthGuard]},
+  {path: 'actualizar-actor/:id', component : ActualizarActorComponent, canActivate:[AuthGuard]},
+  {path: 'detalle-actor/:id', component : DetalleActorComponent, canActivate:[AuthGuard]},
   {path: 'biblioteca-peliculas', component : BibliotecaPeliculasComponent},
-  {path: 'menu', component : MenuComponent},
-  {path: 'usuarios', component : ListaUsuariosComponent},
-  {path: 'registrar-usuario', component : RegistrarUsuarioComponent},
-  {path: 'actualizar-usuario/:id', component : ActualizarUsuarioComponent},
-  {path: 'detalle-usuario/:id', component : DetalleUsuarioComponent},
+  {path: 'menu', component : MenuComponent, canActivate:[AuthGuard]},
+  {path: 'usuarios', component : ListaUsuariosComponent, canActivate:[AuthGuard]},
+  {path: 'registrar-usuario', component : RegistrarUsuarioComponent, canActivate:[AuthGuard]},
+  {path: 'actualizar-usuario/:id', component : ActualizarUsuarioComponent, canActivate:[AuthGuard]},
+  {path: 'detalle-usuario/:id', component : DetalleUsuarioComponent, canActivate:[AuthGuard]},
   {path: 'sorprendeme', component : SorprendemeComponent},
-  {path: 'administradores', component : ListaAdministradoresComponent},
-  {path: 'registrar-administrador', component : RegistrarAdministradorComponent},
-  {path: 'actualizar-administrador/:id', component : ActualizarAdministradorComponent},
-  {path: 'detalle-administrador/:id', component : DetalleAdministradorComponent}
+  {path: 'administradores', component : ListaAdministradoresComponent, canActivate:[AuthGuard]},
+  {path: 'registrar-administrador', component : RegistrarAdministradorComponent, canActivate:[AuthGuard]},
+  {path: 'actualizar-administrador/:id', component : ActualizarAdministradorComponent, canActivate:[AuthGuard]},
+  {path: 'detalle-administrador/:id', component : DetalleAdministradorComponent, canActivate:[AuthGuard]},
 ];
 
 @NgModule({

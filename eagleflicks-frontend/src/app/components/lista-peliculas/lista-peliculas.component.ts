@@ -68,7 +68,28 @@ export class ListaPeliculasComponent implements OnInit {
         );
       }
     });
-  }   
+  }
+  
+  public generarPdf() {
+    // Llamar a la función obtenerReportePDF sin argumentos
+    this.serviPelicula.obtenerReportePDF().subscribe(
+      blob => {
+        // Generar el PDF
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'reporte_peliculas.pdf';
+        link.click();
+      },
+      error => {
+        Swal.fire({
+          title: 'Error',
+          text: error.message,
+          icon: 'error'
+        });
+      }
+    );
+  }
 
   showDatatable(){
       $(document).ready(function() {

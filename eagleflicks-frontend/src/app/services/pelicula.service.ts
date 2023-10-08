@@ -56,4 +56,9 @@ export class PeliculaService {
   obtenerPeliculaPorId(id:number) : Observable<Pelicula>{
     return this.httpClient.get<Pelicula>(`${this.baseUrl}/${id}`);
   }
+
+  obtenerReportePDF(): Observable<Blob> {
+    const url = `${this.baseUrl}/pelicula_report_pdf`;
+    return this.httpClient.get(url, { responseType: 'blob' });
+    }
 }

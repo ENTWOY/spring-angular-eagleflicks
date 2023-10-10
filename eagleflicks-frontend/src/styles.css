@@ -3,9 +3,11 @@
     #variables.css
 \*-------------------------------------*/
 :root {
+    --global-background-color: #080f28;
     --live-indicator-shadow: hsla(0, 79%, 63%, 0.5);
     --rich-black-fogra-30: hsl(219, 32%, 10%);
     --rich-black-fogra-29: hsl(222, 25%, 10%);
+    --nav-background-color: #141a32;
     --live-indicator: hsl(0, 79%, 63%);
     --oxford-blue-50: hsla(218, 39%, 14%, 0.8);
     --oxford-blue: hsl(218, 39%, 14%);
@@ -30,11 +32,35 @@
     --px: 120px;
 }
 
+body {
+    background: var(--global-background-color);
+    
+}
+
+.container {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.py-10 {
+    margin-top: 10%;
+}
+
 /*-------------------------------------*\
     .navbar.css
 \*-------------------------------------*/
+
 .bg-nav {
-    background: var(--rich-black-fogra-29);
+    background: var(--nav-background-color);
+}
+
+.logo-name-icon {
+    /*background-color: #2d3659;*/
+    padding: .5%;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
 }
 
 #offcanvasDarkNavbar {
@@ -51,16 +77,21 @@ a {
 }
 
 .navbar {
-    height: 75px;
+    height: 100px;
 }
 
 .navbar-link {
     font-size: var(--fs-sm);
     font-weight: bold;
     padding: 10px 0px 10px 0px;
+    width: 8em;
+    text-align: center;
 }
 .navbar-link:hover {
     color: #f44336;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
 }
 
 .eagle-color {
@@ -69,6 +100,41 @@ a {
 
 .nav-admin {
     padding: 0.5rem;
+}
+
+.input-group {
+    border: .5px solid rgba(244,61,54, .5);
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px; ;
+
+    .formulario-buscar {
+        background-color: #11172b;
+        -webkit-text-fill-color: rgba(247, 149, 145, 0.4);
+    }
+    
+    .boton-blanco {
+        background-color: #11172b;
+    }
+
+    .boton-buscar {
+        padding: auto;
+        color: #f44336;
+    }
+    
+}
+
+.custom-toggler.navbar-toggler {
+    border-color: rgba(244,61,54, .5);
+    background-color: transparent;
+    transition:  0.5s;
+} 
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(244,61,54, .5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+.custom-toggler:hover {
+    background-color: rgba(244,61,54, .2);  
 }
 
 .nav-admin:hover {
@@ -96,10 +162,9 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--oxford-blue);
-    padding: 20px 30px;
-    border-radius: 20px;
-    margin-bottom: 30px;
+    /*background: var(--oxford-blue);*/
+    /*padding: 20px 30px;*/
+    /*border-radius: 20px;*/
 }
 
 .filter-bar select {
@@ -172,6 +237,13 @@ input ~ .checked-radio-bg {
 .movie-card {
   --scale: 0.8;
   cursor: pointer;
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+  transition: color .5s;
+}
+
+.movie-card:hover {
+    -webkit-text-fill-color: #f44336;
 }
 
 .movie-card .card-head {
@@ -370,6 +442,11 @@ input ~ .checked-radio-bg {
   z-index: -1;
 }
 
+
+.box-login {
+    background-color: #3B4252;
+}
+
 .logo-login {
   height: 44px;
   margin-right: 16px;
@@ -377,7 +454,7 @@ input ~ .checked-radio-bg {
 
 .title-login {
   font-size: 33px;
-  color: #000000d9;
+  color: #eee;
   font-family: Courier New, Menlo, Monaco, Consolas, monospace;
   font-weight: 600;
   position: relative;

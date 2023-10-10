@@ -1,29 +1,33 @@
 <nav class="bg-nav navbar fixed-top">
     <div class="container">
         <!-- Menu Links -->
-        <a href="#" class="d-flex align-items-center">
-            <img src="assets/img/lg2.svg" alt="EagleFlicks Logo" style="height: 2rem;" />
-            <span class="fw-bold text-light fs-5 ms-2"><span class="eagle-color">Eagle</span>Flicks</span>
-        </a>
-        <a routerLink="inicio" routerLinkActive="active" class="navbar-link">Inicio</a>
-        <a routerLink="biblioteca-peliculas" class="navbar-link">Biblioteca</a>
-        <a routerLink="sorprendeme"  class="navbar-link">Sorpréndeme</a>
-
-        <!-- Form Search Movie -->
-        <form class="d-flex">
-            <div class="input-group">
-                <input class="form-control rounded-start-pill border-0" type="search" placeholder="Buscar películas..." aria-label="Search">
-                <button class="btn btn-light rounded-end-pill border-0" type="submit">
-                    <i class="bi bi-search btn-search"></i>
-                </button>
-            </div>
-        </form>        
         
-        <!-- btn Open Menu Admin -->
-        <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>  
-
+            <a href="#" class="logo-name-icon d-flex align-items-center">
+                <img src="assets/img/lg2.svg" alt="EagleFlicks Logo" style="height: 2em;" />
+                <span class="fw-bold text-light fs-5 ms-2"><span class="eagle-color">Eagle</span>Flicks</span>
+            </a>
+            <a routerLink="inicio" routerLinkActive="active" class="navbar-link">Inicio</a>
+            <a routerLink="biblioteca-peliculas" class="navbar-link">Biblioteca</a>
+            <a routerLink="sorprendeme"  class="navbar-link">Sorpréndeme</a>
+        
+    
+        
+            <!-- Form Search Movie -->
+            <form class="d-flex">
+                <div class="input-group">
+                    <input class="formulario-buscar form-control rounded-start-pill border-0" type="search" placeholder="Buscar películas..." aria-label="Search">
+                    <button class="boton-blanco btn rounded-end-pill border-0" type="submit">
+                        <i class="boton-buscar bi bi-search btn-search"></i>
+                    </button>
+                </div>
+            </form>        
+            
+            <!-- btn Open Menu Admin -->
+            <button class="custom-toggler navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>  
+        
+        
         <!-- Start Menu Admin -->
         <div class="offcanvas offcanvas-end px-1" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">

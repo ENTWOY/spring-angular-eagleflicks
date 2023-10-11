@@ -67,7 +67,7 @@ public class PeliculaService {
 	    return repoPelicula.obtenerRegistrosParaExportar();
 	}
 	
-	public InputStream getPeliculaReport(List<Pelicula> peliculas) throws JRException {
+	public InputStream getPeliculaReport(List<Pelicula> peliculas, Map<String, Object> parameters) throws JRException {
 	    List<PeliculaReport> listData = new ArrayList<PeliculaReport>();
 	    listData.add(new PeliculaReport(peliculas));
 
@@ -75,10 +75,11 @@ public class PeliculaService {
 
 	    try {
 	        // Utiliza el nombre del informe JasperReports que contiene los campos del DataSet de tabla
-	        JasperPrint jPrint = JasperFillManager.fillReport(getClass().getResourceAsStream("/jasper/ReportePeliculasPDF.jasper"), null, dts);
+	        JasperPrint jPrint = JasperFillManager.fillReport(getClass().getResourceAsStream("/jasper/ReportePeliculasPDF.jasper"), parameters, dts);
 	        return new ByteArrayInputStream(JasperExportManager.exportReportToPdf(jPrint));
 	    } catch (JRException e) {
 	        throw e;
 	    }
 	}
+	
 }

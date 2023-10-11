@@ -175,10 +175,13 @@ public class PeliculaController {
 	        return ResponseEntity.noContent().build();
 	    }
 
-	    InputStream pdfStream = serviPelicula.getPeliculaReport(allPeliculas);
+	    Map<String, Object> parameters = new HashMap<>();
+	    parameters.put("IMAGE_PATH", "https://drive.google.com/uc?export=view&id=166I4OhtsyyVzl5IRn74q1VM9WMwpzqmp");
+
+	    InputStream pdfStream = serviPelicula.getPeliculaReport(allPeliculas, parameters);
 	    byte[] data = pdfStream.readAllBytes();
 	    pdfStream.close();
-	    
+
 	    HttpHeaders headers = new HttpHeaders();
 	    headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=reporte_peliculas.pdf");
 	    headers.setContentType(MediaType.APPLICATION_PDF);

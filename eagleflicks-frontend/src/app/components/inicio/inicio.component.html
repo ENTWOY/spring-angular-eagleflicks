@@ -47,10 +47,10 @@
                     </div>
                 </div>
             </div>
-            <div class="card-body">
+            <div class="text-light card-body">
                 <h3 class="card-title">{{ p.titulo }}</h3>
                 <div class="card-info">
-                    <span class="genre text_overflow">{{ p.peliculaGenero.nomGen }}</span>
+                    <!--span class="genre text_overflow">{{ p.peliculaGenero.nomGen }}</span-->
                     <span class="year">{{ p.anio }}</span>
                 </div>
             </div>
@@ -70,7 +70,13 @@
 
 <!-- Start Category Movie -->
 <section class="category" id="category">
-    <h2 class="section-heading">Géneros</h2>
+    <div class="filter-bar">
+        <div class="filter-dropdowns d-flex">
+            <h5 class="text-light">
+                <i class="bi bi-film pe-2"></i>Géneros
+            </h5>
+        </div>
+    </div>
     <div class="category-grid">
         <div class="category-card">
             <img src="assets/img/action.jpg" alt="" class="card-img">

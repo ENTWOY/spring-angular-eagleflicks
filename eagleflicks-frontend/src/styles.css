@@ -64,6 +64,32 @@ Mofificaciones
     border-radius: 5rem;
 }
 
+.font-noto {
+    font-size: var(--fs-lg);
+    font-weight: bold;
+}
+
+.text-off-white {
+    color: var(--off-white);
+}
+
+hr {
+    color: var(--off-white);
+}
+
+.btn-success {
+    position: relative;
+    border: none;
+    background: rgb(6,75,36);
+    background: linear-gradient(90deg, rgba(6,75,36,1) 0%, rgba(43,120,45,1) 50%, rgba(42,171,72,1) 100%);
+}
+
+.btn-secondary {
+    border: none;
+    background: rgb(195,52,213);
+    background: linear-gradient(90deg, rgba(195,52,213,1) 0%, rgba(157,42,171,1) 50%, rgba(123,33,134,1) 100%);
+}
+
 /*-------------------------------------*\
     .navbar.css
 \*-------------------------------------*/

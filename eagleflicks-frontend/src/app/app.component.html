@@ -33,9 +33,13 @@
             </ng-container>
             <ng-container *ngIf="isAdmin()">
             <!-- btn Open Menu Admin -->
-                <button class="admin-box rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-                    <i class="bi bi-list fs-5"></i>
-                </button>  
+    
+                <div class="admin-menu-display">
+                    <button class="admin-box rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                        <i class="bi bi-list fs-5"></i>
+                    </button>
+                    <audio src="../assets/audio/click.mp3" class="enter"></audio>
+                </div>
 
                 <!-- Start Menu Admin -->
                 <div class="offcanvas offcanvas-end px-1" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">

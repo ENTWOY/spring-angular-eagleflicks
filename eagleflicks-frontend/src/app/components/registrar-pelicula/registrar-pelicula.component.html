@@ -1,11 +1,10 @@
-<div class="container h-100 pt-4 my-5">
+<div class="container h-100 pt-5 my-5">
     <br>
     <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-lg-12 col-xl-12">
             <div class="card text-black" style="border-radius: 25px;">
-                <div class="card-body">
-                    <h4 class="text-center">Registrar Película</h4>
-                    <hr>
+                <div class="card-body p-md-5 card-custom">
+                    <h4 class="text-center text-off-white">Registrar Película</h4>
                     <form (ngSubmit)="handleSubmit()" class="py-3 row" method="post" enctype="multipart/form-data">
                         <div class="col-md-2 mb-3">
                             <label for="id" class="form-label">Id:</label>
@@ -74,7 +73,7 @@
                         <div class="col-md-6 mb-3">
                             <label class="form-label" for="file">Subir Portada: <span class="badge text-bg-danger">Tamaño máximo permitido: 1 MB</span></label>
                             <div class="input-group">
-                                <input type="file" id="file" name="file" (change)="handleFileChange($event)" class="form-control border-secondary" required>
+                                <input type="file" id="file" name="file" (change)="handleFileChange($event)" class="form-control" required>
                             </div>
                         </div>
                     

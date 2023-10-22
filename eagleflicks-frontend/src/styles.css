@@ -117,6 +117,10 @@ hr {
     color: var(--off-white);
 }
 
+.card-cuevana {
+    background: var(--cuevana-color-subtitles);
+}
+
 /*-------------------------------------*\
     .navbar.css
 \*-------------------------------------*/
@@ -411,8 +415,24 @@ input ~ .checked-radio-bg {
   --scale: 1;
 }
 
-.card-body {
-  color: #000;
+.card-custom {
+  border-radius: 20px;
+  background: var(--cuevana-color-subtitles);
+  color: var(--off-white);
+  border: none;
+}
+
+.card-custom .form-control {
+    background: var(--cuevana-color-search);
+    border-radius: 20px;
+    border:none;
+}
+
+.card-custom .form-select {
+    background: var(--cuevana-color-search);
+    border-radius: 20px;
+    color: var(--off-white);
+    border: none;
 }
 
 .movie-card .card-title {
@@ -706,6 +726,10 @@ input ~ .checked-radio-bg {
     right: 10px;
     top: 20px;
     opacity: 0.1;
+}
+
+.card {
+    border-radius: 20px;
 }
 
 .l-bg-cyan {

@@ -117,6 +117,34 @@ hr {
     color: var(--off-white);
 }
 
+.card-cuevana {
+    background: var(--cuevana-color-subtitles);
+}
+
+/*-------------------------------------*\
+    datatables Customization
+\*-------------------------------------*/
+
+
+.dataTables_length select option{
+    background-color: var(--cuevana-color-search);
+}
+
+.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate {
+    color: var(--off-white);
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    border-radius: 20px;
+    border: 1px solid #28325d;
+    transition: border 1s;
+}
+
+.dataTables_wrapper .dataTables_filter input:focus {
+    border: 1px solid rgba(131,58,180,1);
+    outline: none;
+}
+
 /*-------------------------------------*\
     .navbar.css
 \*-------------------------------------*/
@@ -134,14 +162,16 @@ body {
     color: var(--off-white);
     box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.2);
     width: 250px;
+    border-radius: 20px 0 0 20px;
 }
 
 .dropdown-menu {
     background: var(--cuevana-color-subtitles);
+    border-radius: 20px;
 }
 
 .dropdown-item {
-    background:  var(--cuevana-color-subtitles);
+    /*background:  var(--cuevana-color-subtitles);*/
     color: var(--off-white);
 }
 
@@ -183,9 +213,9 @@ a {
 }
 
 .nav-admin:hover {
-    background-color: #062636;
+    background-color: var(--cuevana-color-subtitles);
     transition-duration: 75ms;
-    border-radius: 0.5rem;
+    border-radius: .5rem;
 }
 
 .section-heading {
@@ -411,8 +441,24 @@ input ~ .checked-radio-bg {
   --scale: 1;
 }
 
-.card-body {
-  color: #000;
+.card-custom {
+  border-radius: 20px;
+  background: var(--cuevana-color-subtitles);
+  color: var(--off-white);
+  border: none;
+}
+
+.card-custom .form-control {
+    background: var(--cuevana-color-search);
+    border-radius: 20px;
+    border:none;
+}
+
+.card-custom .form-select {
+    background: var(--cuevana-color-search);
+    border-radius: 20px;
+    color: var(--off-white);
+    border: none;
 }
 
 .movie-card .card-title {
@@ -706,6 +752,10 @@ input ~ .checked-radio-bg {
     right: 10px;
     top: 20px;
     opacity: 0.1;
+}
+
+.card {
+    border-radius: 20px;
 }
 
 .l-bg-cyan {

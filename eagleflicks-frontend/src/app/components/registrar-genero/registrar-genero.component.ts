@@ -13,7 +13,9 @@ export class RegistrarGeneroComponent implements OnInit {
 
   objGenero:Genero = new Genero();
 
-  constructor(private serviGenero:GeneroService, private router:Router) { }
+  constructor(private serviGenero:GeneroService, private router:Router) {
+    //this.objGenero.idGenero = 0;
+   }
 
   ngOnInit(): void {
     

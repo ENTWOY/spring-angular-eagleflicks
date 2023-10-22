@@ -1,13 +1,14 @@
 <!-- Start Movies -->
-<section class="movies my-5 py-10">
-    <div class="filter-bar">
+<section class="movies my-5 pt-5">
+    <br>
+    <div class="filter-bar mt-2">
         <div class="search_form">
             <input [(ngModel)]="title" type="text" class="text-light searchTerm" placeholder="Buscar por título de película">
             <button (click)="buscarPeliculaXTitulo()" type="submit" class="searchButton"><i class="fa fa-search"></i></button>
         </div>
         <div class="search_form">
-            <select [(ngModel)]="anio" class="text-light searchAnio form-select" (ngModelChange)="buscarPeliculaXAnio()">
-                <option disabled selected value="0">Selecciona un año</option>
+            <select [(ngModel)]="anio" class="text-light searchAnio form-select" (ngModelChange)="buscarPeliculaXAnio()" pla>
+                <option value="0" disabled selected>Selecciona un año</option>
                 <option value="2023">2023</option>
                 <option value="2022">2022</option>
                 <option value="2021">2021</option>

@@ -1,6 +1,13 @@
-<section class="dark-card">
-	<div class="container py-10">
-        <h1 class="h1 text-center" id="pageHeaderTitle">Sorpréndeme</h1>
+<section class="dark-card my-5 pt-5">
+	<br>
+	<div class="container mt-2">
+		<div class="d-flex align-items-center filter-bar mt-2">
+			<div class="filter-dropdowns d-flex">
+				<h3 class="m-0 ps-2 text-off-white">
+					<i class="fa-brands fa-artstation fs-3 text-off-white me-3"></i>Sorpréndeme
+				</h3>
+			</div>
+		</div>
 		<article class="postcard dark blue" *ngFor="let p of objPeli">
 			<a class="postcard__img_link" (click)= "verPelicula(p.idPelicula)" style="cursor: pointer;" title="{{p.titulo}}">
 				<img class="postcard__img" [src]="myFileImgs + p.imagen" alt="Movie Cover" />

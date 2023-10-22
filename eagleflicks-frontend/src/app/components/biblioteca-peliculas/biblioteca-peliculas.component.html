@@ -1,13 +1,14 @@
 <!-- Start Movies -->
-<section class="movies my-5 py-5">
-    <div class="filter-bar">
+<section class="movies my-5 pt-5">
+    <br>
+    <div class="filter-bar mt-2">
         <div class="search_form">
-            <input [(ngModel)]="title" type="text" class="searchTerm" placeholder="Buscar por título de película">
+            <input [(ngModel)]="title" type="text" class="text-light searchTerm" placeholder="Buscar por título de película">
             <button (click)="buscarPeliculaXTitulo()" type="submit" class="searchButton"><i class="fa fa-search"></i></button>
         </div>
         <div class="search_form">
-            <select [(ngModel)]="anio" class="searchAnio form-select" (ngModelChange)="buscarPeliculaXAnio()">
-                <option disabled selected value="0">Selecciona un año</option>
+            <select [(ngModel)]="anio" class="text-light searchAnio form-select" (ngModelChange)="buscarPeliculaXAnio()" pla>
+                <option value="0" disabled selected>Selecciona un año</option>
                 <option value="2023">2023</option>
                 <option value="2022">2022</option>
                 <option value="2021">2021</option>
@@ -32,10 +33,10 @@
                     <div class="play"><i class="bi bi-play-circle"></i></div>
                 </div>
             </div>
-            <div class="card-body">
+            <div class="text-light card-body">
                 <h3 class="card-title">{{ p.titulo }}</h3>
                 <div class="card-info">
-                    <span class="genre text_overflow">{{ p.peliculaGenero.nomGen }}</span>
+                    <!--span class="genre text_overflow">{{ p.peliculaGenero.nomGen }}</span-->
                     <span class="year">{{ p.anio }}</span>
                 </div>
             </div>

@@ -1,10 +1,12 @@
-<div class="my-5 pt-3">
+<div class="my-5 pt-5">
     <br>
-    <div class="d-flex align-items-center">
-        <i class="bi bi-table fs-5 me-2"></i>
-        <h4 class="m-0">Películas</h4>
+    <div class="d-flex align-items-center filter-bar mt-2">
+        <div class="filter-dropdowns d-flex">
+            <h3 class="m-0 text-off-white">
+                <i class="bi bi-database-fill fs-3 text-off-white me-3"></i>Películas
+            </h3>
+        </div>
     </div>
-    <hr>
     <div class="d-flex align-items-center justify-content-between pb-3">
         <a [routerLink]="'/registrar-pelicula'" class="btn btn-success">
             <i class="bi bi-plus-square me-1"></i> Registro Nuevo

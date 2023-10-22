@@ -11,26 +11,30 @@
 
         <!-- Form Search Movie -->
         <form class="d-flex">
-            <div class="input-group">
-                <input class="form-control rounded-start-pill border-0" type="search" placeholder="Buscar películas..." aria-label="Search">
-                <button class="btn btn-light rounded-end-pill border-0" type="submit">
+            <div class="input-group rounded-pill">
+                <input class="form-control rounded-start-pill border-0"  type="search" placeholder="Buscar películas..." aria-label="Search">
+                <button [routerLink]="'/biblioteca-peliculas'" class="btn btn-control rounded-end-pill border-0" type="submit">
                     <i class="bi bi-search btn-search"></i>
                 </button>
             </div>
         </form>        
         
         <ng-container *ngIf="!tokenExists()">
-            <a [routerLink]="'/login'" class="btn btn-light">Login</a>
+            <a [routerLink]="'/login'" class="btn btn-login">Login</a>
         </ng-container>
         <ng-container *ngIf="tokenExists()">
-            <span class="fw-bold text-light fs-5 ms-2">{{getUserId()}}</span>
+            <div>
+                <h3 class="fd-md text-off-white mt-2">
+                    {{getUserId()}}<i class="bi bi-person-fill ml-1 user-box rounded-pill"></i>
+                </h3>
+            </div>
             <ng-container *ngIf="isUser()">
                 <a (click)="logout()" role="button" class="btn btn-light">Cerrar Sesión</a>
             </ng-container>
             <ng-container *ngIf="isAdmin()">
             <!-- btn Open Menu Admin -->
-                <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="admin-box rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                    <i class="bi bi-list fs-5"></i>
                 </button>  
 
                 <!-- Start Menu Admin -->
@@ -38,7 +42,7 @@
                     <div class="offcanvas-header">
                         <a href="" class="d-flex align-items-center">
                             <img src="assets/img/lg2.svg" class="me-2" alt="EagleFlicks Logo" style="height: 2rem;" />
-                            <span class="fs-4 fw-bold text-white">Admin.</span>
+                            <span class="fs-4 fw-bold text-white">Admin</span>
                         </a>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
@@ -52,12 +56,12 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle nav-admin d-flex align-items-center rounded-lg text-light fw-bold mb-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-tv-fill me-2"></i> 
+                                    <i class="bi bi-collection-play-fill me-2"></i> 
                                     Películas
                                 </a>
                                 <!-- Dropdown Menu -->
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a  [routerLink]="'/peliculas'" class="dropdown-item mb-2">Mantenimiento</a></li>
+                                    <li><a  [routerLink]="'/peliculas'" class="dropdown-item mb-0 fw-bold fs-6">Mantenimiento</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -67,7 +71,7 @@
                                 </a>
                                 <!-- Dropdown Menu -->
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item mb-2" [routerLink]="'/generos'">Mantenimiento</a></li>
+                                    <li><a class="dropdown-item mb-0 fw-bold fs-6" [routerLink]="'/generos'">Mantenimiento</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -77,7 +81,7 @@
                                 </a>
                                 <!-- Dropdown Menu -->
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item mb-2" [routerLink]="'/directores'">Mantenimiento</a></li>
+                                    <li><a class="dropdown-item mb-0 fw-bold fs-6" [routerLink]="'/directores'">Mantenimiento</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -87,7 +91,7 @@
                                 </a>
                                 <!-- Dropdown Menu -->
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item mb-2" [routerLink]="'/actores'">Mantenimiento</a></li>
+                                    <li><a class="dropdown-item mb-0 fw-bold fs-6" [routerLink]="'/actores'">Mantenimiento</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -96,7 +100,7 @@
                                     Usuarios
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item mb-2" [routerLink]="'/usuarios'">Mantenimiento</a></li>
+                                    <li><a class="dropdown-item mb-0 fw-bold fs-6" [routerLink]="'/usuarios'">Mantenimiento</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -105,7 +109,7 @@
                                     Administradores
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item mb-2" [routerLink]="'/administradores'">Mantenimiento</a></li>
+                                    <li><a class="dropdown-item mb-0 fw-bold fs-6" [routerLink]="'/administradores'">Mantenimiento</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -164,16 +168,16 @@
                         <span class="fw-bold text-light fs-5 ms-2"><span class="eagle-color">Eagle</span>Flicks</span>
                     </a>
                 </div>
-                <p class="text-center">Películas y series de televisión, disfruta de lo mejor en cine en línea.</p>
+                <p class="text-center fs-6">Películas y series de televisión, disfruta de lo mejor en cine en línea.</p>
                 <ul class="list-unstyled d-flex flex-row justify-content-center">
                     <li>
-                        <a class="text-white px-2" href="#!"><i class="bi bi-facebook"></i></a>
+                        <a class="text-off-white px-2" href="#!"><i class="bi bi-facebook"></i></a>
                     </li>
                     <li>
-                        <a class="text-white px-2" href="#!"><i class="bi bi-instagram"></i></a>
+                        <a class="text-off-white px-2" href="#!"><i class="bi bi-instagram"></i></a>
                     </li>
                     <li>
-                        <a class="text-white ps-2" href="#!"><i class="bi bi-youtube"></i></a>
+                        <a class="text-off-white ps-2" href="#!"><i class="bi bi-youtube"></i></a>
                     </li>
                 </ul>
             </div>
@@ -181,30 +185,30 @@
                 <h6 class="text-uppercase mb-4">EagleFlicks</h6>
                 <ul class="list-unstyled">
                     <li class="mb-2">
-                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Acerca de nosotros</a>
+                        <a href="#!" class="text-off-white fs-6"><i class="bi bi-play-fill pe-2"></i>Acerca de nosotros</a>
                     </li>
                     <li class="mb-2">
-                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Mi perfil</a>
+                        <a href="#!" class="text-off-white fs-6"><i class="bi bi-play-fill pe-2"></i>Mi perfil</a>
                     </li>
                     <li class="mb-2">
-                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Planes de precios</a>
+                        <a href="#!" class="text-off-white fs-6"><i class="bi bi-play-fill pe-2"></i>Planes de precios</a>
                     </li>
                     <li class="mb-2">
-                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Contactos</a>
+                        <a href="#!" class="text-off-white fs-6"><i class="bi bi-play-fill pe-2"></i>Contactos</a>
                     </li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-6 my-4 mb-md-0">
-                <h6 class="text-uppercase mb-4">Géneros</h6>
+                <h6 class="text-uppercase mb-4 ">Géneros</h6>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Series de TV</a>                
+                        <a href="#!" class="text-off-white fs-6"><i class="bi bi-play-fill pe-2"></i>Series de TV</a>                
                     </li>
                     <li>
-                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Películas</a>                
+                        <a href="#!" class="text-off-white fs-6"><i class="bi bi-play-fill pe-2"></i>Películas</a>                
                     </li>
                     <li>
-                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Colecciones</a>                
+                        <a href="#!" class="text-off-white fs-6"><i class="bi bi-play-fill pe-2"></i>Colecciones</a>                
                     </li>
                 </ul>
             </div>
@@ -212,23 +216,23 @@
                 <h6 class="text-uppercase mb-4">Explorar</h6>
                 <ul class="list-unstyled">
                     <li class="mb-2">
-                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>TV en vivo</a>
+                        <a href="#!" class="text-off-white fs-6"><i class="bi bi-play-fill pe-2"></i>TV en vivo</a>
                     </li>
                     <li class="mb-2">
-                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Noticias en vivo</a>                
+                        <a href="#!" class="text-off-white fs-6"><i class="bi bi-play-fill pe-2"></i>Noticias en vivo</a>                
                     </li>
                     <li class="mb-2">
-                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Deportes en vivo</a>                
+                        <a href="#!" class="text-off-white fs-6"><i class="bi bi-play-fill pe-2"></i>Deportes en vivo</a>                
                     </li>
                     <li class="mb-2">
-                        <a href="#!" class="text-white"><i class="bi bi-play-fill pe-2"></i>Biblioteca de streaming</a>                
+                        <a href="#!" class="text-off-white fs-6"><i class="bi bi-play-fill pe-2"></i>Biblioteca de streaming</a>                
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">© copyright 2023 -
-        <a class="text-white" href="#">EagleFlicks</a>
+    <div class="text-center p-3 fs-6" style="background-color: rgba(0, 0, 0, 0.2)">© copyright 2023 -
+        <a class="text-off-white fs-6" href="#">EagleFlicks</a>
     </div>
 </footer>
 <!-- End Footer -->

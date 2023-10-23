@@ -18,22 +18,22 @@
             <tr>
                 <th class="text-center">Id</th>
                 <th class="text-center">Géneros</th>
-                <th></th>
+                <th class="text-center">Opciones</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let g of objGenero">
                 <td class="text-center">{{ g.idGenero }}</td>
                 <td class="text-center">{{ g.nomGen }}</td>
-                <td class="d-flex align-items-center justify-content-center">
-                    <button (click)= "actualizarGenero(g.idGenero)" class="btn btn-sm btn-primary me-2" title="Editar">
-                        <i class="bi bi-pencil-square"></i>
+                <td class="text-center">
+                    <button (click)= "actualizarGenero(g.idGenero)" class="btn btn-sm btn-primary me-2 rounded-circle" title="Editar">
+                        <i class="bi bi-pencil-fill"></i>
                     </button>
-                    <button (click)= "detalleGenero(g.idGenero)" class="btn btn-sm btn-warning me-2" title="Detalle">
-                        <i class="bi bi-journal-text"></i>
+                    <button (click)= "detalleGenero(g.idGenero)" class="btn btn-sm btn-warning me-2 rounded-circle" title="Detalle">
+                        <i class="bi bi-stack"></i>
                     </button>
-                    <button  (click)= "eliminarGenero(g.idGenero)" class="btn btn-sm btn-danger" title="Eliminar">
-                        <i class="bi bi-trash3"></i>
+                    <button  (click)= "eliminarGenero(g.idGenero)" class="btn btn-sm btn-danger me-2 rounded-circle" title="Eliminar">
+                        <i class="bi bi-archive-fill"></i>
                     </button>
                 </td>
             </tr>

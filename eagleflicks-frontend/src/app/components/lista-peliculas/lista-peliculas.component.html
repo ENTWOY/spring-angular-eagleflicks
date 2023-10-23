@@ -39,7 +39,7 @@
                 <th>País</th>
                 <th>Actor</th>
                 <th>Img</th>
-                <th></th>
+                <th class="text-center">Opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -61,14 +61,14 @@
                     <img [src]="myFileImgs + p.imagen" class="img-fluid" style="height: 4em;">
                 </td>
                 <td class="align-items-center justify-content-center">
-                    <button (click)= "actualizarPelicula(p.idPelicula)" class="btn btn-sm btn-primary me-2" title="Editar">
-                        <i class="bi bi-pencil-square"></i>
+                    <button (click)= "actualizarPelicula(p.idPelicula)" class="btn btn-sm btn-primary me-2 rounded-circle" title="Editar">
+                        <i class="bi bi-pencil-fill"></i>
                     </button>
-                    <button (click)= "detallePelicula(p.idPelicula)" class="btn btn-sm btn-warning me-2" title="Detalle">
-                        <i class="bi bi-journal-text"></i>
+                    <button (click)= "detallePelicula(p.idPelicula)" class="btn btn-sm btn-warning me-2 rounded-circle" title="Detalle">
+                        <i class="bi bi-stack"></i>
                     </button>
-                    <button (click)= "eliminarPelicula(p.idPelicula)" class="btn btn-sm btn-danger me-2" title="Eliminar">
-                        <i class="bi bi-trash3"></i>
+                    <button (click)= "eliminarPelicula(p.idPelicula)" class="btn btn-sm btn-danger me-2 rounded-circle" title="Eliminar">
+                        <i class="bi bi-archive-fill"></i>
                     </button>
                 </td>
             </tr>

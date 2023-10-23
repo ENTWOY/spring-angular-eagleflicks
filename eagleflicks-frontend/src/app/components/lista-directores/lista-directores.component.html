@@ -16,28 +16,28 @@
     <table id="datatable-spanish" class="table table-striped table-bordered py-2">
         <thead class="table-primary">
             <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>F. Nac</th>
-                <th>Pais</th>
-                <th></th>
+                <th class="text-center">Id</th>
+                <th class="text-center">Nombre</th>
+                <th class="text-center">F. Nac</th>
+                <th class="text-center">Pais</th>
+                <th class="text-center">Opciones</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let d of objDirector">
-                <td>{{ d.idDirector }}</td>
-                <td>{{ d.nombre }}</td>
-                <td>{{ d.fechaNacimiento }}</td>
-                <td>{{ d.directorPais.nomPais }}</td>
-                <td class="d-flex align-items-center justify-content-center">
-                    <button (click)= "actualizarDirector(d.idDirector)" class="btn btn-sm btn-primary me-2" title="Editar">
-                        <i class="bi bi-pencil-square"></i>
+                <td class="text-center">{{ d.idDirector }}</td>
+                <td class="text-center">{{ d.nombre }}</td>
+                <td class="text-center">{{ d.fechaNacimiento }}</td>
+                <td class="text-center">{{ d.directorPais.nomPais }}</td>
+                <td class="text-center">
+                    <button (click)= "actualizarDirector(d.idDirector)" class="btn btn-sm btn-primary me-2 rounded-circle" title="Editar">
+                        <i class="bi bi-pencil-fill"></i>
                     </button>
-                    <button (click)= "detalleDirector(d.idDirector)" class="btn btn-sm btn-warning me-2" title="Detalle">
-                        <i class="bi bi-journal-text"></i>
+                    <button (click)= "detalleDirector(d.idDirector)" class="btn btn-sm btn-warning me-2 rounded-circle" title="Detalle">
+                        <i class="bi bi-stack"></i>
                     </button>
-                    <button  (click)= "eliminarDirector(d.idDirector)" class="btn btn-sm btn-danger" title="Eliminar">
-                        <i class="bi bi-trash3"></i>
+                    <button  (click)= "eliminarDirector(d.idDirector)" class="btn btn-sm btn-danger me-2 rounded-circle" title="Eliminar">
+                        <i class="bi bi-archive-fill"></i>
                     </button>
                 </td>
             </tr>

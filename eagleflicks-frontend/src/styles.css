@@ -121,10 +121,44 @@ hr {
     background: var(--cuevana-color-subtitles);
 }
 
+.container-ver-pelicula {
+    color: var(--off-white);
+    border-radius: 20px;
+}
+
+.pelicula-container {
+    border-radius: 20px;
+}
+
+.card-detalle-pelicula {
+    background: var(--cuevana-color-search);
+}
+
+.text-ver-pelicula {
+    background: var(--cuevana-color-subtitles);
+    background: -moz-linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-bg-red {
+    background: rgb(134,17,17);
+background: -moz-linear-gradient(270deg, rgba(134,17,17,1) 0%, rgba(187,44,44,1) 50%, rgba(134,17,17,1) 100%);
+background: -webkit-linear-gradient(270deg, rgba(134,17,17,1) 0%, rgba(187,44,44,1) 50%, rgba(134,17,17,1) 100%);
+background: linear-gradient(270deg, rgba(134,17,17,1) 0%, rgba(187,44,44,1) 50%, rgba(134,17,17,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#861111",endColorstr="#861111",GradientType=1);
+}
+
 /*-------------------------------------*\
     datatables Customization
 \*-------------------------------------*/
-
+/*
+.table {
+    --bs-table-bg: #2e3440;
+    border: none;
+}*/
 
 .dataTables_length select option{
     background-color: var(--cuevana-color-search);

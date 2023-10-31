@@ -16,32 +16,32 @@
     <table id="datatable-spanish" class="table table-striped table-bordered py-2">
         <thead class="table-primary">
             <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Email</th>
-                <th>Dirección</th>
-                <th>Pais</th>
-                <th></th>
+                <th class="text-center">Id</th>
+                <th class="text-center">Nombre</th>
+                <th class="text-center">Apellido</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Dirección</th>
+                <th class="text-center">Pais</th>
+                <th class="text-center">Opciones</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let a of objAdmin">
-                <td>{{ a.idAdmin }}</td>
-                <td>{{ a.nombre }}</td>
-                <td>{{ a.apellido }}</td>
-                <td>{{ a.correoElectronico }}</td>
-                <td>{{ a.direccion }}</td>
-                <td>{{ a.administradorPais.nomPais }}</td>
-                <td class="d-flex align-items-center justify-content-center">
-                    <button (click)= "actualizarAdministrador(a.idAdmin)" class="btn btn-sm btn-primary me-2" title="Editar">
-                        <i class="bi bi-pencil-square"></i>
+                <td class="text-center">{{ a.idAdmin }}</td>
+                <td class="text-center">{{ a.nombre }}</td>
+                <td class="text-center">{{ a.apellido }}</td>
+                <td class="text-center">{{ a.correoElectronico }}</td>
+                <td class="text-center">{{ a.direccion }}</td>
+                <td class="text-center">{{ a.administradorPais.nomPais }}</td>
+                <td class="text-center">
+                    <button (click)= "actualizarAdministrador(a.idAdmin)" class="btn btn-sm btn-primary me-2 rounded-circle" title="Editar">
+                        <i class="bi bi-pencil-fill"></i>
                     </button>
-                    <button (click)= "detalleAdministrador(a.idAdmin)" class="btn btn-sm btn-warning me-2" title="Detalle">
-                        <i class="bi bi-journal-text"></i>
+                    <button (click)= "detalleAdministrador(a.idAdmin)" class="btn btn-sm btn-warning me-2 rounded-circle" title="Detalle">
+                        <i class="bi bi-stack"></i>
                     </button>
-                    <button  (click)= "eliminarAdministrador(a.idAdmin)" class="btn btn-sm btn-danger" title="Eliminar">
-                        <i class="bi bi-trash3"></i>
+                    <button  (click)= "eliminarAdministrador(a.idAdmin)" class="btn btn-sm btn-danger me-2 rounded-circle" title="Eliminar">
+                        <i class="bi bi-archive-fill"></i>
                     </button>
                 </td>
             </tr>

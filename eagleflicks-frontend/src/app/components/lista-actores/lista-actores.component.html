@@ -18,14 +18,14 @@
             <tr>
                 <th class="text-center">Id</th>
                 <th class="text-center">Actores</th>
-                <th></th>
+                <th class="text-center">Opciones</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let a of objActor">
                 <td class="text-center">{{ a.idActor }}</td>
                 <td class="text-center">{{ a.nomActor }}</td>
-                <td class="d-flex align-items-center justify-content-center">
+                <td class="text-center">
                     <button (click)= "actualizarActor(a.idActor)" class="btn btn-sm btn-primary me-2 rounded-circle" title="Editar">
                         <i class="bi bi-pencil-fill"></i>
                     </button>

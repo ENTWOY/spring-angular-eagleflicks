@@ -34,6 +34,7 @@ import { ListaAdministradoresComponent } from './components/lista-administradore
 import { DetalleAdministradorComponent } from './components/detalle-administrador/detalle-administrador.component';
 import { RegistrarAdministradorComponent } from './components/registrar-administrador/registrar-administrador.component';
 import { ActualizarAdministradorComponent } from './components/actualizar-administrador/actualizar-administrador.component';
+import { VerGeneroComponent } from './components/ver-genero/ver-genero.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { ActualizarAdministradorComponent } from './components/actualizar-admini
     ListaAdministradoresComponent,
     DetalleAdministradorComponent,
     RegistrarAdministradorComponent,
-    ActualizarAdministradorComponent
+    ActualizarAdministradorComponent,
+    VerGeneroComponent
   ],
   imports: [
     BrowserModule,

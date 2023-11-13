@@ -1,23 +1,36 @@
 <nav class="bg-nav navbar fixed-top">
     <div class="container">
         <!-- Menu Links -->
-        <a href="#" class="d-flex align-items-center">
+        <a routerLink="inicio" class="d-flex align-items-center">
             <img src="assets/img/lg2.svg" alt="EagleFlicks Logo" style="height: 2rem;" />
-            <span class="fw-bold text-light fs-5 ms-2"><span class="eagle-color">Eagle</span>Flicks</span>
+            <span class="fw-bold text-light fs-4 ms-2"><span class="eagle-color">Eagle</span>Flicks</span>
         </a>
-        <a routerLink="inicio" routerLinkActive="active" class="navbar-link">Inicio</a>
+        <a routerLink="inicio" class="navbar-link">Inicio</a>
+        <!-- <div class="btn-group">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                Géneros
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li *ngFor="let g of objGenre">
+                    <a style="font-size: 15px; cursor: pointer;" class="dropdown-item">
+                        {{ g.nomGen }}
+                    </a>
+                </li>
+            </ul>
+        </div> -->
         <a routerLink="biblioteca-peliculas" class="navbar-link">Biblioteca</a>
-        <a routerLink="sorprendeme"  class="navbar-link">Sorpréndeme</a>
-
+        <a routerLink="sorprendeme" class="navbar-link">Sorpréndeme</a>
+        
+        <!-- <a class="navbar-link">Géneros</a> -->
         <!-- Form Search Movie -->
-        <form class="d-flex">
+        <!-- <form class="d-flex">
             <div class="input-group rounded-pill">
                 <input class="form-control rounded-start-pill border-0"  type="search" placeholder="Buscar películas..." aria-label="Search">
                 <button [routerLink]="'/biblioteca-peliculas'" class="btn btn-control rounded-end-pill border-0" type="submit">
                     <i class="bi bi-search btn-search"></i>
                 </button>
             </div>
-        </form>        
+        </form> -->        
         
         <ng-container *ngIf="!tokenExists()">
             <a [routerLink]="'/login'" class="btn btn-login">Login</a>

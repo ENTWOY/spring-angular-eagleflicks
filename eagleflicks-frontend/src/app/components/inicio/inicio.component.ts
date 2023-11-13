@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Genero } from 'src/app/models/genero';
+import { GeneroService } from 'src/app/services/genero.service';
 import { Pelicula } from '../../models/pelicula';
 import { InicioService } from '../../services/inicio.service';
 
@@ -16,9 +18,12 @@ export class InicioComponent implements OnInit {
   objPelis:Pelicula[];
 
   paginaActual: number = 1;
-  itemsXPagina: number = 7;
+  itemsXPagina: number = 14;
 
-  constructor(private serviInicio:InicioService, private router:Router) { }
+  constructor(
+    private serviInicio:InicioService, 
+    private router:Router
+  ) { }
 
   ngOnInit(): void {
     this.obtenerPeliculas();
@@ -30,7 +35,6 @@ export class InicioComponent implements OnInit {
 
   private obtenerPeliculas() {
     this.serviInicio.obtenerPeliculas().subscribe(dato => {
-      console.log("Peliculas: ", dato);
       this.objPelis = dato;
     });
   }

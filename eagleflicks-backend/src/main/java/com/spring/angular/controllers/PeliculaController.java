@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import jakarta.annotation.security.RolesAllowed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
@@ -21,6 +20,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -189,5 +189,12 @@ public class PeliculaController {
 	    headers.setContentLength(data.length);
 
 	    return ResponseEntity.ok().headers(headers).body(new ByteArrayResource(data));
+	}
+	
+	/* Busca películas por el ID de género. */
+	@GetMapping("/buscar/genero")
+	public ResponseEntity<List<Pelicula>> findByPeliculaGeneroIdGenero(@RequestParam int codGenero) {
+		List<Pelicula> pelicula = serviPelicula.findByPeliculaGeneroIdGenero(codGenero);
+		return ResponseEntity.ok(pelicula);
 	}
 }

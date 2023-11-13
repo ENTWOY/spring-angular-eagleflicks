@@ -31,6 +31,7 @@ import { ListaAdministradoresComponent } from './components/lista-administradore
 import { DetalleAdministradorComponent } from './components/detalle-administrador/detalle-administrador.component';
 import { RegistrarAdministradorComponent } from './components/registrar-administrador/registrar-administrador.component';
 import { ActualizarAdministradorComponent } from './components/actualizar-administrador/actualizar-administrador.component';
+import { VerGeneroComponent } from './components/ver-genero/ver-genero.component';
 
 const routes: Routes = [
   {path: '',redirectTo:'inicio', pathMatch: 'full'},
@@ -64,6 +65,7 @@ const routes: Routes = [
   {path: 'registrar-administrador', component : RegistrarAdministradorComponent, canActivate:[AuthGuard]},
   {path: 'actualizar-administrador/:id', component : ActualizarAdministradorComponent, canActivate:[AuthGuard]},
   {path: 'detalle-administrador/:id', component : DetalleAdministradorComponent, canActivate:[AuthGuard]},
+  {path: 'ver-genero/:id', component : VerGeneroComponent}
 ];
 
 @NgModule({

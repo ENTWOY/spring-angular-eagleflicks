@@ -8,7 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private router: Router){}
+
+  constructor(
+    private router: Router
+  ){}
+
   title = 'Spring Backend and Angular Frontend';
   tokenExists = () => JwtService.tokenExists();
   isUser = () => JwtService.getClaim("role") === "USER"

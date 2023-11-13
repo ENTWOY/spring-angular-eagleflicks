@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Pelicula } from '../../models/pelicula';
 import { InicioService } from '../../services/inicio.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -9,19 +10,26 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   templateUrl: './ver-pelicula.component.html',
   styleUrls: ['./ver-pelicula.component.css']
 })
-export class VerPeliculaComponent {
+export class VerPeliculaComponent implements OnInit {
 
   /* ruta de almacenamiento de las img's pelicula en spring */
   myFileImgs: string = 'http://localhost:8091/api/movie/uploads/';
 
   id:number;
   objPeli:Pelicula;
+  peli:Pelicula[];
   trailerUrl: SafeResourceUrl;
   videoPeliUrl: SafeResourceUrl;
   errorUrlTrailer: string = '';
   errorUrlVideo: string = '';
+  private cargadoPrimeraVez: boolean = false;
 
-  constructor(private route:ActivatedRoute, private serviHome:InicioService, private sanitizer: DomSanitizer) { }
+  constructor(
+    private route:ActivatedRoute, 
+    private serviHome:InicioService, 
+    private sanitizer: DomSanitizer,
+    private router:Router
+    ) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -32,6 +40,13 @@ export class VerPeliculaComponent {
 
       this.handleTrailerUrl();
       this.handleVideoUrl();
+      this.obtenerPeliculasSimilares();
+    });
+  }
+
+  private obtenerPeliculasSimilares() {
+    this.serviHome.obtenerPeliculaSimilar().subscribe(d => {
+      this.peli = d;
     });
   }
 
@@ -55,10 +70,27 @@ export class VerPeliculaComponent {
     }
   }
   
-
   isValidUrl(url: string): boolean {
     // Verificar si la URL comienza con http:// o https://
     const urlPattern = /^(http:\/\/|https:\/\/)/;
     return urlPattern.test(url);
+  }
+
+  verPelicula(id:number) {
+    this.router.navigate(['ver-pelicula', id]);
+    this.refrescarPagina();
+  }
+
+  verGenero(id: number) {
+    this.router.navigate(['ver-genero', id]);
+  }
+
+  refrescarPagina() {
+    if (!this.cargadoPrimeraVez) {
+      this.cargadoPrimeraVez = true;
+      setTimeout(() => {
+        location.reload();
+      }, 500); 
+    }
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PeliculaService } from 'src/app/services/pelicula.service';
 import { Pelicula } from '../../models/pelicula';
 import { InicioService } from '../../services/inicio.service';
 
@@ -13,14 +14,21 @@ export class BibliotecaPeliculasComponent implements OnInit {
   /* Ruta de almacenamiento de las img's pelicula en spring */
   myFileImgs: string = 'http://localhost:8091/api/movie/uploads/';
   objPelis:Pelicula[];
+  /* objGenre:Genero[]; */
   title: string;
   anio: number;
+  /* idGenero: number; */
 
-  constructor(private serviInicio:InicioService, private router:Router) { }
-
+  constructor(
+    private serviInicio:InicioService, 
+    private serviPelicula: PeliculaService,
+    /* private serviGenre: GeneroService, */
+    private router:Router
+  ) { }
 
   ngOnInit(): void {
     this.obtenerListadoPeliculas();
+    /* this.getGenre(); */
   }
 
   verPelicula(id:number) {
@@ -29,10 +37,15 @@ export class BibliotecaPeliculasComponent implements OnInit {
 
   private obtenerListadoPeliculas() {
     this.serviInicio.obtenerListadoPeliculas().subscribe(dato => {
-      console.log("Peliculas: ", dato);
       this.objPelis = dato;
     });
   }
+
+  /* getGenre() {
+    this.serviGenre.obtenerListaGeneros().subscribe(genero => {
+      this.objGenre = genero;
+    });
+  } */
 
   buscarPeliculaXTitulo() {
     this.serviInicio.buscarPeliculaXTitulo(this.title)
@@ -55,4 +68,16 @@ export class BibliotecaPeliculasComponent implements OnInit {
         }
       );
   }
+
+  /* findByPeliculaGeneroIdGenero() {
+    this.serviPelicula.findByPeliculaGeneroIdGenero(this.idGenero).subscribe(
+      (pelis) => {
+        this.objPelis = pelis;
+      },
+      (error) => {
+        console.error('Error fetching:', error);
+        this.objPelis = [];
+      }
+    );
+  } */
 }

@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import jakarta.annotation.security.PermitAll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -59,6 +58,30 @@ public class InicioController {
 
 	            indicesSeleccionados.add(indiceAleatorio);
 	            peliculaAleatoria = todasLasPeliculas.get(indiceAleatorio);
+	            peliculasAleatorias.add(peliculaAleatoria);
+	        }
+	        return peliculasAleatorias;
+	    }
+	}
+	
+	@GetMapping("/similar")
+	public List<Pelicula> peliculasSimilar() {
+	    List<Pelicula> peli = serviPelicula.listarPeliculas();
+	    if (peli.size() < 4) {
+	        return peli;
+	    } else {
+	        List<Pelicula> peliculasAleatorias = new ArrayList<>();
+	        List<Integer> indicesSeleccionados = new ArrayList<>();
+	        Random random = new Random();
+	        for (int i = 0; i < 4; i++) {
+	            int indiceAleatorio;
+	            Pelicula peliculaAleatoria;
+	            do {
+	                indiceAleatorio = random.nextInt(peli.size());
+	            } while (indicesSeleccionados.contains(indiceAleatorio));
+
+	            indicesSeleccionados.add(indiceAleatorio);
+	            peliculaAleatoria = peli.get(indiceAleatorio);
 	            peliculasAleatorias.add(peliculaAleatoria);
 	        }
 	        return peliculasAleatorias;

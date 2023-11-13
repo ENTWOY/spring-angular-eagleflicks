@@ -33,6 +33,12 @@ public class EmpleadoController {
 	@Autowired
 	private PaisService serviPais;
 
+	@Autowired
+	public EmpleadoController(EmpleadoService serviEmpleado, PaisService serviPais) {
+		this.serviEmpleado = serviEmpleado;
+		this.serviPais = serviPais;
+	}
+
 	@GetMapping("/empleados")
 	public List<Empleado> listarEmpleados() {
 		return serviEmpleado.listarEmpleados();

@@ -25,6 +25,11 @@ import com.spring.angular.services.PaisService;
 @RequestMapping("/api/director/")
 @CrossOrigin(origins = "http://localhost:4200")
 public class DirectorController {
+	@Autowired
+	public DirectorController(DirectorService serviDirector, PaisService serviPais) {
+		this.serviDirector = serviDirector;
+		this.serviPais = serviPais;
+	}
 
 	@Autowired
 	private DirectorService serviDirector;

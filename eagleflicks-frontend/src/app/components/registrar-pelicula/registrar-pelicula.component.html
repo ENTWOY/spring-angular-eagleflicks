@@ -18,7 +18,7 @@
                             <label class="form-label">Año de lanzamiento:</label>
                             <input [(ngModel)]="objPelicula.anio" name="anio" id="anio" type="number" placeholder="Ej. 2023" class="form-control" required>
                         </div>
-                        <div class="col-md-5 mb-3">
+                        <div class="col-md-4 mb-3">
                             <label class="form-label">Descripcion:</label>
                             <textarea [(ngModel)]="objPelicula.descripcion" name="descripcion" id="descripcion" maxlength="499" placeholder="Escribe una breve descripción de la película" rows="2" type="text" class="form-control" required></textarea>
                         </div>
@@ -26,7 +26,7 @@
                             <label class="form-label">Duración:</label>
                             <input [(ngModel)]="objPelicula.duracion" name="duracion" id="duracion" placeholder="Ej. 120" type="number" class="form-control" required>
                         </div>
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-2 mb-3">
                             <label class="form-label">Productora:</label>
                             <input [(ngModel)]="objPelicula.productora" name="productora" id="productora" placeholder="Ej. Warner Bros"  type="text" class="form-control" required>
                         </div>
@@ -34,12 +34,16 @@
                             <label class="form-label">Idioma:</label>
                             <input [(ngModel)]="objPelicula.idioma" name="idioma" id="idioma" placeholder="Ej. Español Latino"  type="text" class="form-control" required>
                         </div>
+                        <div class="col-md-2 mb-3">
+                            <label for="servidor" class="form-label">Servidor:</label>
+                            <input id="servidor" [(ngModel)]="objPelicula.servidor" name="servidor" type="text" class="form-control" placeholder="ej. Mega" required>
+                        </div>
                         <div class="col-md-6 mb-3">
                             <label class="form-label">Trailer: URL Youtube</label>
                             <input [(ngModel)]="objPelicula.trailer" name="trailer" id="trailer" placeholder="https://www.example.com/trailer" type="text" class="form-control" required>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Vídeo: URL Película <span class="badge text-bg-danger">Servidores: archive.org / Mega</span></label>
+                            <label class="form-label">Vídeo: URL Película <span class="badge text-bg-danger">Servidor: {{ objPelicula.servidor }}</span></label>
                             <input [(ngModel)]="objPelicula.video" name="video" id="video" placeholder="https://www.example.com/movie" type="text" class="form-control" required>
                         </div>
                         <div class="col-md-4 mb-3">

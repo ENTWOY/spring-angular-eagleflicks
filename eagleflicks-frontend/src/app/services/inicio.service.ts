@@ -11,6 +11,7 @@ export class InicioService {
   private baseUrl = 'http://localhost:8091/api/home/pelicula';
   private baseUrl2 = 'http://localhost:8091/api/movie/pelicula';
   private baseUrl3 = 'http://localhost:8091/api/home/sorprendeme';
+  private baseUrl4 = 'http://localhost:8091/api/home/similar';
 
 
   constructor(private httpClient: HttpClient) { }
@@ -28,6 +29,10 @@ export class InicioService {
   /* Listado aleatorio de peliculas en la vista sorprendeme */
   obtenerPeliculasAleatorias(): Observable<Pelicula[]> {
     return this.httpClient.get<Pelicula[]>(`${this.baseUrl3}`);
+  }
+
+  obtenerPeliculaSimilar(): Observable<Pelicula[]> {
+    return this.httpClient.get<Pelicula[]>(`${this.baseUrl4}`);
   }
 
   /* Detalle pelicula en ver-pelicula */

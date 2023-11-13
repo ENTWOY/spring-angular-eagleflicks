@@ -15,7 +15,6 @@ import com.spring.angular.exceptions.ResourceNotFoundException;
 
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 import net.sf.jasperreports.engine.JRException;
@@ -82,4 +81,7 @@ public class PeliculaService {
 	    }
 	}
 	
+	public List<Pelicula> findByPeliculaGeneroIdGenero(int codCategoria) {
+		return repoPelicula.findByPeliculaGeneroIdGenero(codCategoria);
+	}
 }

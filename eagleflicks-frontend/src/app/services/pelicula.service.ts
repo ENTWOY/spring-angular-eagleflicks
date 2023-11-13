@@ -18,6 +18,7 @@ export class PeliculaService {
   private baseUrl3 = 'http://localhost:8091/api/movie/director';
   private baseUrl4 = 'http://localhost:8091/api/movie/genero';
   private baseUrl5 = 'http://localhost:8091/api/movie/actor';
+  private baseUrl6 = 'http://localhost:8091/api/movie/buscar';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -65,5 +66,9 @@ export class PeliculaService {
   obtenerReportePDF(): Observable<Blob> {
     const url = `${this.baseUrl}/pelicula_report_pdf`;
     return this.httpClient.get(url, { responseType: 'blob' });
-    }
+  }
+
+  findByPeliculaGeneroIdGenero(codGenero: number): Observable<Pelicula[]> {
+    return this.httpClient.get<Pelicula[]>(`${this.baseUrl6}/genero?codGenero=${codGenero}`);
+  }
 }

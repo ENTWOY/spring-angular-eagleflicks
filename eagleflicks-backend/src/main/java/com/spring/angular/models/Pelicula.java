@@ -50,6 +50,9 @@ public class Pelicula {
 	@Column(name = "imagen")
 	private String imagen;
 	
+	@Column(name = "servidor")
+	private String servidor;
+
 	@ManyToOne
 	@JoinColumn(name = "id_genero") 
 	private Genero peliculaGenero; 
@@ -80,6 +83,14 @@ public class Pelicula {
 
 	public Integer getIdPelicula() {
 		return idPelicula;
+	}
+	
+	public String getServidor() {
+		return servidor;
+	}
+
+	public void setServidor(String servidor) {
+		this.servidor = servidor;
 	}
 
 	public void setIdPelicula(Integer idPelicula) {

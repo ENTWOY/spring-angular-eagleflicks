@@ -7,8 +7,14 @@
             <button (click)="buscarPeliculaXTitulo()" type="submit" class="searchButton"><i class="fa fa-search"></i></button>
         </div>
         <div class="search_form">
-            <select [(ngModel)]="anio" class="text-light searchAnio form-select" (ngModelChange)="buscarPeliculaXAnio()" pla>
-                <option value="0" disabled selected>Selecciona un año</option>
+            <!-- <select (ngModelChange)="findByPeliculaGeneroIdGenero()" [(ngModel)]="idGenero" class="form-select form-select-lg" aria-label="Default select example">
+                <option disabled selected>Selecciona un género</option>
+                <option value="{{g.idGenero}}" *ngFor="let g of objGenre">
+                    {{ g.nomGen }}
+                </option>
+            </select>  -->                
+            <!-- <select (ngModelChange)="buscarPeliculaXAnio()" [(ngModel)]="anio" class="form-select form-select-lg" aria-label="Default select example">
+                <option disabled selected>Selecciona un año</option>
                 <option value="2023">2023</option>
                 <option value="2022">2022</option>
                 <option value="2021">2021</option>
@@ -16,8 +22,12 @@
                 <option value="2019">2019</option>
                 <option value="2018">2018</option>
                 <option value="2010">2010</option>
-            </select>
-        </div>           
+            </select>   -->
+            <div class="search_form">
+                <input [(ngModel)]="anio" type="number" class="text-light searchTerm" placeholder="Buscar por año de película">
+                <button (click)="buscarPeliculaXAnio()" type="submit" class="searchButton bg-light"><i class="fa fa-search text-dark"></i></button>
+            </div>    
+        </div>    
     </div>
 
     <div class="movies-grid">    
@@ -36,14 +46,14 @@
             <div class="text-light card-body">
                 <h3 class="card-title">{{ p.titulo }}</h3>
                 <div class="card-info">
-                    <!--span class="genre text_overflow">{{ p.peliculaGenero.nomGen }}</span-->
+                    <!-- <span class="genre text_overflow">{{ p.peliculaGenero.nomGen }}</span> -->
                     <span class="year">{{ p.anio }}</span>
                 </div>
             </div>
         </a>
     </div>
     <div *ngIf="objPelis && objPelis.length === 0" class="alert alert-warning">
-        <h5>No se encontraron películas con el título ó año "<strong>{{ title || anio }}</strong>"</h5>
+        <h5>No hay películas con el filtro "<strong>{{ title || anio }}</strong>". Intenta ajustar tus filtros o probar otra búsqueda.</h5>  
     </div>      
 </section>
 <!-- End Movies -->

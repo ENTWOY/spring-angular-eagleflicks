@@ -19,7 +19,7 @@
                             <label for="apellido" class="form-label">Año de lanzamiento:</label>
                             <input id="anio" [(ngModel)]="objPeli.anio" name="anio" type="text" class="form-control" disabled>
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-5 mb-3">
                             <label for="apellido" class="form-label">Descripción:</label>
                             <textarea id="descripcion" [(ngModel)]="objPeli.descripcion" name="descripcion" type="text" rows="5" class="form-control" disabled></textarea>
                         </div>
@@ -27,13 +27,17 @@
                             <label for="apellido" class="form-label">Duración:</label>
                             <input id="duracion" [(ngModel)]="objPeli.duracion" name="duracion" type="text" class="form-control" disabled>
                         </div>
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-2 mb-3">
                             <label for="apellido" class="form-label">Productora:</label>
                             <input id="productora" [(ngModel)]="objPeli.productora" name="productora" type="text" class="form-control" disabled>
                         </div>
                         <div class="col-md-2 mb-3">
                             <label for="imagen" class="form-label">País:</label>
                             <input id="nomPais" *ngIf="objPeli && objPeli.peliculaPais" [(ngModel)]="objPeli.peliculaPais.nomPais" name="nomPais" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <label for="servidor" class="form-label">Servidor:</label>
+                            <input id="servidor" [(ngModel)]="objPeli.servidor" name="servidor" type="text" class="form-control" disabled>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="trailer" class="form-label">Trailer: URL YouTube:</label>

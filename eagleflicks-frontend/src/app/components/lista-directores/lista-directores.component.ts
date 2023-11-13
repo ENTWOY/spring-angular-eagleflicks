@@ -16,7 +16,10 @@ export class ListaDirectoresComponent implements OnInit {
 
   objDirector:Director[];
 
-  constructor(private serviDirector:DirectorService, private router:Router) { }
+  constructor(
+    private serviDirector:DirectorService, 
+    private router:Router
+  ) { }
 
   ngOnInit(): void {
     this.obtenerDirectores();

@@ -15,6 +15,7 @@ export class Pelicula {
     trailer: string;
     video: string;
     imagen: string;
+    servidor: string;
     peliculaGenero: Genero;
     peliculaDirector: Director;
     peliculaPais: Pais;

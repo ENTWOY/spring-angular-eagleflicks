@@ -22,24 +22,35 @@ export class LoginComponent implements OnInit {
   constructor(private apiService: ApiService, private router: Router) {
     this.passwordInput = null;
     this.togglePassword = null;
-    
+
   }
 
   ngOnInit() {
     this.showPassword();
   }
 
+  //login function con error de contraseña
   login(form: NgForm){
     this.apiService.login(this.creds)
       .subscribe(() => {
         this.router.navigate(['/']);
+      }, (err) => {
+        alert("Usuario o contraseña incorrectos");
       })
   }
+
+
+  /*login(form: NgForm){
+    this.apiService.login(this.creds)
+      .subscribe(() => {
+        this.router.navigate(['/']);
+      })
+  }*/
 
   showPassword() {
     this.passwordInput = document.getElementById('passwordInput') as HTMLInputElement;
     this.togglePassword = document.getElementById('togglePassword');
-    
+
     if (this.passwordInput && this.togglePassword) {
       this.togglePassword.addEventListener('click', () => {
         if (this.passwordInput!.type === 'password') {

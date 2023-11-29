@@ -1,99 +1,158 @@
-<section style="background-color: #eee;" class="my-5">
-    <div class="container py-5">
+<section class="card-ver-pelicula my-5 pt-5">
+    <br>
+    <div class="card container-ver-pelicula py-3 px-3" style="background-color: var(--cuevana-color-search);">
         <div class="row">
-        <div class="col-lg-4">
-            <div class="card mb-4">
-                <div class="card-body text-center">
-                    <img *ngIf="myFileImgs && objPeli.imagen" [src]="myFileImgs + objPeli.imagen" alt="Movie Cover" [title]="objPeli.titulo" class="rounded img-fluid" style="height: 23em;">
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-8">
-            <div class="card mb-4">
+        <div class="col-lg-3 px-3">
             <div class="card-body">
-                <div class="row">
-                    <div class="col-sm-12 d-flex align-items-center justify-content-between">
-                        <h1 class="mb-0 fw-bold">{{ objPeli.titulo }}</h1>
-                        <span class="badge text-bg-warning">{{ objPeli.idioma }}</span>
-                    </div>
+                <div class="text-center">
+                    <img *ngIf="myFileImgs && objPeli.imagen" [src]="myFileImgs + objPeli.imagen" alt="Movie Cover" [title]="objPeli.titulo" class="pelicula-container img-fluid" style="height: 24em;">
                 </div>
-                <br>
-                <br>
-                <div class="row">
-                    <div class="col-sm-2">
-                        <p class="mb-0">{{ objPeli.duracion }} min</p>
+            </div>
+        </div>
+        <div class="col-lg-9 px-3">
+            <div class="card-body">
+                <div class="card-detalle-pelicula text-off-white">
+                    <div class="row">
+                        <div class="col-sm-12 d-flex align-items-center justify-content-between">
+                            <h1 class="mb-0 fw-bold">{{ objPeli.titulo }} <span>({{objPeli.anio}})</span></h1>
+                            <span class="badge text-bg-red">{{ objPeli.idioma}}</span>
+                        </div>
                     </div>
-                    <div class="col-sm-8">
-                        <p class="mb-0">{{ objPeli.anio }}</p>
+                    <br>
+                    <div class="row align-items-center">
+                        <div class="col-sm-2">
+                            <p class="mb-0">Duración:</p>
+                        </div>
+                        <div class="col-sm-2">
+                            <p class="text-ver-pelicula mb-0">{{ objPeli.duracion }} min</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <!-- <p class="mb-0">{{ objPeli.anio }}</p> -->
+                            <button type="button" class="btn btn-outline-danger px-5" data-bs-toggle="modal" data-bs-target="#myModal">
+                                Ver Trailer
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <p class="mb-0">{{ objPeli.descripcion }}</p>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="mb-0">
+                                {{ objPeli.descripcion }}
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-sm-2">
-                        <p class="mb-0">Géneros:</p>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <p class="mb-0">Géneros:</p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p (click)="verGenero(objPeli.peliculaGenero.idGenero)" style="cursor: pointer;" class="text-ver-pelicula mb-0" *ngIf="objPeli && objPeli.peliculaGenero">
+                                {{ objPeli.peliculaGenero.nomGen }}
+                            </p>
+                        </div>
                     </div>
-                    <div class="col-sm-8">
-                        <p class="text-muted mb-0" *ngIf="objPeli && objPeli.peliculaGenero">{{ objPeli.peliculaGenero.nomGen }}</p>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <p class="mb-0">Actores:</p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="text-ver-pelicula mb-0" *ngIf="objPeli && objPeli.peliculaActor">
+                                {{ objPeli.peliculaActor.nomActor }}
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-2">
-                        <p class="mb-0">Actores:</p>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <p class="mb-0">Director:</p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="text-ver-pelicula mb-0" *ngIf="objPeli && objPeli.peliculaDirector">
+                                {{ objPeli.peliculaDirector.nombre }}
+                            </p>
+                        </div>
                     </div>
-                    <div class="col-sm-8">
-                        <p class="text-muted mb-0" *ngIf="objPeli && objPeli.peliculaActor">{{ objPeli.peliculaActor.nomActor }}</p>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <p class="mb-0">País:</p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="text-ver-pelicula mb-0" *ngIf="objPeli && objPeli.peliculaPais">
+                                {{ objPeli.peliculaPais.nomPais }}
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-2">
-                        <p class="mb-0">Director:</p>
-                    </div>
-                    <div class="col-sm-8">
-                        <p class="text-muted mb-0" *ngIf="objPeli && objPeli.peliculaDirector">{{ objPeli.peliculaDirector.nombre }}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-2">
-                        <p class="mb-0">País:</p>
-                    </div>
-                    <div class="col-sm-8">
-                        <p class="text-muted mb-0" *ngIf="objPeli && objPeli.peliculaPais">{{ objPeli.peliculaPais.nomPais }}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-2">
-                        <p class="mb-0">Productora:</p>
-                    </div>
-                    <div class="col-sm-8">
-                        <p class="text-muted mb-0">{{ objPeli.productora }}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-2">
-                        <p class="mb-0">Trailer:</p>
-                    </div>
-                    <div class="col-sm-8">
-                        <p class="text-muted mb-0">{{ objPeli.trailer }}</p>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <p class="mb-0">Productora:</p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="text-ver-pelicula mb-0">
+                                {{ objPeli.productora }}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+        </div>
+        <div class="col-sm-12 py-3 px-3">
+            <!-- Validar si la URL es correcta* -->
+            <div *ngIf="errorUrlVideo">
+                <p class="text-danger">{{ errorUrlVideo }}</p>
             </div>
-        </div>
-        </div>
-        
-        <div class="col-sm-12">
-            <iframe width="100%" height="666" [src]="trailerUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <!-- server -->
+            <div class="rounded p-3" style="background-color: rgba(61,79,145,.5);">
+                <button type="button" class="btn btn-primary position-relative px-3" style="cursor: text;">
+                    {{ objPeli.servidor }}
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        Servidor
+                    </span>
+                </button>
+            </div>
+            <!-- Reproductor de ver-pelicula -->
+            <iframe class="pelicula-container" [src]="videoPeliUrl" width="100%" height="666" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
 
-            <div class="my-3">
+            <!-- Movie Recomendaciones -->
+            <div class="my-5">
+                <h2 class="py-4">Películas similar a: <span>{{ objPeli.titulo }}</span></h2>
+                <div class="row">
+                    <div class="col-md-3" *ngFor="let peli of peli">
+                        <div class="card">
+                            <img (click)="verPelicula(peli.idPelicula)" style="cursor: pointer; height: 26rem; width: auto;" [src]="myFileImgs + peli.imagen" alt="Movie Cover" class="card-img-top">
+                            <div class="card-body bg-dark rounded-bottom text-center">
+                                <a (click)="verPelicula(peli.idPelicula)" class="text-white" style="cursor: pointer;">
+                                    {{ peli.titulo }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="my-3">
+                <button onclick="changeText()">focus</button>
                 <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore excepturi ex iure vel possimus illo animi in quia. Deserunt dolore veniam ipsam libero, tempore ab ex odio et nostrum? Quibusdam?</h4>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, doloremque! Tempore quod nesciunt consectetur beatae velit iste, nulla vitae maiores deserunt. Accusamus non earum temporibus, dolor quos officia delectus velit.</p>
-            </div>
+            </div> -->
         </div>
     </div>
+
+    <!-- Start Modal View Trailer -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Trailer: {{objPeli.titulo}}</h5>
+                    <div *ngIf="errorUrlTrailer">
+                        <p class="text-danger">{{ errorUrlTrailer }}</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe width="100%" height="666" [src]="trailerUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <!-- End Modal View Trailer -->
 </section>

@@ -1,23 +1,23 @@
-<div class="my-5 pt-3">
+<div class="my-5 pt-5">
     <br>
-    <div class="d-flex align-items-center">
-        <i class="bi bi-table fs-5 me-2"></i>
-        <h4 class="m-0">Películas</h4>
+    <div class="d-flex align-items-center filter-bar mt-2">
+        <div class="filter-dropdowns d-flex">
+            <h3 class="m-0 text-off-white">
+                <i class="bi bi-database-fill fs-3 text-off-white me-3"></i>Películas
+            </h3>
+        </div>
     </div>
-    <hr>
     <div class="d-flex align-items-center justify-content-between pb-3">
-        <a [routerLink]="'/registrar-pelicula'" class="btn btn-success">
-            <i class="bi bi-plus-square me-1"></i> Registro Nuevo
+        <a [routerLink]="'/registrar-pelicula'" class="btn btn-success rounded-pill">
+            <i class="bi bi-plus me-1 fs-5"></i> Registro Nuevo
         </a>
     
         <div class="btn-group dropstart">
-            <button type="button" class="btn btn-secondary dropdown-toggle px-3" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-file-earmark-pdf me-1"></i> Reportes
+            <button type="button" class="btn btn-secondary dropdown-toggle px-3 rounded-pill" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-file-earmark-pdf me-1 fs-5"></i> Reporte
             </button>
             <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item" href="#">PDF</a></li>
-                <li><a class="dropdown-item" href="#">XML</a></li>
-                <li><a class="dropdown-item" href="#">JSON</a></li>
+                <li><a class="dropdown-item" (click)="generarPdf()" style="cursor: pointer;">PDF</a></li>
             </ul>
         </div> 
     </div>
@@ -29,44 +29,46 @@
                 <th>Título</th>
                 <th>Descripción</th>
                 <th>Año</th>
-                <th>Duración</th>
-                <th>Productora</th>
+                <th>Min.</th>
+                <th>Prod.</th>
                 <th>Idioma</th>
                 <th>Trailer</th>
+                <th>Vídeo</th>
                 <th>Género</th>
                 <th>Director</th>
                 <th>País</th>
                 <th>Actor</th>
                 <th>Img</th>
-                <th></th>
+                <th class="text-center">Opciones</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let p of peliculas">
                 <td>{{ p.idPelicula }}</td>
-                <td>{{ p.titulo }}</td>
+                <td class="text_overflow">{{ p.titulo }}</td>
                 <td class="text_overflow">{{ p.descripcion }}</td>
                 <td>{{ p.anio }}</td>
                 <td>{{ p.duracion }}</td>
                 <td class="text_overflow">{{ p.productora }}</td>
                 <td class="text_overflow">{{ p.idioma }}</td>
                 <td class="text_overflow">{{ p.trailer }}</td>
-                <td>{{ p.peliculaGenero.nomGen }}</td>
-                <td>{{ p.peliculaDirector.nombre }}</td>
+                <td class="text_overflow">{{ p.video }}</td>
+                <td class="text_overflow">{{ p.peliculaGenero.nomGen }}</td>
+                <td class="text_overflow">{{ p.peliculaDirector.nombre }}</td>
                 <td>{{ p.peliculaPais.nomPais }}</td>
                 <td class="text_overflow">{{ p.peliculaActor.nomActor }}</td>
                 <td class="text-center">
                     <img [src]="myFileImgs + p.imagen" class="img-fluid" style="height: 4em;">
                 </td>
-                <td class="d-flex align-items-center justify-content-center">
-                    <button (click)= "actualizarPelicula(p.idPelicula)" class="btn btn-sm btn-primary me-2" title="Editar">
-                        <i class="bi bi-pencil-square"></i>
+                <td class="align-items-center justify-content-center">
+                    <button (click)= "actualizarPelicula(p.idPelicula)" class="btn btn-sm btn-primary me-2 rounded-circle" title="Editar">
+                        <i class="bi bi-pencil-fill"></i>
                     </button>
-                    <button (click)= "detallePelicula(p.idPelicula)" class="btn btn-sm btn-warning me-2" title="Detalle">
-                        <i class="bi bi-journal-text"></i>
+                    <button (click)= "detallePelicula(p.idPelicula)" class="btn btn-sm btn-warning me-2 rounded-circle" title="Detalle">
+                        <i class="bi bi-stack"></i>
                     </button>
-                    <button (click)= "eliminarPelicula(p.idPelicula)" class="btn btn-sm btn-danger" title="Eliminar">
-                        <i class="bi bi-trash3"></i>
+                    <button (click)= "eliminarPelicula(p.idPelicula)" class="btn btn-sm btn-danger me-2 rounded-circle" title="Eliminar">
+                        <i class="bi bi-archive-fill"></i>
                     </button>
                 </td>
             </tr>

@@ -1,0 +1,42 @@
+<!-- Start Movies -->
+<section class="movies pt-5">
+    <div class="d-flex align-items-center filter-bar mt-2">
+        <div class="filter-dropdowns d-flex">
+            <h3 class="m-0 text-off-white">
+                <i class="bi bi-tag-fill fs-3 text-off-white me-3"></i>Género Películas:  
+                <span>{{ objGenero.nomGen }}</span>
+            </h3>
+        </div>
+    </div>
+
+    <div class="movies-grid">    
+        <a (click)="verPelicula(p.idPelicula)" *ngFor="let p of objPelicula" class="movie-card" [title]="p.titulo">
+            <div class="card-head">
+                <img [src]="myFileImgs + p.imagen" class="card-img" alt="Movie Cover">
+                <div class="card-overlay">
+                        <a class="bookmark">
+                            <i class="bi bi-heart-fill mx-1"></i>
+                        </a>
+                    <div class="rating">
+                        <i class="bi bi-star-half me-1"></i>
+                        <span>6.8</span>
+                    </div>
+                    <div class="play">
+                        <i class="bi bi-play-circle"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="text-light card-body">
+                <h3 class="card-title">{{ p.titulo }}</h3>
+                <div class="card-info" style="text-align: center;">
+                    <span class="genre">{{ p.peliculaGenero.nomGen }}</span>
+                    <!-- <span class="year">{{ p.anio }}</span> -->
+                </div>
+            </div>
+        </a>
+    </div>
+    <div *ngIf="objPelicula && objPelicula.length === 0" class="alert alert-warning">
+        <h5>No se encontraron películas: {{ objGenero.nomGen }} Intenta probar otra búsqueda.</h5>
+    </div>
+</section>
+<!-- End Movies -->

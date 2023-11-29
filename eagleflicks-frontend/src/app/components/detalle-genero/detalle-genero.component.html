@@ -1,0 +1,27 @@
+<div class="container h-100 pt-5 my-5">
+    <br>
+    <div class="row d-flex justify-content-center align-items-center h-100 mt-2">
+        <div class="col-lg-12 col-xl-8">
+            <div class="card text-black" style="border-radius: 25px;">
+                <div class="card-body p-md-5 card-custom">
+                    <h4 class="text-center">Detalles Género/s</h4>
+                    <hr>
+                    <div class="py-3 row">
+                        <div class="col-md-3 mb-3">
+                            <label for="id" class="form-label">Id:</label>
+                            <input id="id" [(ngModel)]="objGenero.idGenero" name="id" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-md-9 mb-3">
+                            <label for="nombre" class="form-label">Género/s:</label>
+                            <input id="nombre" [(ngModel)]="objGenero.nomGen" name="nombre" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-md-12 d-flex justify-content-center pt-5">
+                            <a [routerLink]="'/generos'" class="btn btn-danger px-3">Regresar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

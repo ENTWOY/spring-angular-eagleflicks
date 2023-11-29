@@ -1,0 +1,51 @@
+<div class="container h-100 pt-5 my-5">
+    <br>
+    <div class="row d-flex justify-content-center align-items-center h-100 mt-2">
+        <div class="col-lg-12 col-xl-8">
+            <div class="card text-black" style="border-radius: 25px;">
+                <div class="card-body p-md-5 card-custom">
+                    <h4 class="text-center">Actualizar Administrador: <span>{{objAdmin.nombre}}</span></h4>
+                    <form (ngSubmit)="onSubmit()" class="py-3 row">
+                        <div class="col-md-2 mb-3">
+                            <label for="id" class="form-label">Id:</label>
+                            <input id="id" [(ngModel)]="objAdmin.idAdmin" name="id" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-md-5 mb-3">
+                            <label class="form-label">Nombre:</label>
+                            <input id="nombre" [(ngModel)]="objAdmin.nombre" name="nombre" placeholder="Ej. Lorena Muller, Belt Steve" type="text" class="form-control" required>
+                        </div>
+                        <div class="col-md-5 mb-3">
+                            <label class="form-label">Apellido:</label>
+                            <input id="apellido" [(ngModel)]="objAdmin.apellido" name="apellido" type="text" placeholder="Ej. Smith, Johnson" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Email:</label>
+                            <input id="correoElectronico" [(ngModel)]="objAdmin.correoElectronico" placeholder="Ej. ejemplo@email.com" name="correoElectronico" type="text" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Contraseña:</label>
+                            <input id="contrasena" [(ngModel)]="objAdmin.contrasena" placeholder="Ej. *******" name="contrasena" type="text" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Dirección:</label>
+                            <input id="direccion" [(ngModel)]="objAdmin.direccion" name="direccion" placeholder="Ej. 123 Main St, City" type="text" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Nacionalidad:</label>
+                            <select class="form-select" id="pais" [(ngModel)]="objAdmin.administradorPais" name="pais" required>
+                                <option disabled value="">[Seleccione un pais]</option>
+                                <option *ngFor="let pais of objPais" [ngValue]="pais">{{ pais.nomPais }}</option>
+                            </select>                          
+                        </div>
+                        <div class="col-md-12 d-flex justify-content-center pt-5">
+                            <button type="submit" class="btn btn-primary me-2">Guardar Cambios</button>
+                            <a [routerLink]="'/administradores'" class="btn btn-danger">Regresar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

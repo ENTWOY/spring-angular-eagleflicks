@@ -4,8 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import jakarta.annotation.security.RolesAllowed;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Role;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,29 +20,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.angular.models.Director;
-import com.spring.angular.models.Pais;
 import com.spring.angular.services.DirectorService;
-import com.spring.angular.services.PaisService;
 
 @RestController
-@RequestMapping("/api/director/")
+@RequestMapping("/api/v1")
 @CrossOrigin(origins = "http://localhost:4200")
 public class DirectorController {
 
 	@Autowired
 	private DirectorService serviDirector;
 
-	@Autowired
-	private PaisService serviPais;
-
 	@GetMapping("/directores")
 	public List<Director> listarDirectores() {
 		return serviDirector.listarDirectores();
-	}
-
-	@GetMapping("/paises")
-	public List<Pais> listarPaises() {
-		return serviPais.listarPaises();
 	}
 
 	@PostMapping("/directores")

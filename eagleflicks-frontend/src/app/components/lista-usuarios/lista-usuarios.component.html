@@ -1,0 +1,46 @@
+<div class="my-5 pt-5">
+    <br>
+    <div class="d-flex align-items-center filter-bar mt-2">
+        <div class="filter-dropdowns d-flex">
+            <h3 class="m-0 text-off-white">
+                <i class="bi bi-database-fill fs-3 text-off-white me-3"></i>Usuarios
+            </h3>
+        </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-between pb-3">
+        <a [routerLink]="'/registrar-usuario'" class="btn btn-success rounded-pill">
+            <i class="bi bi-plus me-1 fs-5"></i> Registro Nuevo
+        </a>
+    </div>
+
+    <table id="datatable-spanish" class="table table-striped table-bordered py-2">
+        <thead class="table-primary">
+            <tr>
+                <th class="text-center">Id</th>
+                <th class="text-center">Nombres</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Avatar</th>
+                <th class="text-center">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of objUsuario">
+                <td class="text-center">{{ u.idUsu }}</td>
+                <td class="text-center">{{ u.nombre }}</td>
+                <td class="text-center">{{ u.email }}</td>
+                <td class="text-center">{{ u.avatar }}</td>
+                <td class="text-center">
+                    <button (click)= "actualizarUsuario(u.idUsu)" class="btn btn-sm btn-primary me-2 rounded-circle" title="Editar">
+                        <i class="bi bi-pencil-fill"></i>
+                    </button>
+                    <button (click)= "detalleUsuario(u.idUsu)" class="btn btn-sm btn-warning me-2 rounded-circle" title="Detalle">
+                        <i class="bi bi-stack"></i>
+                    </button>
+                    <button  (click)= "eliminarUsuario(u.idUsu)" class="btn btn-sm btn-danger me-2 rounded-circle" title="Eliminar">
+                        <i class="bi bi-archive-fill"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

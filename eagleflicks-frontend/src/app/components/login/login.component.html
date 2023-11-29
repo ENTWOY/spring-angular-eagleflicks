@@ -9,25 +9,25 @@
     </div>
     <div class="col-md-4">
         <div class="text-center mb-4">
-            <img src="assets/img/lg.svg" alt="logo" class="logo-login mb-2">
-            <span class="title-login">EagleFlicks</span>
+            <img src="assets/img/lg2.svg" alt="logo" class="logo-login mb-2">
+            <span class="title-login"><span>Eagle</span>Flicks</span>
         </div>
         <p class="subtitle-login text-center py-3">Las mejores películas online.</p>
-        <form class="pass-form px-3 shadow-sm">
+        <form class="pass-form px-3 shadow-sm" #form="ngForm" (ngSubmit)="login(form)">
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Usuario" required>
+                <input type="text" id="username" name="username" class="form-control rounded-pill" [(ngModel)]="creds.username" placeholder="Usuario" required>
             </div>
-            <div class="input-group mb-3">
-                <input type="password" id="passwordInput" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1">
-                <span class="input-group-text" id="basic-addon1">
+            <div class="input-group mb-3 password-box">
+                <input type="password" name="password" id="password" class="form-control rounded-start-pill" [(ngModel)]="creds.password" placeholder="Contraseña" aria-describedby="basic-addon1">
+                <span class="input-group-text rounded-end-pill" id="basic-addon1">
                     <i id="togglePassword" class="fas fa-eye-slash" style="cursor: pointer;"></i>
                 </span>
             </div>                    
             <div class="my-3 text-end">
-                <a class="text-primary">¿Olvidaste tu contraseña?</a>
+                <a class="fs-6 fw-bold" style="color: #f44336;">¿Olvidaste tu contraseña?</a>
             </div>
             <div class="d-grid">
-                <button class="btn btn-primary" type="submit">Ingresar</button>
+                <button class="btn btn-primary rounded-pill" type="submit">Ingresar</button>
             </div>
         </form>
     </div>

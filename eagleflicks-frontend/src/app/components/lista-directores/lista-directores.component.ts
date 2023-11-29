@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { DirectorService } from '../../director.service';
+import { DirectorService } from '../../services/director.service';
 import { Router } from '@angular/router';
-import { Director } from '../../director';
+import { Director } from '../../models/director';
 import Swal from 'sweetalert2';
 
+/* Variable JQuery(Datatables */
+  declare var $: any;
 
 @Component({
   selector: 'app-lista-directores',
@@ -14,16 +16,20 @@ export class ListaDirectoresComponent implements OnInit {
 
   objDirector:Director[];
 
-  constructor(private directorServicio:DirectorService, private router:Router) { }
+  constructor(
+    private serviDirector:DirectorService, 
+    private router:Router
+  ) { }
 
   ngOnInit(): void {
     this.obtenerDirectores();
   }
 
   private obtenerDirectores() {
-    this.directorServicio.obtenerListaDirectores().subscribe(dato => {
+    this.serviDirector.obtenerListaDirectores().subscribe(dato => {
       console.log("Directores: ", dato);
       this.objDirector = dato;
+      this.showDatatable();
     });
   }
 
@@ -47,16 +53,57 @@ export class ListaDirectoresComponent implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.directorServicio.eliminarDirector(id).subscribe(dato => {
+        // Destruir la tabla DataTable si ya existe
+        if ($.fn.DataTable.isDataTable('#datatable-spanish')) {
+          $('#datatable-spanish').DataTable().destroy();
+        }
+        this.serviDirector.eliminarDirector(id).subscribe(dato => {
           console.log(dato);
           this.obtenerDirectores();
         });
+        
         Swal.fire(
           '¡Eliminado!',
-          `El director con <strong>ID: ${id}</strong> ha sido eliminado.`,
+          `El género con <strong>ID: ${id}</strong> ha sido eliminada.`,
           'success'
         );
       }
     });
   } 
+
+  showDatatable(){
+      $(document).ready(function() {
+        $('#datatable-spanish').DataTable({
+            "aLengthMenu": [10, 25, 50, 100],
+            "language": {
+                "sProcessing":     "Procesando...",
+                "sLengthMenu":     "Mostrar _MENU_ registros",
+                "sZeroRecords":    "No se encontraron resultados",
+                "sEmptyTable":     "Ningún dato disponible en esta tabla =(",
+                "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix":    "",
+                "sSearch":         "Buscar:",
+                "sUrl":            "",
+                "sInfoThousands":  ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst":    "Primero",
+                    "sLast":     "Último",
+                    "sNext":     "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                },
+                "buttons": {
+                    "copy": "Copiar",
+                    "colvis": "Visibilidad"
+                }
+            }
+        });
+    });  
+  }
 }

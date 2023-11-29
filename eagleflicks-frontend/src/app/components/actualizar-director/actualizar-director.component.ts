@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DirectorService } from '../../director.service';
-import { Pais } from '../../pais';
+import { DirectorService } from '../../services/director.service';
+import { Pais } from '../../models/pais';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Director } from '../../director';
+import { Director } from '../../models/director';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -27,7 +27,7 @@ export class ActualizarDirectorComponent implements OnInit  {
     this.directorService.actualizarDirector(this.id, this.objDirector).subscribe(
       dato => {
         this.mostrarMensajeExito();
-        this.irAlaListaDeEmpleados();
+        this.irAlaListaDeDirectores();
       },
       error => {
         console.log(error);
@@ -60,7 +60,7 @@ export class ActualizarDirectorComponent implements OnInit  {
     });
   }
 
-  irAlaListaDeEmpleados(){
+  irAlaListaDeDirectores(){
     this.router.navigate(['/directores']);
   }
 

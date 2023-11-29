@@ -1,55 +1,63 @@
 <div class="container h-100 pt-5 my-5">
     <br>
-    <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-lg-12 col-xl-11">
+    <div class="row d-flex justify-content-center align-items-center h-100 mt-2">
+        <div class="col-lg-12 col-xl-12">
             <div class="card text-black" style="border-radius: 25px;">
-                <div class="card-body p-md-5">
-                    <h4 class="text-center">Detalle Película</h4>
+                <div class="card-body p-md-5 card-custom">
+                    <h4 class="text-center">Detalle Película: <span>{{objPeli.titulo}}</span></h4>
                     <hr>
                     <div class="py-3 row">
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-2 mb-3">
                             <label for="id" class="form-label">Id:</label>
                             <input id="id" [(ngModel)]="objPeli.idPelicula" name="id" type="text" class="form-control" disabled>
                         </div>
-                        <div class="col-md-9 mb-3">
+                        <div class="col-md-7 mb-3">
                             <label for="nombre" class="form-label">Título:</label>
                             <input id="titulo" [(ngModel)]="objPeli.titulo" name="titulo" type="text" class="form-control" disabled>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="apellido" class="form-label">Descripción:</label>
-                            <textarea id="descripcion" [(ngModel)]="objPeli.descripcion" name="descripcion" type="text" rows="5" class="form-control" disabled></textarea>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="apellido" class="form-label">Año de lanzamiento:</label>
                             <input id="anio" [(ngModel)]="objPeli.anio" name="anio" type="text" class="form-control" disabled>
                         </div>
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-5 mb-3">
+                            <label for="apellido" class="form-label">Descripción:</label>
+                            <textarea id="descripcion" [(ngModel)]="objPeli.descripcion" name="descripcion" type="text" rows="5" class="form-control" disabled></textarea>
+                        </div>
+                        <div class="col-md-1 mb-3">
                             <label for="apellido" class="form-label">Duración:</label>
                             <input id="duracion" [(ngModel)]="objPeli.duracion" name="duracion" type="text" class="form-control" disabled>
                         </div>
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-2 mb-3">
                             <label for="apellido" class="form-label">Productora:</label>
                             <input id="productora" [(ngModel)]="objPeli.productora" name="productora" type="text" class="form-control" disabled>
                         </div>
-                        <div class="col-md-7 mb-3">
-                            <label for="apellido" class="form-label">Trailer:</label>
-                            <input id="trailer" [(ngModel)]="objPeli.trailer" name="trailer" type="text" class="form-control" disabled> 
-                        </div>
-                        <div class="col-md-2 mb-3">
-                            <label for="genero" class="form-label">Género:</label>
-                            <input id="genero" [(ngModel)]="objPeli.peliculaGenero.nomGen" name="genero" type="text" class="form-control" disabled>
-                        </div>
-                        <div class="col-md-2 mb-3">
-                            <label for="imagen" class="form-label">Director:</label>
-                            <input id="nombre" [(ngModel)]="objPeli.peliculaDirector.nombre" name="nombre" type="text" class="form-control" disabled>
-                        </div>
                         <div class="col-md-2 mb-3">
                             <label for="imagen" class="form-label">País:</label>
-                            <input id="nomPais" [(ngModel)]="objPeli.peliculaPais.nomPais" name="nomPais" type="text" class="form-control" disabled>
+                            <input id="nomPais" *ngIf="objPeli && objPeli.peliculaPais" [(ngModel)]="objPeli.peliculaPais.nomPais" name="nomPais" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <label for="servidor" class="form-label">Servidor:</label>
+                            <input id="servidor" [(ngModel)]="objPeli.servidor" name="servidor" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="trailer" class="form-label">Trailer: URL YouTube:</label>
+                            <input id="trailer" [(ngModel)]="objPeli.trailer" name="trailer" type="text" class="form-control" disabled> 
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="video" class="form-label">URL: Película:</label>
+                            <input id="video" [(ngModel)]="objPeli.video" name="video" type="text" class="form-control" disabled> 
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <label for="genero" class="form-label">Género/s:</label>
+                            <textarea id="genero" *ngIf="objPeli && objPeli.peliculaGenero" [(ngModel)]="objPeli.peliculaGenero.nomGen" name="genero" type="text" class="form-control" rows="3" disabled></textarea>
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <label for="imagen" class="form-label">Director/es:</label>
+                            <textarea id="nombre" *ngIf="objPeli && objPeli.peliculaDirector" [(ngModel)]="objPeli.peliculaDirector.nombre" name="nombre" type="text" class="form-control" rows="3" disabled></textarea>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="imagen" class="form-label">Actor/es:</label>
-                            <textarea id="nomActor" [(ngModel)]="objPeli.peliculaActor.nomActor" name="nomActor" rows="3" type="text" class="form-control" disabled></textarea>
+                            <textarea id="nomActor" *ngIf="objPeli && objPeli.peliculaActor" [(ngModel)]="objPeli.peliculaActor.nomActor" name="nomActor" rows="3" type="text" class="form-control" disabled></textarea>
                         </div>
                         <div class="col-md-2 mb-3">
                             <label for="imagen" class="form-label">Nombre Imagen:</label>
@@ -57,10 +65,10 @@
                         </div>
                         <div class="col-md-3 mb-3 d-grid">
                             <label for="imagen" class="form-label">Portada de la película:</label>
-                            <img [src]="myFileImgs + objPeli.imagen" [title]="objPeli.titulo" style="height: 15em;">            
+                            <img [src]="myFileImgs + objPeli.imagen" [title]="objPeli.titulo" alt="Movie Cover" style="height: 15em;">            
                         </div>
-                        <div class="col-md-12 d-flex justify-content-center pt-4">
-                            <a [routerLink]="'/peliculas'" class="btn btn-danger">Regresar</a>
+                        <div class="col-md-12 text-center">
+                            <a [routerLink]="'/peliculas'" class="btn btn-danger px-5">Regresar</a>
                         </div>
                     </div>
                 </div>

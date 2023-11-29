@@ -1,0 +1,166 @@
+<div class="my-5 pt-5">
+    <br>
+    <div class="d-flex align-items-center filter-bar mt-2">
+        <div class="filter-dropdowns d-flex">
+            <h3 class="m-0 ps-2 text-off-white">
+                <i class="bi bi-bookmark-star-fill fs-3 text-off-white me-3"></i>Registros del sistema
+            </h3>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="row">			
+            <div class="col-xl-3 col-lg-6">
+                <div class="card l-bg-orange-dark">
+                    <div class="card-statistic-3 p-4">
+                        <div class="card-icon card-icon-large">
+                            <i class="fas fa-mug-hot"></i>
+                        </div>
+                        <div class="mb-4">
+                            <h5 class="card-title fw-bold mb-0">Administradores</h5>
+                        </div>
+                        <div class="mb-2 d-flex align-items-center justify-content-between">
+                            <a [routerLink]="'/administradores'" class="btn btn-sm btn-outline-light px-4">Ir <i class="fa fa-arrow-up"></i></a>
+                            <h2 class="d-flex align-items-center mb-0" th:text="${cantManga}">{{ AdminCount }}</h2>
+                        </div>
+                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                            <div class="progress-bar bg-light" role="progressbar"
+                                data-width="25%" aria-valuenow="25" aria-valuemin="0"
+                                aria-valuemax="100" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-lg-6">
+                <div class="card l-bg-blue-dark">
+                    <div class="card-statistic-3 p-4">
+                        <div class="card-icon card-icon-large">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <div class="mb-4">
+                            <h5 class="card-title fw-bold mb-0">Usuarios</h5>
+                        </div>
+                        <div class="mb-2 d-flex align-items-center justify-content-between">
+                            <a [routerLink]="'/usuarios'" class="btn btn-sm btn-outline-light px-4">Ir <i class="fa fa-arrow-up"></i></a>
+                            <h2 class="d-flex align-items-center mb-0" th:text="${cantManga}">{{ userCount }}</h2>
+                        </div>
+                        <div class="progress mt-1" data-height="8" style="height: 8px;">
+                            <div class="progress-bar bg-light" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0"
+                                aria-valuemax="100" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-lg-6">
+                <div class="card l-bg-green-dark">
+                    <div class="card-statistic-3 p-4">
+                        <div class="card-icon card-icon-large">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <div class="mb-4">
+                            <h5 class="card-title fw-bold mb-0">Películas</h5>
+                        </div>
+                        <div class="mb-2 d-flex align-items-center justify-content-between">
+                            <a [routerLink]="'/peliculas'" class="btn btn-sm btn-outline-light px-4">Ir <i class="fa fa-arrow-up"></i></a>
+                            <h2 class="d-flex align-items-center mb-0" th:text="${cantManga}">{{ movieCount }}</h2>
+                        </div>
+                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                            <div class="progress-bar bg-light" role="progressbar"
+                                data-width="25%" aria-valuenow="25" aria-valuemin="0"
+                                aria-valuemax="100" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-lg-6">
+                <div class="card l-bg-cherry">
+                    <div class="card-statistic-3 p-4">
+                        <div class="card-icon card-icon-large">
+                            <i class="fas fa-dragon"></i>
+                        </div>
+                        <div class="mb-4">
+                            <h5 class="card-title fw-bold mb-0">Géneros</h5>
+                        </div>
+                        <div class="mb-2 d-flex align-items-center justify-content-between">
+                            <a [routerLink]="'/generos'" class="btn btn-sm btn-outline-light px-4">Ir <i class="fa fa-arrow-up"></i></a>
+                            <h2 class="d-flex align-items-center mb-0">{{ GenreCount }}</h2>
+                        </div>
+                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                            <div class="progress-bar bg-light" role="progressbar"
+                                data-width="25%" aria-valuenow="25" aria-valuemin="0"
+                                aria-valuemax="100" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-4 col-lg-6">
+                <div class="card l-bg-river">
+                    <div class="card-statistic-3 p-4">
+                        <div class="card-icon card-icon-large">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="mb-4">
+                            <h5 class="card-title fw-bold mb-0">Actores</h5>
+                        </div>
+                        <div class="mb-2 d-flex align-items-center justify-content-between">
+                            <a [routerLink]="'/actores'" class="btn btn-sm btn-outline-light px-4">Ir <i class="fa fa-arrow-up"></i></a>
+                            <h2 class="d-flex align-items-center mb-0" th:text="${cantManga}">{{ actorCount }}</h2>
+                        </div>
+                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                            <div class="progress-bar bg-light" role="progressbar"
+                                data-width="25%" aria-valuenow="25" aria-valuemin="0"
+                                aria-valuemax="100" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-4 col-lg-6">
+                <div class="card l-bg-sunset">
+                    <div class="card-statistic-3 p-4">
+                        <div class="card-icon card-icon-large">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="mb-4">
+                            <h5 class="card-title fw-bold mb-0">Directores</h5>
+                        </div>
+                        <div class="mb-2 d-flex align-items-center justify-content-between">
+                            <a [routerLink]="'/directores'" class="btn btn-sm btn-outline-light px-4">Ir <i class="fa fa-arrow-up"></i></a>
+                            <h2 class="d-flex align-items-center mb-0" th:text="${cantManga}">{{ DirectorCount }}</h2>
+                        </div>
+                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                            <div class="progress-bar bg-light" role="progressbar"
+                                data-width="25%" aria-valuenow="25" aria-valuemin="0"
+                                aria-valuemax="100" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-4 col-lg-6">
+                <div class="card l-bg-space">
+                    <div class="card-statistic-3 p-4">
+                        <div class="card-icon card-icon-large">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <div class="mb-4">
+                            <h5 class="card-title fw-bold mb-0">Países</h5>
+                        </div>
+                        <div class="mb-2 d-flex align-items-center justify-content-between">
+                            <a></a>
+                            <h2 class="d-flex align-items-center mb-0" th:text="${cantManga}">{{ countryCount }}</h2>
+                        </div>
+                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                            <div class="progress-bar bg-light" role="progressbar"
+                                data-width="25%" aria-valuenow="25" aria-valuemin="0"
+                                aria-valuemax="100" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

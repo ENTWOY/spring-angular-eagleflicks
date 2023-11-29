@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Pelicula } from '../../pelicula';
-import { PeliculaService } from '../../pelicula.service';
+import { Pelicula } from '../../models/pelicula';
+import { PeliculaService } from '../../services/pelicula.service';
 import Swal from 'sweetalert2';
 
 /* Variable JQuery(Datatables */
@@ -68,7 +68,28 @@ export class ListaPeliculasComponent implements OnInit {
         );
       }
     });
-  }   
+  }
+  
+  public generarPdf() {
+    // Llamar a la función obtenerReportePDF sin argumentos
+    this.serviPelicula.obtenerReportePDF().subscribe(
+      blob => {
+        // Generar el PDF
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'reporte_peliculas.pdf';
+        link.click();
+      },
+      error => {
+        Swal.fire({
+          title: 'Error',
+          text: error.message,
+          icon: 'error'
+        });
+      }
+    );
+  }
 
   showDatatable(){
       $(document).ready(function() {

@@ -1,0 +1,36 @@
+<section class="dark-card my-5 pt-5">
+	<br>
+	<div class="container mt-2">
+		<div class="d-flex align-items-center filter-bar mt-2">
+			<div class="filter-dropdowns d-flex">
+				<h3 class="m-0 ps-2 text-off-white">
+					<i class="fa-brands fa-artstation fs-3 text-off-white me-3"></i>Sorpréndeme
+				</h3>
+			</div>
+		</div>
+		<article class="postcard dark blue" *ngFor="let p of objPeli">
+			<a class="postcard__img_link" (click)= "verPelicula(p.idPelicula)" style="cursor: pointer;" title="{{p.titulo}}">
+				<img class="postcard__img" [src]="myFileImgs + p.imagen" alt="Movie Cover" />
+			</a>
+			<div class="postcard__text">
+				<h1 class="postcard__title blue"><a>{{ p.titulo }}</a></h1>
+				<div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt me-2"></i>{{ p.anio }}
+						<i class="fas fa-star ms-3 me-2"></i>{{ p.peliculaActor.nomActor }}
+						<i class="fas fa-flag ms-3 me-2"></i>{{ p.idioma }}
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">{{ p.descripcion }} </div>
+				<ul class="postcard__tagbox">
+					<li class="tag__item"><i class="fas fa-tag me-2"></i>{{ p.peliculaGenero.nomGen }}</li>
+					<li class="tag__item"><i class="fas fa-clock me-2"></i>{{ p.duracion }} mins</li>
+					<li class="tag__item" style="cursor: pointer;">
+						<a (click)= "verPelicula(p.idPelicula)"><i class="fas fa-play me-2"></i>Ver Película</a>
+					</li>
+				</ul>
+			</div>
+		</article>
+	</div>
+</section>

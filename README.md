@@ -4,11 +4,11 @@
 </div>
 
 ## Requisitos previos
-- Java 17
-- [Spring Tool Suite 4](https://spring.io/tools) o cualquier IDE compatible con Spring.
-- [Visual Studio Code](https://code.visualstudio.com/) u otro editor de texto.
-- [Node.js](https://nodejs.org/) y [Angular CLI](https://angular.io/cli) para el frontend.
-- [MySQL](https://www.mysql.com/) o cualquier base de datos compatible con MySQL.
+- [JDK 17](https://adoptium.net/es/temurin/releases/?version=17&os=windows&arch=x64&package=jdk)
+- [Spring Tool Suite 4](https://spring.io/tools)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Node.js](https://nodejs.org/) y [Angular CLI](https://angular.io/cli)
+- [MySQL](https://www.mysql.com/)
 
 ## Instalación y Ejecución
 1. Clonar o descarga el repositorio `https://github.com/NeiDenn/spring-angular-eagleflicks.git`

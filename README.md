@@ -2,7 +2,7 @@
   <img src="https://www.erupt.xyz/demo/erupt.svg" align="center" width="125">
 </p>
 <div align="center">
-  <h1>EagleFlicks</h1>
+  <h2>EagleFlicks</h2>
   <p>Plataforma de streaming de películas en línea.</p>
 </div>
 

@@ -1,131 +1,131 @@
-drop database if exists BD_EAGLEFLICKS;
-create database BD_EAGLEFLICKS;
-use BD_EAGLEFLICKS;
+DROP DATABASE IF EXISTS BD_EAGLEFLICKS;
+CREATE DATABASE BD_EAGLEFLICKS;
+USE BD_EAGLEFLICKS;
 
 CREATE TABLE tb_pais (
-id_pais INT AUTO_INCREMENT PRIMARY KEY,
-nom_pais VARCHAR(99)
+  id_pais INT AUTO_INCREMENT PRIMARY KEY,
+  nom_pais VARCHAR(99)
 );
 
 CREATE TABLE tb_genero (
-id_genero INT AUTO_INCREMENT PRIMARY KEY,
-nom_gen VARCHAR(255)
+  id_genero INT AUTO_INCREMENT PRIMARY KEY,
+  nom_gen VARCHAR(255)
 );
 
 CREATE TABLE tb_director (
-id_director INT AUTO_INCREMENT PRIMARY KEY,
-nombre VARCHAR(255),
-fecha_nacimiento DATE,
-id_pais int,
-FOREIGN KEY (id_pais) REFERENCES tb_pais(id_pais)
+  id_director INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(255),
+  fecha_nacimiento DATE,
+  id_pais int,
+  FOREIGN KEY (id_pais) REFERENCES tb_pais(id_pais)
 );
 
 CREATE TABLE tb_actor (
-id_actor INT AUTO_INCREMENT PRIMARY KEY,
-nom_actor VARCHAR(255)
+  id_actor INT AUTO_INCREMENT PRIMARY KEY,
+  nom_actor VARCHAR(255)
 );
 
 CREATE TABLE tb_administrador (
-id_admin INT AUTO_INCREMENT PRIMARY KEY,
-nombre VARCHAR(255) NOT NULL,
-apellido VARCHAR(255) NOT NULL,
-correo_electronico VARCHAR(255) UNIQUE NOT NULL,
-contrasena VARCHAR(255) NOT NULL,
-direccion VARCHAR(255) NOT NULL,
-id_pais int,
-FOREIGN KEY (id_pais) REFERENCES tb_pais(id_pais)
+  id_admin INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(255) NOT NULL,
+  apellido VARCHAR(255) NOT NULL,
+  correo_electronico VARCHAR(255) UNIQUE NOT NULL,
+  contrasena VARCHAR(255) NOT NULL,
+  direccion VARCHAR(255) NOT NULL,
+  id_pais int,
+  FOREIGN KEY (id_pais) REFERENCES tb_pais(id_pais)
 );
 
 CREATE TABLE tb_pelicula (
-id_pelicula INT AUTO_INCREMENT PRIMARY KEY,
-titulo VARCHAR(255),
-descripcion VARCHAR(499),
-anio INT,
-duracion INT,
-productora VARCHAR(255),
-idioma VARCHAR(99),
-trailer VARCHAR(400),
-video VARCHAR(400),
-imagen VARCHAR(255),
-servidor VARCHAR(99),
-id_genero INT,
-id_director INT,
-id_pais INT,
-id_actor INT,
-FOREIGN KEY (id_genero) REFERENCES tb_genero(id_genero),
-FOREIGN KEY (id_director) REFERENCES tb_director(id_director),
-FOREIGN KEY (id_pais) REFERENCES tb_pais(id_pais),
-FOREIGN KEY (id_actor) REFERENCES tb_actor(id_actor)
+  id_pelicula INT AUTO_INCREMENT PRIMARY KEY,
+  titulo VARCHAR(255),
+  descripcion VARCHAR(499),
+  anio INT,
+  duracion INT,
+  productora VARCHAR(255),
+  idioma VARCHAR(99),
+  trailer VARCHAR(400),
+  video VARCHAR(400),
+  imagen VARCHAR(255),
+  servidor VARCHAR(99),
+  id_genero INT,
+  id_director INT,
+  id_pais INT,
+  id_actor INT,
+  FOREIGN KEY (id_genero) REFERENCES tb_genero(id_genero),
+  FOREIGN KEY (id_director) REFERENCES tb_director(id_director),
+  FOREIGN KEY (id_pais) REFERENCES tb_pais(id_pais),
+  FOREIGN KEY (id_actor) REFERENCES tb_actor(id_actor)
 );
 
 CREATE TABLE tb_usuario (
-id_usu INT AUTO_INCREMENT PRIMARY KEY,
-nombre VARCHAR(255),
-email VARCHAR(255) UNIQUE,
-contrasena VARCHAR(255),
-avatar VARCHAR(255)
+  id_usu INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(255),
+  email VARCHAR(255) UNIQUE,
+  contrasena VARCHAR(255),
+  avatar VARCHAR(255)
 );
 
 CREATE TABLE tb_comentario (
-id_comentario INT AUTO_INCREMENT PRIMARY KEY,
-comentario VARCHAR(255),
-id_usu INT,
-id_pelicula INT,
-FOREIGN KEY (id_usu) REFERENCES tb_usuario(id_usu),
-FOREIGN KEY (id_pelicula) REFERENCES tb_pelicula(id_pelicula)
+  id_comentario INT AUTO_INCREMENT PRIMARY KEY,
+  comentario VARCHAR(255),
+  id_usu INT,
+  id_pelicula INT,
+  FOREIGN KEY (id_usu) REFERENCES tb_usuario(id_usu),
+  FOREIGN KEY (id_pelicula) REFERENCES tb_pelicula(id_pelicula)
 );
 
 INSERT INTO tb_genero (nom_gen) VALUES
-('Acción, Aventura, Comedia'),
-('Drama, Ciencia ficción, Terror'),
-('Romance, Fantasía, Animación'),
-('Documental, Misterio, Crimen'),
-('Historia, Musical, Suspense'),
-('Thriller, Guerra'),
-('Biografía, Deporte'),
-('Acción, Drama'),
-('Comedia, Romántica'),
-('Aventura, Fantasía, Animación');
+  ('Acción, Aventura, Comedia'),
+  ('Drama, Ciencia ficción, Terror'),
+  ('Romance, Fantasía, Animación'),
+  ('Documental, Misterio, Crimen'),
+  ('Historia, Musical, Suspense'),
+  ('Thriller, Guerra'),
+  ('Biografía, Deporte'),
+  ('Acción, Drama'),
+  ('Comedia, Romántica'),
+  ('Aventura, Fantasía, Animación');
 
 INSERT INTO tb_pais (nom_pais) VALUES
-('Estados Unidos'),('Canadá'),('Reino Unido'),('Alemania'),('Francia'),('Japón'),('Australia'),('Brasil'),('China'),
-('India'),('México'),('Italia'),('España'),('Argentina'),('Rusia'),('Corea del Sur'),('Sudáfrica'),('Colombia'),('Chile'),
-('Egipto'),('Perú'),('Canadá'),('Nueva Zelanda'),('Países Bajos'),('Portugal'),('Suiza'),('Suecia'),('Noruega'),('Grecia'),
-('Irlanda'),('Singapur');
+  ('Estados Unidos'),('Canadá'),('Reino Unido'),('Alemania'),('Francia'),('Japón'),('Australia'),('Brasil'),('China'),
+  ('India'),('México'),('Italia'),('España'),('Argentina'),('Rusia'),('Corea del Sur'),('Sudáfrica'),('Colombia'),('Chile'),
+  ('Egipto'),('Perú'),('Canadá'),('Nueva Zelanda'),('Países Bajos'),('Portugal'),('Suiza'),('Suecia'),('Noruega'),('Grecia'),
+  ('Irlanda'),('Singapur');
 
 INSERT INTO tb_actor (nom_actor) VALUES
-('John Smith, Alice Johnson, Michael Brown, Ava DuVernay'),
-('Emily Davis, Robert Wilson'),
-('Luis Pérez, Juan González, Lucas Rodríguez'),
-('Julian Martínez, John Alex Johnson'),
-('Tom Cruise, Nicole Kidman, Brad Pitt'),
-('Jennifer Aniston, Matt LeBlanc, Courteney Cox'),
-('Leonardo DiCaprio, Kate Winslet'),
-('Meryl Streep, Denzel Washington, Julia Roberts'),
-('Robert De Niro, Al Pacino, Joe Pesci'),
-('Scarlett Johansson, Chris Evans, Mark Ruffalo');
+  ('John Smith, Alice Johnson, Michael Brown, Ava DuVernay'),
+  ('Emily Davis, Robert Wilson'),
+  ('Luis Pérez, Juan González, Lucas Rodríguez'),
+  ('Julian Martínez, John Alex Johnson'),
+  ('Tom Cruise, Nicole Kidman, Brad Pitt'),
+  ('Jennifer Aniston, Matt LeBlanc, Courteney Cox'),
+  ('Leonardo DiCaprio, Kate Winslet'),
+  ('Meryl Streep, Denzel Washington, Julia Roberts'),
+  ('Robert De Niro, Al Pacino, Joe Pesci'),
+  ('Scarlett Johansson, Chris Evans, Mark Ruffalo');
 
 INSERT INTO tb_director (nombre, fecha_nacimiento, id_pais) VALUES
-('James Cameron', '1954-08-16', 1),
-('Steven Spielberg', '1946-12-18', 2),
-('Christopher Nolan', '1970-07-30', 3),
-('Quentin Tarantino', '1963-03-27', 4),
-('Martin Scorsese', '1942-11-17', 5),
-('Ridley Scott', '1937-11-30', 6),
-('Greta Gerwig', '1983-08-04', 7),
-('Bong Joon-ho', '1969-09-14', 8),
-('Pedro Almodóvar', '1949-09-25', 9),
-('Denis Villeneuve', '1967-10-03', 10),
-('Wes Anderson', '1969-05-01', 11),
-('Jordan Peele', '1979-02-21', 12),
-('Taika Waititi', '1975-08-16', 13),
-('Patty Jenkins', '1971-07-24', 14),
-('Chloé Zhao', '1982-03-31', 15),
-('Ava DuVernay', '1972-08-24', 16),
-('Gus Van Sant', '1952-07-24', 17),
-('Spike Lee', '1957-03-20', 18),
-('Alfonso Cuarón', '1961-11-28', 19),
-('David Fincher', '1962-08-28', 20);
+  ('James Cameron', '1954-08-16', 1),
+  ('Steven Spielberg', '1946-12-18', 2),
+  ('Christopher Nolan', '1970-07-30', 3),
+  ('Quentin Tarantino', '1963-03-27', 4),
+  ('Martin Scorsese', '1942-11-17', 5),
+  ('Ridley Scott', '1937-11-30', 6),
+  ('Greta Gerwig', '1983-08-04', 7),
+  ('Bong Joon-ho', '1969-09-14', 8),
+  ('Pedro Almodóvar', '1949-09-25', 9),
+  ('Denis Villeneuve', '1967-10-03', 10),
+  ('Wes Anderson', '1969-05-01', 11),
+  ('Jordan Peele', '1979-02-21', 12),
+  ('Taika Waititi', '1975-08-16', 13),
+  ('Patty Jenkins', '1971-07-24', 14),
+  ('Chloé Zhao', '1982-03-31', 15),
+  ('Ava DuVernay', '1972-08-24', 16),
+  ('Gus Van Sant', '1952-07-24', 17),
+  ('Spike Lee', '1957-03-20', 18),
+  ('Alfonso Cuarón', '1961-11-28', 19),
+  ('David Fincher', '1962-08-28', 20);
 
 INSERT INTO tb_pelicula (titulo, descripcion, anio, duracion, productora, idioma, trailer, video, imagen, servidor, id_genero, id_director, id_pais, id_actor) VALUES
 ('Avengers: Endgame', 'Los superhéroes de Marvel se unen para enfrentar al villano Thanos y restaurar el equilibrio en el universo.', 2019, 181, 'Marvel Studios', 'Español Latino', 'https://www.youtube.com/embed/znk2OICHbjY?si=_JGScI1F98kY03SY', 'https://mega.nz/embed/qzJnlASD#cjW2_YeEm7b4qhKApTYfGK5yyNxPv30L2nrGWkRRKig', 'c1442dbb-2407-40e1-accb-0e9b6d5310ae_avengers.jpg', 'Mega', 1, 7, 6, 1),
@@ -151,20 +151,17 @@ INSERT INTO tb_pelicula (titulo, descripcion, anio, duracion, productora, idioma
 ('La última puerta', 'Un comerciante de libros raros es contratado por un adinerado coleccionista para hallar dos tomos cuyo autor es Satanás.', 2000, 213, 'Araba Films, Kino Vision', 'Español Latino', 'https://www.youtube.com/embed/6QdBiSIgtg4?si=tgBCTLDh0vMt3ioa', 'https://www.yourupload.com/embed/TQSi7WUW2m31', 'd94a7a01-3baf-42dd-a82f-bfd6f10844ef_puerta.jpg', 'YourUpload', 6, 7, 5, 6);
 
 INSERT INTO tb_usuario (nombre, email, contrasena, avatar) VALUES
-('Anna Maria Schmidt', 'anna@example.com', '$2a$10$8wY6MCWP6pJ3Cc820Fzsm.NgHUZHSIsgboQaXlPZqW5I3gRokMv9m', 'avatar1.jpg'), -- contrasena1
-('Andreas Müller Schmitt', 'andreas@example.com', '$2a$10$45d0CKY1tlpcFKQLkyQSxOvHiGEiLqb02nUtUowrHDK52DKTVp5IO', 'avatar2.jpg'), -- contrasena2
-('Sophie Dupont Martin', 'sophie@example.com', '$2a$10$8JA2iXF7mmucKLwsvHbxG.4.3pCjJCkIebiLHtpA5ZqWnqMoaJCvK', 'avatar3.jpg'), -- contrasena3
-('Pierre Leclerc Dubois', 'pierre@example.com', '$2a$10$1rc.LeWCOKIVMFkUTorBD.nsor1BMw4wrWmzFVCsXy.aSmCfYSdjG', 'avatar4.jpg'), -- contrasena4
-('Elena Russo Ferrari', 'elena@example.com', '$2a$10$RwB9UtbBren7IYP5Wk/JnO98Ig0R.8xbFEO9j2odUrTlVhdZeFbr2', 'avatar5.jpg'); -- contrasena5
+  ('Anna Maria Schmidt', 'anna@example.com', '$2a$10$8wY6MCWP6pJ3Cc820Fzsm.NgHUZHSIsgboQaXlPZqW5I3gRokMv9m', 'avatar1.jpg'), -- contrasena1
+  ('Andreas Müller Schmitt', 'andreas@example.com', '$2a$10$45d0CKY1tlpcFKQLkyQSxOvHiGEiLqb02nUtUowrHDK52DKTVp5IO', 'avatar2.jpg'), -- contrasena2
+  ('Sophie Dupont Martin', 'sophie@example.com', '$2a$10$8JA2iXF7mmucKLwsvHbxG.4.3pCjJCkIebiLHtpA5ZqWnqMoaJCvK', 'avatar3.jpg'), -- contrasena3
+  ('Pierre Leclerc Dubois', 'pierre@example.com', '$2a$10$1rc.LeWCOKIVMFkUTorBD.nsor1BMw4wrWmzFVCsXy.aSmCfYSdjG', 'avatar4.jpg'), -- contrasena4
+  ('Elena Russo Ferrari', 'elena@example.com', '$2a$10$RwB9UtbBren7IYP5Wk/JnO98Ig0R.8xbFEO9j2odUrTlVhdZeFbr2', 'avatar5.jpg'); -- contrasena5
 
-INSERT INTO tb_administrador(nombre, apellido, correo_electronico, contrasena, direccion, id_pais) VALUES ("Jhon", "Doe", "jhon@admin.com","$2a$10$opnwdk0e/kn8VKLkI9e94eNEevArCmPE5aYasdymQPoyEPa5Mfh92", "456 Pine St", 1); -- admin
+INSERT INTO tb_administrador(nombre, apellido, correo_electronico, contrasena, direccion, id_pais) VALUES 
+  ("Jhon", "Doe", "jhon@admin.com","$2a$10$opnwdk0e/kn8VKLkI9e94eNEevArCmPE5aYasdymQPoyEPa5Mfh92", "456 Pine St", 1); -- admin
 
 /*
-select * from tb_pais;
-select * from tb_genero;
-select * from tb_director;
-select * from tb_actor;
-select * from tb_usuario;
-select * from tb_administrador;
-select * from tb_pelicula;
+  SELECT *
+  FROM tb_pais
+  LIMIT 10;
 */
